@@ -1,0 +1,32 @@
+<div>
+	<div text-angular-toolbar name="statictoolbar" class="statictoolbar"></div>
+	<div class="instructiontext">
+		Enter question instruction
+		<div text-angular ng-model="at.currentQuestion.questionInstruction" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div><br />
+		<div>
+		</div>
+	</div>
+	<div id="questionContainer">
+		Enter question information
+		<div text-angular ng-model="at.currentQuestion.questionInfo" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div><br />
+		<div>
+		</div>
+	</div>
+	<div>
+		<uib-tabset>
+		<uib-tab  select="setSelectedQuestion($index)" ng-repeat="question in at.currentQuestion.question" heading="{{at.questionTitle}} {{$index+1}}" >
+		<!-- <fibt-auth></fibt-auth> -->
+		<mcmq-auth question="question"> </mcmq-auth>
+		<mcsq-auth></mcsq-auth>
+		</uib-tab>
+			<i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>
+			<i class="fa fa-trash pull-right" ng-click="at.deleteQuestion()" aria-hidden="true"></i>
+		</uib-tabset>
+	</div>
+	<pre ng-class="currentSection?'bg-success':'bg-danger'">
+		        <b>Select the option</b>
+		        <label ng-repeat="sectionname in sections"><input type="radio" ng-change="sectionChanger()" name="4" ng-value="sectionname" ng-model="$parent.currentSection"/>{{sectionname}} </label>
+		<!--span>{{currentSection}}</span-->
+	</pre>
+	<button class="btn btn-success pull-right" ng-click="sendData()">Save Question</button>
+</div>

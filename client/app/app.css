@@ -38,3 +38,9 @@
   padding: 0.2em 0;
 }
 
+/**Exam set up
+
+*/
+.modal-footer{
+  border-top: none !important;
+}

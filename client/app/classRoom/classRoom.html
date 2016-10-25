@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h1 style="text-align:center;">CREATING A NEW CLASS ROOM</h1></div>
+<div class="modal-body">
+        <div class='row  form-group'>
+            <label>
+                Class room name
+            </label>
+            <div>
+                <input class='formcontrolle form-control' type="text" ng-model="classobject.name" />
+            </div>
+        </div>
+        <div class='row  form-group'>
+            <label>
+                Students to be enrolled
+            </label>
+            <table ng-table class="table ">
+                <tr ng-repeat="student in classobject.students track by $index">
+                    <td>
+                        <input class='form-control' type="text" ng-model="classobject.students[$index]" placeholder="Mobile Number" />
+                    </td>
+                    <td>
+                        <a class="glyphicon glyphicon-trash trash pull-right" ng-click="removingTheStudent(this)"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row form-group input-group">
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Add Sutudents or Class Room">
+            <span class="input-group-addon" ng-click="updateClassRoom()">add students</span>
+        </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="saveClassRoom()">Save this class room</button>
+    <button class="btn btn-danger" ng-click="classRoomCtrl.cancel()">Cancel</button>
+</div>

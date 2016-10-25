@@ -1,0 +1,55 @@
+<div>
+    <div class="modal-header">
+        <h1 style="text-align:center;">CREATING A NEW EXAM</h1>
+    </div>
+    <div class="modal-body">
+        <div class="row form-group">
+            <label>
+                Exam name
+            </label>
+            <div>
+                <input class='formcontrolle form-control' type="text" ng-model="exam.name" placeholder="Exam Name" />
+            </div>
+        </div>
+        <div class="row form-group input-group">
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Add Sutudents or Class Room">
+            <span class="input-group-addon" ng-click="addGrouporStudentToExam()">add new student</span>
+        </div>
+        <div class='row form-group'>
+            <label>Exam Start Date</label>
+            <div class="form-group">
+                <div>
+                    <p class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="exam.startDate" is-open="startDateOpen" name="examStartDate" datepicker-options="dateOptions" min="{{today}}" placeholder="Activation Date" />
+                        <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event,'start')"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                    </p>
+                </div>
+            </div>
+            <label>Exam End Date</label>
+            <div class="form-group">
+                <div>
+                    <p class="input-group">
+                        <input type="text" class="form-control" name="examEndDate" datepicker-popup="{{format}}" ng-model="exam.endDate" is-open="endDateOpen" datepicker-options="dateOptions" placeholder="Expiration Date" />
+                        <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event,'end')"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-12 form-group'>
+            <label>Duration of Exam</label>
+        	<div uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div>
+        </div>
+        <div class='col-sm-12 form-group'>
+            <button class="btn btn-success pull-right" ng-show="upDateTheExamVar" ng-click="updateTheExam()">Update this exam</button>
+            <button class="btn btn-success pull-right" ng-show="upDateTheExamVar" ng-click="revertingBack()">Revert the update</button>
+        </div>
+    </div>
+    <div class=" modal-footer">
+        <button class="btn btn-success" ng-click="saveTheExam()">Save Exam</button>
+        <button class="btn btn-danger" ng-click="examSetupCtrl.cancel()">Cancel</button>
+    </div>
+</div>

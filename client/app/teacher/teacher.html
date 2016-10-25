@@ -1,0 +1,33 @@
+<div class="container">
+	<div class='row'>
+		<uib-accordion close-others="true">
+			<uib-accordion-group ng-repeat="examObject in examSetupObject track by $index" ng-show="user.role!=='admin'" >
+	 		<uib-accordion-heading>
+	 			<strong>{{examObject.name}}</strong><br>
+		        <span class="text-muted"><strong>From:</strong>{{examObject.startDate}}  <strong>To:</strong> {{examObject.endDate}}</span>
+		        <a ng-click="deleteExam($event,examObject)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+			</uib-accordion-heading> 
+				<exam-setup exam='examObject'></exam-setup>
+			</uib-accordion-group>
+		</uib-accordion>
+	</div>
+	<div class='row'>
+		<button class="btn btn-success pull-right" ng-click="teacherCtrl.addNewExam('lg')">Add new exam</button>
+	</div>
+	<hr>
+	<div class='row'>
+		<uib-accordion close-others="true">
+			<uib-accordion-group ng-repeat="classObject in classRoomObjectData track by $index" ng-show="user.role!=='admin'" >
+	 		<uib-accordion-heading>
+	 			<strong>{{classObject.name}}</strong><br>
+		        <span class="text-muted"><strong>From:</strong>  {{classObject.startDate }} <strong>To:</strong> {{classObject.endDate}}</span>
+		        <a ng-click="deleteClassRoom($event,classObject)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+			</uib-accordion-heading> 
+				<class-room classobject='classObject'></class-room>
+			</uib-accordion-group>
+		</uib-accordion>
+	</div>
+	<div class='row'>
+		<button class="btn btn-success pull-right" ng-click="teacherCtrl.addNewClass('lg')">Create new Class Room</button>
+	</div>
+</div>

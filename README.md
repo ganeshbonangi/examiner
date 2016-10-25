@@ -33,3 +33,35 @@ Running `npm test` will run the unit tests with karma.
 =======
 # examiner
 
+
+Where git commands executes??
+
+
+1) git status
+
+case 1)
+ git repo no change
+case 2)
+red: that means you changed on the specified files and not added for commit(not eligible)
+case 3)
+green:that means you changed on the specified files and added for commit(eligible)
+
+
+2)  gitk
+
+for checking the changes in the existing changed files in local repositery
+
+3)   git add /*file path*/
+
+this will tell what files do you want to add to repositery
+
+it will promote red colored files to green color files
+
+4) git commit -m "why you commit ??"
+
+It will commit code to local repositery
+
+5) git push origin master
+	pull code to git master(online)
+6)git pull origin master
+	pull code from git master(online)

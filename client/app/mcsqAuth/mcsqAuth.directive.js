@@ -5,7 +5,7 @@ angular.module('authCellApp')
     return {
       templateUrl: 'app/mcsqAuth/mcsqAuth.html',
       restrict: 'EA',
-      link: function (scope, element, attrs) {
+      link: function (/*scope, element, attrs*/) {
       }
     };
   });

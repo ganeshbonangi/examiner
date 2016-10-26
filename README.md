@@ -62,6 +62,13 @@ it will promote red colored files to green color files
 It will commit code to local repositery
 
 5) git push origin master
+
 	pull code to git master(online)
+
 6)git pull origin master
+
 	pull code from git master(online)
+
+Sublime 
+
+Goto 'projects' tab in menu bar then 'add folder to project' then your add your 'examiner' folder

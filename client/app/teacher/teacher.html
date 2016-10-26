@@ -11,9 +11,66 @@
 			</uib-accordion-group>
 		</uib-accordion>
 	</div>
-	<div class='row'>
-		<button class="btn btn-success pull-right" ng-click="teacherCtrl.addNewExam('lg')">Add new exam</button>
+
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Your Exams</div>
+  <table class="table">                   
+    <tr>
+    <th>S.No</th>
+    <th>Exam Name</th> 
+    <th>AExam Activation</th>
+    <th>Exam Expiration</th>
+    <th>Duratoin</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>111</td>
+    <td>Ganesh</td> 
+    <td>Active</td>
+    <td>10.30AM</td>
+    <td>12.30PM</td> 
+    <td>120</td>
+  </tr>
+  </table>
+  <div class="panel-footer">
+  	<div class='row'>
+		<button class="btn btn-success pull-right" ng-click="teacherCtrl.addNewExam('lg')">Add</button>
 	</div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your Class Rooms</h3>
+  </div>
+  <table class="table">                   
+    <tr>
+    <th>S.No</th>
+    <th>Exam Name</th> 
+    <th>AExam Activation</th>
+    <th>Exam Expiration</th>
+    <th>Duratoin</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>111</td>
+    <td>Ganesh</td> 
+    <td>Active</td>
+    <td>10.30AM</td>
+    <td>12.30PM</td> 
+    <td>120</td>
+  </tr>
+  </table>
+  <div class="panel-footer">
+  	  	<div class='row'>
+		<button class="btn btn-success pull-right" ng-click="teacherCtrl.addNewExam('lg')">Add</button>
+	</div>
+  </div>
+</div>
+
 	<hr>
 	<div class='row'>
 		<uib-accordion close-others="true">
@@ -27,7 +84,5 @@
 			</uib-accordion-group>
 		</uib-accordion>
 	</div>
-	<div class='row'>
-		<button class="btn btn-success pull-right" ng-click="teacherCtrl.addNewClass('lg')">Create new Class Room</button>
-	</div>
+
 </div>

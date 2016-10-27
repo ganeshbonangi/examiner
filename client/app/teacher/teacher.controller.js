@@ -7,6 +7,45 @@ class TeacherComponent {
     this.message = 'Hello';
     this.$uibModal = $uibModal;
     this.currentExam = {};
+    this.conductingExams = [
+      {
+        examName:'Exam Name',
+        activationDate:new Date(),
+        experiationDate:new Date(),
+        duration:'02:15',
+        classRooms:[101,102],
+        id:111
+      },      {
+        examName:'Exam Name',
+        activationDate:new Date(),
+        experiationDate:new Date(),
+        duration:'02:15',
+        classRooms:[101,102],
+        id:112
+      },      {
+        examName:'Exam Name',
+        activationDate:new Date(),
+        experiationDate:new Date(),
+        duration:'02:15',
+        classRooms:[101,102],
+        id:113
+      }
+    ];
+    this.createdClasses = [
+      {
+        students:[1,2,3,4],
+        classRoomName:'Class Room Name'
+      },      {
+        students:[1,2,3,4],
+        classRoomName:'Class Room Name2'
+      },      {
+        students:[1,2,3,4],
+        classRoomName:'Class Room Name3'
+      },      {
+        students:[1,2,3,4],
+        classRoomName:'Class Room Name4'
+      }
+    ];
   }
   addNewExam(size){
   	var currentExam = this.currentExam;

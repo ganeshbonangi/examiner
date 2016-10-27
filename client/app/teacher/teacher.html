@@ -1,84 +1,56 @@
 <div class="container">
-	<div class='row'>
-		<uib-accordion close-others="true">
-			<uib-accordion-group ng-repeat="examObject in examSetupObject track by $index" ng-show="user.role!=='admin'" >
-	 		<uib-accordion-heading>
-	 			<strong>{{examObject.name}}</strong><br>
-		        <span class="text-muted"><strong>From:</strong>{{examObject.startDate}}  <strong>To:</strong> {{examObject.endDate}}</span>
-		        <a ng-click="deleteExam($event,examObject)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
-			</uib-accordion-heading> 
-				<exam-setup exam='examObject'></exam-setup>
-			</uib-accordion-group>
-		</uib-accordion>
-	</div>
-<div class="panel panel-default">
-  <div class="panel-heading">Your Exams</div>
-  <table class="table">                   
-    <tr>
-    <th>S.No</th>
-    <th>Exam Name</th> 
-    <th>Exam Activation</th>
-    <th>Exam Expiration</th>
-    <th>Duratoin</th>
-    <th>Action</th>
-  </tr>
-  <tr>
-    <td>111</td>
-    <td>SBI-PO</td> 
-    <td>10.30AM</td>
-    <td>12.30PM</td> 
-    <td>120M</td>
-    <td>No Action</td>
-  </tr>
-  </table>
-  <div class="panel-footer">
-  	<div class='row'>
-    <button type="button" class="btn btn-primary btn-xs" ng-click="teacherCtrl.addNewExam('lg')">Add</button>
-	</div>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">Your Class Rooms</div>
-  </div>
-  <table class="table">                   
-    <tr>
-    <th>S.No</th>
-    <th>Exam Name</th> 
-    <th>Batch</th>
-    <th>Exam Activation</th>
-    <th>Exam Expiration</th>
-    <th>Duratoin</th>
-    <th>Action</th>
-  </tr>
-  <tr>
-    <td>111</td>
-    <td>SBI-PO</td> 
-    <td>B6-2016</td>
-    <td>10.30AM</td>
-    <td>12.30PM</td> 
-    <td>120M</td>
-    <td>No Action</td>
-  </tr>
-  </table>
-  <div class="panel-footer">
-  	  	<div class='row'>
-    <button type="button" class="btn btn-primary btn-xs" ng-click="teacherCtrl.addNewExam('lg')">Add</button>
-	</div>
-  </div>
-</div>
-
-	<hr>
-	<div class='row'>
-		<uib-accordion close-others="true">
-			<uib-accordion-group ng-repeat="classObject in classRoomObjectData track by $index" ng-show="user.role!=='admin'" >
-	 		<uib-accordion-heading>
-	 			<strong>{{classObject.name}}</strong><br>
-		        <span class="text-muted"><strong>From:</strong>  {{classObject.startDate }} <strong>To:</strong> {{classObject.endDate}}</span>
-		        <a ng-click="deleteClassRoom($event,classObject)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
-			</uib-accordion-heading> 
-				<class-room classobject='classObject'></class-room>
-			</uib-accordion-group>
-		</uib-accordion>
-	</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Your Exams</div>
+        <table class="table">
+            <tr>
+                <th>S.No</th>
+                <th>Exam Name</th>
+                <th>Exam Activation</th>
+                <th>Exam Expiration</th>
+                <th>Duratoin</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>SBI-PO</td>
+                <td>10.30AM</td>
+                <td>12.30PM</td>
+                <td>120M</td>
+                <td>No Action</td>
+            </tr>
+        </table>
+        <div class="panel-footer">
+            <div class='row'>
+                <button type="button" class="btn btn-primary btn-xs" ng-click="teacherCtrl.addNewExam('lg')">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Your Class Rooms</div>
+        <table class="table">
+            <tr>
+                <th>S.No</th>
+                <th>Exam Name</th>
+                <th>Batch</th>
+                <th>Exam Activation</th>
+                <th>Exam Expiration</th>
+                <th>Duratoin</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>SBI-PO</td>
+                <td>B6-2016</td>
+                <td>10.30AM</td>
+                <td>12.30PM</td>
+                <td>120M</td>
+                <td>No Action</td>
+            </tr>
+        </table>
+        <div class="panel-footer">
+            <div class='row'>
+                <button type="button" class="btn btn-primary btn-xs" ng-click="teacherCtrl.addNewExam('lg')">Add</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -4,6 +4,7 @@
 
 class TeacherComponent {
   constructor($uibModal) {
+    var teacherCtrlScope = this;
     this.message = 'Hello';
     this.$uibModal = $uibModal;
     this.currentExam = {};
@@ -65,13 +66,25 @@ class TeacherComponent {
     });
 
     modalInstance.result.then(function (selectedItem) {
-      this.selected = selectedItem;
+      teacherCtrlScope.conductingExams.push(selectedItem);
     }, function () {
       //$log.info('Modal dismissed at: ' + new Date());
     });
 
 
 
+  }
+  editExam(){
+    addNewExam();
+  }
+  deleteExam(){
+
+  }
+  editClass(){
+
+  }
+  deleteClass(){
+    
   }
   addNewClass(size){
     var modalInstance = this.$uibModal.open({

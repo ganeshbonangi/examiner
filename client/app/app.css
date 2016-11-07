@@ -44,3 +44,12 @@
 .modal-footer{
   border-top: none !important;
 }
+
+
+a.button{
+  cursor: pointer;
+  text-decoration: none;
+} 
+.fa-trash{
+  color: red;
+}

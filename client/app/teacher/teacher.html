@@ -3,25 +3,30 @@
         <div class="panel-heading">Your Exams</div>
         <table class="table">
             <tr>
-                <th>S.No</th>
                 <th>Exam Name</th>
                 <th>Exam Activation</th>
                 <th>Exam Expiration</th>
                 <th>Duratoin</th>
+                <th>Students</th>
                 <th>Action</th>
             </tr>
-            <tr>
-                <td>111</td>
-                <td>SBI-PO</td>
-                <td>10.30AM</td>
-                <td>12.30PM</td>
-                <td>120M</td>
+
+            <tr ng-repeat="exam in teacherCtrl.conductingExams">
+                <td>{{exam.examName}}</td>
+                <td>{{exam.activationDate}}</td>
+                <td>{{exam.experiationDate}}</td>
+                <td>{{exam.duration}}</td>
+                
+                <td>{{exam.classRooms.length<3? exam.classRooms.length>1 ? exam.classRooms[0]+','+exam.classRooms[1] : exam.classRooms[0] :exam.classRooms[0]+','+exam.classRooms[1]+', ...'}}</td>
+                <td>{{exam.id}}</td>
                 <td>
-                  <a ui-sref="authoringTool">Author</a>
-                  <a ng-click="editExam()">Edit</a>
-                  <a ng-click="deleteExam()">Delete</a>
+                  <a class="button" ui-sref="authoringTool">Author</a>
+                  <a class="button fa fa-pencil-square-o" ng-click="editExam()"></a>
+                  <a class="button fa fa-trash" ng-click="deleteExam()"></a>
                 </td>
+
             </tr>
+
         </table>
         <div class="panel-footer">
             <div class='row'>
@@ -34,23 +39,17 @@
         <table class="table">
             <tr>
                 <th>S.No</th>
-                <th>Exam Name</th>
-                <th>Batch</th>
-                <th>Exam Activation</th>
-                <th>Exam Expiration</th>
-                <th>Duratoin</th>
+                <th>Class Name</th>
+                <th>Number of Studenrs</th>
                 <th>Action</th>
             </tr>
-            <tr>
-                <td>111</td>
-                <td>SBI-PO</td>
-                <td>B6-2016</td>
-                <td>10.30AM</td>
-                <td>12.30PM</td>
-                <td>120M</td>
+            <tr ng-repeat="cr in teacherCtrl.createdClasses">
+                <td>{{$index+1}}</td>
+                <td>{{cr.classRoomName}}</td>
+                <td>{{cr.students.length}}
                 <td>
-                  <a ng-click="editClass()">Edit</a>
-                  <a ng-click="deleteClass()">Delete</a>
+                  <a class="button fa fa-pencil-square-o" ng-click="editClass()"></a>
+                  <a class="button fa fa-trash" ng-click="deleteClass()"></a>
                 </td>
             </tr>
         </table>

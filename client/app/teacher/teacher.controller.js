@@ -10,41 +10,51 @@ class TeacherComponent {
     this.currentExam = {};
     this.conductingExams = [
       {
-        examName:'Exam Name',
-        activationDate:new Date(),
-        experiationDate:new Date(),
+        examName:'SBI_po',
+        activationDate:'14-04-2016 14:30:00',
+        experiationDate:'14-04-2016 16:45:00',
         duration:'02:15',
-        classRooms:[101,102],
+        classRooms:[101,102,103,104],
         id:111
-      },      {
-        examName:'Exam Name',
-        activationDate:new Date(),
-        experiationDate:new Date(),
+      },    
+        {
+        examName:'IBPS',
+        activationDate:'14-04-2016 14:30:00',
+        experiationDate:'14-04-2016 16:45:00',
         duration:'02:15',
         classRooms:[101,102],
         id:112
-      },      {
-        examName:'Exam Name',
-        activationDate:new Date(),
-        experiationDate:new Date(),
+      },    
+      {
+        examName:'RRB',
+        activationDate:'14-04-2016 14:30:00',
+        experiationDate:'14-04-2016 16:45:00',
         duration:'02:15',
-        classRooms:[101,102],
+        classRooms:[90],
+        id:113
+      },    
+      {
+        examName:'RRB',
+        activationDate:'14-04-2016 14:30:00',
+        experiationDate:'14-04-2016 16:45:00',
+        duration:'02:15',
+        classRooms:[],
         id:113
       }
     ];
     this.createdClasses = [
       {
-        students:[1,2,3,4],
-        classRoomName:'Class Room Name'
+        students:[1,2,3],
+        classRoomName:'Class1'
       },      {
-        students:[1,2,3,4],
-        classRoomName:'Class Room Name2'
+        students:[1,2,3,4,5],
+        classRoomName:'Class2'
       },      {
-        students:[1,2,3,4],
-        classRoomName:'Class Room Name3'
+        students:[1,2],
+        classRoomName:'Class3'
       },      {
-        students:[1,2,3,4],
-        classRoomName:'Class Room Name4'
+        students:[1,2,3,4,5,6,7],
+        classRoomName:'Class4'
       }
     ];
   }

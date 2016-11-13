@@ -27,6 +27,12 @@
   font-style: normal;
 }
 
+label{
+  font-weight: normal !important;
+}
+.right-border{
+  border-right: 1px solid silver;
+}
 /**
  * App-wide Styles
  */

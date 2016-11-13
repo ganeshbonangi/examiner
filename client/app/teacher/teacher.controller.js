@@ -4,7 +4,6 @@
 
 class TeacherComponent {
   constructor($uibModal) {
-    var teacherCtrlScope = this;
     this.message = 'Hello';
     this.$uibModal = $uibModal;
     this.currentExam = {};
@@ -58,8 +57,8 @@ class TeacherComponent {
       }
     ];
   }
-  addNewExam(size){
-  	var currentExam = this.currentExam;
+  addEditExam(size, currentExam){
+  	//var currentExam = this.currentExam;
     var modalInstance = this.$uibModal.open({
       animation: true,
       ariaLabelledBy: 'modal-title',
@@ -75,7 +74,7 @@ class TeacherComponent {
       }
     });
 
-    modalInstance.result.then(function (selectedItem) {
+    modalInstance.result.then(function (/*selectedItem*/) {
       teacherCtrlScope.conductingExams.push(selectedItem);
     }, function () {
       //$log.info('Modal dismissed at: ' + new Date());
@@ -85,29 +84,30 @@ class TeacherComponent {
 
   }
   editExam(){
-    addNewExam();
-  }
-  deleteExam(){
-
+    
+    }
+  deleteExam(index){
+    this.conductingExams.splice(index,1);
   }
   editClass(){
-
-  }
+  
+      }
+   
   deleteClass(){
     
   }
-  addNewClass(size){
+  addEditClass(size, cr){
     var modalInstance = this.$uibModal.open({
       animation: true,
       ariaLabelledBy: 'modal-title',
       ariaDescribedBy: 'modal-body',
-      templateUrl: 'app/classRoom/classRoom.html',
+      templateUrl : 'app/classRoom/classRoom.html',
       controller: 'classRoomCtrl',
       controllerAs: 'classRoomCtrl',
       size: size,
       resolve: {
-        exam: function () {
-          return 'currentExam';
+        cr: function () {
+          return cr;
         }
       }
     });

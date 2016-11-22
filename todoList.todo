@@ -2,3 +2,18 @@
  ✔ there won't be any panel title . there will be panel heading @done (16-10-27 21:49)
  ✔ table heading will be vary from one panel to another check spellings @done (16-10-27 21:49)
  ☐ class room panle table cols heading  ( sno, class name, no of students, action)
+
+
+ Todo:
+   ☐ deletion of class room should happen properly.
+   ☐ deletion should go for confirm widnow that will tell warning message
+   ☐ Editing of students and class room should happen properly. if user save it then only it should update on the table. If user cancle then edited data should not update on the table 
+   ☐ in examcenter savendnext, submit and reset should functional properly
+   ☐ proper styling for authering tool
+   ☐ have to change place holder text for add class
+   ☐ have to give auto suggestions while typing.
+   ☐ after adding it should work like in home ui add new.
+   ☐ add students also work like the above functionality.
+   ☐ date should work like the proper formate.
+   ☐ your exam should show class room name insted of students
+   ☐ 

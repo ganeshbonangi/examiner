@@ -59,3 +59,13 @@ a.button{
 .fa-trash{
   color: red;
 }
+
+
+/**
+guidelinces template css
+
+
+*/
+
+.instruction-pane-1 .tnq{float:left;}
+.instruction-pane-1 .tta{float:right;}

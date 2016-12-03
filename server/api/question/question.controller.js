@@ -68,7 +68,7 @@ export function index(req, res) {
 
 // Gets a single Question from the DB
 export function show(req, res) {
-  return Question.findById(req.params.id).exec()
+  return Question.find({'id':req.params.id}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

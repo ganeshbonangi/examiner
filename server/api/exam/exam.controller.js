@@ -72,19 +72,19 @@ export function getExamListForTeacher(req, res){
    return Exam.find({'author':req.params.id}).select({'_id': 0, 'author': 0}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
-    .catch(handleError(res));;
+    .catch(handleError(res));
 }
 
 export function getExamListForStudent(req, res){
    return Exam.find({students:req.params.id}).select({'_id':0, 'authorid':0}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
-    .catch(handleError(res));;
+    .catch(handleError(res));
 }
 
 // Gets a single Exam from the DB
 export function show(req, res) {
-  return Exam.findById(req.params.id).exec()
+  return Exam.find({id:req.params.id}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

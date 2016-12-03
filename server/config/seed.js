@@ -8,6 +8,7 @@ import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import ClassRoom from '../api/classroom/classroom.model';
 import Exam from '../api/exam/exam.model';
+import Questions from '../api/question/question.model';
 
 Thing.find({}).remove()
     .then(() => {
@@ -37,39 +38,70 @@ Thing.find({}).remove()
             students: [1, 2, 3, 4, 5]
         });
     });
-
+Questions.find({}).remove()
+    .then(() => {
+        Questions.create({
+            id: 123,
+            information: 'information text',
+            instruction: 'information text',
+            questiontext: 'what is your question?',
+            type: 'mcms',
+            options: [1,2,3,4,5]
+        }, {
+            id: 124,
+            information: 'info text',
+            instruction: 'String',
+            questiontext: 'String',
+            type: 'mcss',
+            options: [2,3,4]
+        }, {
+            id: 125,
+            information: 'String',
+            instruction: 'String',
+            questiontext: 'String',
+            type: 'fibd',
+            options: [4,5,6,7]
+        }, {
+            id: 126,
+            information: 'String',
+            instruction: 'String',
+            questiontext: 'String',
+            type: 'fibt',
+            options: [7,8,9]
+        });
+    });
 ClassRoom.find({}).remove()
     .then(() => {
         ClassRoom.create({
-  id: 1,
-  name: 'String',
-  admin: 123,
-  students: [123]
+            id: 1,
+            name: 'String',
+            admin: 123,
+            students: [123]
         }, {
-  id: 2,
-  name: 'String',
-  admin: 23,
-  students: [234]
+            id: 2,
+            name: 'String',
+            admin: 23,
+            students: [234]
         }, {
-  id: 3,
-  name: 'String',
-  admin: 123,
-  students: [234]
+            id: 3,
+            name: 'String',
+            admin: 123,
+            students: [234]
         }, {
-  id: 4,
-  name: 'String',
-  admin: 123,
-  students: [234]
+            id: 4,
+            name: 'String',
+            admin: 123,
+            students: [234]
         }, {
-  id: 5,
-  name: 'String',
-  admin: 67,
-  students: [678]
+            id: 5,
+            name: 'String',
+            admin: 67,
+            students: [678]
         }, {
-  id: 6,
-  name: 'String',
-  admin: 898,
-  students: [89890]
+            id: 6,
+            name: 'String',
+            admin: 898,
+            students: [89890]
         });
     });
 
@@ -81,60 +113,60 @@ Exam.find({}).remove()
             activationdate: 1,
             expiredate: 1200,
             duration: 12,
-            students: [234,2,3],
-            questions: [12,123],
-            authorid:123,
-            authorname:'String 123'
-        },{
+            students: [234, 2, 3],
+            questions: [124, 123, 125],
+            authorid: 123,
+            authorname: 'String 123'
+        }, {
             id: 2,
             name: 'String2',
             activationdate: 1,
             expiredate: 1200,
             duration: 12,
-            students: [234,2,3],
-            questions: [12,123],
-            authorid:123,
-            authorname:'String 123'
+            students: [234, 2, 3],
+            questions: [12, 123],
+            authorid: 123,
+            authorname: 'String 123'
         }, {
             id: 3,
             name: 'String3',
             activationdate: 1,
             expiredate: 1200,
             duration: 12,
-            students: [234,2,3],
-            questions: [12,123],
-            authorid:123,
-            authorname:'String 123'
+            students: [234, 2, 3],
+            questions: [12, 123],
+            authorid: 123,
+            authorname: 'String 123'
         }, {
             id: 4,
             name: 'String4',
             activationdate: 1,
             expiredate: 1200,
             duration: 12,
-            students: [1,2,3],
-            questions: [12,123],
-            authorid:123,
-            authorname:'String 123'
+            students: [1, 2, 3],
+            questions: [12, 123],
+            authorid: 123,
+            authorname: 'String 123'
         }, {
             id: 5,
             name: 'String5',
             activationdate: 1,
             expiredate: 1200,
             duration: 12,
-            students: [1,2,3],
-            questions: [12,123],
-            authorid:124,
-            authorname:'String'
+            students: [1, 2, 3],
+            questions: [12, 123],
+            authorid: 124,
+            authorname: 'String'
         }, {
             id: 6,
             name: 'String6',
             activationdate: 1,
             expiredate: 1200,
             duration: 12,
-            students: [1,2,3],
-            questions: [12,123],
-            authorid:124,
-            authorname:'String'
+            students: [1, 2, 3],
+            questions: [12, 123],
+            authorid: 124,
+            authorname: 'String'
         });
     });
 
@@ -173,13 +205,13 @@ Thing.find({}).remove()
 User.find({}).remove()
     .then(() => {
         User.create({
-                id:123,
+                id: 123,
                 provider: 'local',
                 name: 'Test User',
                 email: 'test@example.com',
                 password: 'test'
             }, {
-                id:124,
+                id: 124,
                 provider: 'local',
                 role: 'admin',
                 name: 'Admin',

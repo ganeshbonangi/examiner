@@ -25,7 +25,7 @@
 
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <button ng-repeat="question in examcenterCtrl.exam.questions" class="btn btn-default btn-xs" ng-click="examcenterCtrl.getQuestoin($index)" ng-class="{active:examcenterCtrl.currentQuestion==$index}">{{$index+1}}</button>
+                    <button ng-repeat="question in examcenterCtrl.exam.questions" class="btn btn-default btn-xs" ng-click="examcenterCtrl.getQuestoin($index, question.questionId)" ng-class="{active:examcenterCtrl.currentQuestion==$index}">{{$index+1}}</button>
                 </div>
             </div>
         </div>

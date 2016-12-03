@@ -3,7 +3,8 @@
 (function() {
 
     class ExamcenterComponent {
-        constructor() {
+        constructor($http) {
+            this.$http = $http;
             this.exam = {
                 title: 'SBI online exam',
                 questions: [{
@@ -58,9 +59,15 @@
                 duration: new Date()
             };
             this.currentQuestion = 0;
+            $http.get('/api/exams/1', function(response) {
+                console.log(response);
+            });
         }
-        getQuestoin(question) {
-            this.currentQuestion = question;
+        getQuestoin(index, questionId) {
+            this.currentQuestion = index;
+            this.$http.get('/api/questions/'+questionId,function(response){
+                console.log(response);
+            });
         }
     }
 

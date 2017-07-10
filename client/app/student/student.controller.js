@@ -5,8 +5,8 @@
     class StudentComponent {
         constructor($http) {
             this.message = 'Hello';
-            $http.get('/api/exams/student/'+234, function(response) {
-                console.log(response);
+            $http.get('/api/exams/student/'+234).then(response => {
+                this.exams = response.data;
             });
         }
     }

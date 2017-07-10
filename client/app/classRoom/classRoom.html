@@ -1,35 +1,30 @@
 <div class="modal-header">
     <h1 style="text-align:center;">Class Room</h1></div>
 <div class="modal-body">
-        <div class='row  form-group'>
-            <label>
-                Class room name
-            </label>
-            <div>
-                <input class='formcontrolle form-control' type="text" ng-model="classRoomCtrl.cr.classRoomName" />
-            </div>
+    <div class='row  form-group'>
+        <label>
+            Class Room Name
+        </label>
+        <div>
+            <input class='formcontrolle form-control' type="text" ng-model="classRoomCtrl.cr.name" />
         </div>
-        <div class='row  form-group'>
-            <label>
-                Students to be enrolled
-            </label>
-            <table ng-table class="table ">
-                <tr ng-repeat="student in classobject.students track by $index">
-                    <td>
-                        <input class='form-control' type="text" ng-model="classobject.students[$index]" placeholder="Mobile Number" />
-                    </td>
-                    <td>
-                        <a class="glyphicon glyphicon-trash trash pull-right" ng-click="removingTheStudent(this)"></a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="row form-group input-group">
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Add Sutudents or Class Room" ng-model="cstudents">
-            <span class="input-group-addon" ng-click="updateClassRoom()">add students</span>
-        </div>
+    </div>
+    <div class='row  form-group'>
+        <label>
+            Students To Be Enrolled
+        </label>
+        <span class="btn btn-default student-card" ng-repeat="student in classRoomCtrl.displayStudents">{{student}}<span aria-hidden="true" ng-click="classRoomCtrl.removeStudentFromClassRoom($index)">&times;</span></span>
+    </div>
+    <div class="row form-group input-group" style="margin-bottom:0px;">
+        <input type="text" class="form-control" ng-change="classRoomCtrl.getStudents()" aria-label="Amount (to the nearest dollar)" placeholder="Add Sutudents" ng-model="classRoomCtrl.student">
+        <span class="input-group-addon" ng-click="updateClassRoom()">Add Students</span>
+    </div>
+    <div class="list-group row" ng-show="classRoomCtrl.showList">
+        <a ng-click="classRoomCtrl.addStudentToClassRoom(stdObj)" class="list-group-item" ng-repeat="stdObj in classRoomCtrl.suggestedStudents">{{stdObj.name}}</a>
+    </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-success" ng-click="saveClassRoom()">Save this class room</button>
+    <button ng-hide="classRoomCtrl.cr.id" class="btn btn-success" ng-click="classRoomCtrl.saveClassRoom()">Save</button>
+    <button ng-show="classRoomCtrl.cr.id" class="btn btn-success" ng-click="classRoomCtrl.updateClassRoom()">Update</button>
     <button class="btn btn-danger" ng-click="classRoomCtrl.cancel()">Cancel</button>
 </div>

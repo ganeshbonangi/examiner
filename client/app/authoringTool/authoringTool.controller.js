@@ -1,7 +1,7 @@
 'use strict';
 
 class authoringToolCtrl {
-  constructor() {
+  constructor($http) {
     this.message = 'Hello';
     this.currentQuestion = {
     	questionInstruction:'',
@@ -14,6 +14,7 @@ class authoringToolCtrl {
     };
     this.questionTitle= 'Question ';
     this.currentQuestionIndex = this.currentQuestion.question.length-1;
+    this.$http = $http;
   }
   setSelectedQuestion(index){
   	this.currentQuestionIndex = index;
@@ -26,6 +27,12 @@ class authoringToolCtrl {
   									    	});
   	    this.currentQuestionIndex = this.currentQuestion.question.length-1;
   	}
+  }
+  sendData(){
+
+    this.$http.post('/api/questions',this.currentQuestion).success(function(data){
+      console.log(data);
+    });
   }
   deleteQuestion(){
   	this.currentQuestion.question.splice(this.currentQuestionIndex,1);

@@ -6,18 +6,19 @@
                 <th>Exam Name</th>
                 <th>Exam Activation</th>
                 <th>Exam Expiration</th>
-                <th>Duratoin</th>
+                <th>Duratoin(HH:MM)</th>
                 <th>Students</th>
+                <th>Exam Id</th>
                 <th>Action</th>
             </tr>
 
             <tr ng-repeat="exam in teacherCtrl.conductingExams">
-                <td>{{exam.examName}}</td>
-                <td>{{exam.activationDate}}</td>
-                <td>{{exam.experiationDate}}</td>
-                <td>{{exam.duration}}</td>
+                <td>{{exam.name}}</td>
+                <td>{{exam.activationdate | date:'medium'}}</td>
+                <td>{{exam.expiredate | date:'medium'}}</td>
+                <td>{{exam.duration | date:"HH:mm"}}</td>
                 
-                <td>{{exam.classRooms.length<3? exam.classRooms.length>1 ? exam.classRooms[0]+','+exam.classRooms[1] : exam.classRooms[0] :exam.classRooms[0]+','+exam.classRooms[1]+', ...'}}</td>
+                <td>{{exam.students.length<3? exam.students.length>1 ? exam.students[0]+','+exam.students[1] : exam.students[0] :exam.students[0]+','+exam.students[1]+', ...'}}</td>
                 <td>{{exam.id}}</td>
                 <td>
                   <a class="button" ui-sref="authoringTool">Author</a>
@@ -39,17 +40,19 @@
         <table class="table">
             <tr>
                 <th>S.No</th>
-                <th>Class Name</th>
-                <th>Number of Studenrs</th>
+                <th>Class Room Name</th>
+                <th>Number of Students</th>
+                <th>Class Room Id</th>
                 <th>Action</th>
             </tr>
             <tr ng-repeat="cr in teacherCtrl.createdClasses">
                 <td>{{$index+1}}</td>
-                <td>{{cr.classRoomName}}</td>
+                <td>{{cr.name}}</td>
                 <td>{{cr.students.length}}
+                <td>{{cr.id}}
                 <td>
                   <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditClass('lg',cr)"></a>
-                  <a class="button fa fa-trash" ng-click="teacherCtrl.deleteExam($index)"></a>
+                  <a class="button fa fa-trash" ng-click="teacherCtrl.deleteClassRoom($index)"></a>
                 </td>
             </tr>
         </table>

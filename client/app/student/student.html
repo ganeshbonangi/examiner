@@ -11,15 +11,15 @@
                 <th>Duration</th>
                 <th>Action</th>
             </tr>
-            <tr>
+            <tr ng-repeat="exam in studentCtrl.exams">
                 <td>111</td>
-                <td>SBI PO</td>
-                <td>Ganesh</td>
-                <td>2016_B1_PO</td>
-                <td>12.30PM</td>
-                <td>120M</td>
+                <td>{{exam.name}}</td>
+                <td>{{exam.authorname}}</td>
+                <td>{{exam.className}}</td>
+                <td>{{exam.expiredate|date:'MM/dd/yyyy @ h:mma'}}</td>
+                <td>{{exam.expiredate|date:'hh:MM'}}</td>
                 <td>
-                    <a ui-sref="examcenter">Attempt</a>
+                    <a ui-sref="examcenter.questions({examId:exam.id})">Attempt</a>
                 </td>
             </tr>
         </table>

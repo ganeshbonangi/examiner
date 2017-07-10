@@ -1,15 +1,14 @@
 <div>
-  <div  class="alert alert-info">Select the right options by clicking one or more checkbox</div>
+    <div ng-bind-html="question.questionInstruction" class="alert alert-info"> </div>
     <div ng-bind-html="question.questionInfo"> </div>
     <div class="panel panel-default">
         <div class="panel-body">
             <p ng-bind-html="question.question"></p>
-            <div>
-Which of the the following banks are public sector banks?<br>
- <label><input type="radio" name="a" value="SBI"> SBI </label><br>
- <label><input type="radio" name="a" value="BOB"> BANK OF BARODA </label><br>
- <label><input type="radio" name="a" value="ICICI"> ICICI </label><br>
-
-  </div>
-  </div>
-  </div>
+            <div ng-repeat="option in question.options">
+                <label>
+                    <input type="radio" name="a" ng-model="question.ans" value="{{$index}}" /> <span ng-bind-html="option.optionText"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

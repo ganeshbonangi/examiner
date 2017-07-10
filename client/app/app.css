@@ -69,3 +69,17 @@ guidelinces template css
 
 .instruction-pane-1 .tnq{float:left;}
 .instruction-pane-1 .tta{float:right;}
+
+/**
+class room popup style
+*/
+
+.student-card{
+  padding: 0px 8px;
+  position: relative;
+}
+.student-card span{
+    top: -7px;
+    right: 0px;
+    position: absolute;
+}

@@ -4,60 +4,21 @@
 
     class TeacherComponent {
         constructor($uibModal, $http) {
-            this.message = 'Hello';
             this.$uibModal = $uibModal;
             this.currentExam = {};
-            this.conductingExams = [{
-                examName: 'SBI_po',
-                activationDate: '14-04-2016 14:30:00',
-                experiationDate: '14-04-2016 16:45:00',
-                duration: '02:15',
-                classRooms: [101, 102, 103, 104],
-                id: 111
-            }, {
-                examName: 'IBPS',
-                activationDate: '14-04-2016 14:30:00',
-                experiationDate: '14-04-2016 16:45:00',
-                duration: '02:15',
-                classRooms: [101, 102],
-                id: 112
-            }, {
-                examName: 'RRB',
-                activationDate: '14-04-2016 14:30:00',
-                experiationDate: '14-04-2016 16:45:00',
-                duration: '02:15',
-                classRooms: [90],
-                id: 113
-            }, {
-                examName: 'RRB',
-                activationDate: '14-04-2016 14:30:00',
-                experiationDate: '14-04-2016 16:45:00',
-                duration: '02:15',
-                classRooms: [],
-                id: 113
-            }];
-            this.createdClasses = [{
-                students: [1, 2, 3],
-                classRoomName: 'Class1'
-            }, {
-                students: [1, 2, 3, 4, 5],
-                classRoomName: 'Class2'
-            }, {
-                students: [1, 2],
-                classRoomName: 'Class3'
-            }, {
-                students: [1, 2, 3, 4, 5, 6, 7],
-                classRoomName: 'Class4'
-            }];
-            $http.get('/api/exams/teacher/'+123, function(response) {
-                console.log(response);
+            $http.get('/api/exams/teacher/' + 123).then(response => {
+                this.conductingExams = response.data;
             });
-            $http.get('/api/classrooms/teacher/'+123, function(response) {
-                console.log(response);
+            $http.get('/api/classrooms/teacher/' + 123).then(response => {
+                this.createdClasses = response.data;
             });
+
         }
         addEditExam(size, currentExam) {
-            //var currentExam = this.currentExam;
+            var exam = {};
+            if(currentExam){
+                exam = JSON.parse(JSON.stringify(currentExam));                
+            }
             var modalInstance = this.$uibModal.open({
                 animation: true,
                 ariaLabelledBy: 'modal-title',
@@ -68,13 +29,13 @@
                 size: size,
                 resolve: {
                     exam: function() {
-                        return currentExam;
+                        return exam;
                     }
                 }
             });
 
             modalInstance.result.then(function( /*selectedItem*/ ) {
-                teacherCtrlScope.conductingExams.push(selectedItem);
+                // teacherCtrlScope.conductingExams.push(selectedItem);
             }, function() {
                 //$log.info('Modal dismissed at: ' + new Date());
             });
@@ -95,10 +56,14 @@
 
         }
 
-        deleteClass() {
-
+        deleteClassRoom(index) {
+            this.createdClasses.splice(index, 1);
         }
         addEditClass(size, cr) {
+            var CRoom = {};
+            if(cr){
+                CRoom = JSON.parse(JSON.stringify(cr));
+            }
             var modalInstance = this.$uibModal.open({
                 animation: true,
                 ariaLabelledBy: 'modal-title',
@@ -109,7 +74,7 @@
                 size: size,
                 resolve: {
                     cr: function() {
-                        return cr;
+                        return CRoom;
                     }
                 }
             });

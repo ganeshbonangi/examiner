@@ -1,3 +1,16 @@
 .ta-editor.ta-html, .ta-scroll-window.form-control,.ta-scroll-window > .ta-bind{
 	    min-height: 50px !important;
 }
+.statictoolbar
+{
+    height:50px;
+}
+.auther-tmp-container
+{
+    position:absolute;
+    top: 50px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow-y:scroll;        
+}

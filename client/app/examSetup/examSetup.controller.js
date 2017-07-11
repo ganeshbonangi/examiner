@@ -52,6 +52,12 @@ class examSetupCtrl {
             this.showList = true;
         });
     }
+  updateTheExam() {
+  //has to make service call for update exam
+  }
+  revertingBack() {
+  //has to reset to it's original state.
+  }
 }
 angular.module('authCellApp')
     .controller('examSetupCtrl', examSetupCtrl);

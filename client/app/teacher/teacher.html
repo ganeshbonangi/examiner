@@ -1,6 +1,6 @@
 <div class="container">
     <div class="panel panel-default">
-        <div class="panel-heading">Your Exams</div>
+        <div class="panel-heading">Exams</div>
         <table class="table">
             <tr>
                 <th>Exam Name</th>
@@ -8,7 +8,6 @@
                 <th>Exam Expiration</th>
                 <th>Duratoin(HH:MM)</th>
                 <th>Students</th>
-                <th>Exam Id</th>
                 <th>Action</th>
             </tr>
 
@@ -19,7 +18,6 @@
                 <td>{{exam.duration | date:"HH:mm"}}</td>
                 
                 <td>{{exam.students.length<3? exam.students.length>1 ? exam.students[0]+','+exam.students[1] : exam.students[0] :exam.students[0]+','+exam.students[1]+', ...'}}</td>
-                <td>{{exam.id}}</td>
                 <td>
                   <a class="button" ui-sref="authoringTool">Author</a>
                   <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditExam('lg',exam)"></a>
@@ -36,17 +34,15 @@
         </div>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading">Your Class Rooms</div>
+        <div class="panel-heading">Class Rooms</div>
         <table class="table">
             <tr>
-                <th>S.No</th>
                 <th>Class Room Name</th>
                 <th>Number of Students</th>
                 <th>Class Room Id</th>
                 <th>Action</th>
             </tr>
             <tr ng-repeat="cr in teacherCtrl.createdClasses">
-                <td>{{$index+1}}</td>
                 <td>{{cr.name}}</td>
                 <td>{{cr.students.length}}
                 <td>{{cr.id}}

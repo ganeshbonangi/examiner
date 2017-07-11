@@ -83,3 +83,11 @@ class room popup style
     right: 0px;
     position: absolute;
 }
+
+/**
+Timer style
+*/
+.cout-down{
+    color:red;
+    font-weight:bold;
+}

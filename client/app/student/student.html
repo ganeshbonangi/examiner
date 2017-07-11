@@ -1,6 +1,6 @@
 <div class="container">
     <div class="panel panel-default">
-        <div class="panel-heading">Your Exams</div>
+        <div class="panel-heading">Exams</div>
         <table class="table">
             <tr>
                 <th>Exam Name</th>
@@ -14,8 +14,8 @@
                 <td>{{exam.name}}</td>
                 <td>{{exam.authorname}}</td>
                 <td>{{exam.className}}</td>
-                <td>{{exam.expiredate|date:'MM/dd/yyyy @ h:mma'}}</td>
-                <td>{{exam.expiredate|date:'hh:MM'}}</td>
+                <td>{{exam.expiredate|date:'medium'}}</td>
+                <td>{{exam.expiredate|date:'HH:mm'}}</td>
                 <td>
                     <a ui-sref="examcenter.questions({examId:exam.id})">Attempt</a>
                 </td>

@@ -29,12 +29,9 @@ class examSetupCtrl {
             exam.activationdate = utilService.getDateObject(exam.activationdate);
             exam.expiredate = utilService.getDateObject(exam.expiredate);
             this.exam = exam;
+            this.upDateTheExamVar = true;
         } else {
             this.exam = {
-                examName: 'exam name999',
-                activationDate: new Date(),
-                experiationDate: new Date(),
-                duration: new Date(),
                 hstep: 1,
                 mstep: 5
             };

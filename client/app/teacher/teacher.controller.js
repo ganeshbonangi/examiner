@@ -15,7 +15,7 @@
 
         }
         addEditExam(size, currentExam) {
-            var exam = {};
+            var exam = null;
             if(currentExam){
                 exam = JSON.parse(JSON.stringify(currentExam));                
             }

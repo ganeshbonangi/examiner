@@ -15,7 +15,7 @@
                 <td>{{exam.name}}</td>
                 <td>{{exam.activationdate | date:'medium'}}</td>
                 <td>{{exam.expiredate | date:'medium'}}</td>
-                <td>{{exam.duration | date:"HH:mm"}}</td>
+                <td>{{exam.duration | date:'HH:mm'}}</td>
                 
                 <td>{{exam.students.length<3? exam.students.length>1 ? exam.students[0]+','+exam.students[1] : exam.students[0] :exam.students[0]+','+exam.students[1]+', ...'}}</td>
                 <td>

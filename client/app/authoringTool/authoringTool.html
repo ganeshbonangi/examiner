@@ -1,5 +1,6 @@
-<div class="container">
+<div>
 	<div text-angular-toolbar name="statictoolbar" class="statictoolbar"></div>
+  <div class="container auther-tmp-container">
 	<div class="instructiontext">
 		Enter question instruction
 		<div text-angular ng-model="at.currentQuestion.questionInstruction" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div><br />
@@ -29,4 +30,5 @@
 		<!--span>{{currentSection}}</span-->
 	</pre>
 	<button class="btn btn-success pull-right" ng-click="at.sendData()">Save Question</button>
+  </div>
 </div>

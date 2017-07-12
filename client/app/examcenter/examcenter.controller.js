@@ -56,7 +56,7 @@
                         optionText: 'option c'
                     }]
                 }],
-                duration: new Date()
+                duration: new Date().getTime()
             };
             this.currentQuestion = 0;
             $http.get('/api/exams/1', function(response) {

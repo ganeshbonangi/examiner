@@ -3,13 +3,15 @@
 (function() {
 
     class TeacherComponent {
-        constructor($uibModal, $http) {
+        constructor($uibModal, $http, Auth) {
             this.$uibModal = $uibModal;
             this.currentExam = {};
-            $http.get('/api/exams/teacher/' + 123).then(response => {
+            this.getCurrentUser = Auth.getCurrentUser;
+            var id = this.getCurrentUser()._id||1000;
+            $http.get('/api/exams/teacher/' + id).then(response => {
                 this.conductingExams = response.data;
             });
-            $http.get('/api/classrooms/teacher/' + 123).then(response => {
+            $http.get('/api/classrooms/teacher/' + id).then(response => {
                 this.createdClasses = response.data;
             });
 

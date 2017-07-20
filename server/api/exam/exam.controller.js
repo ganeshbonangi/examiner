@@ -69,14 +69,14 @@ export function index(req, res) {
 
 
 export function getExamListForTeacher(req, res){
-   return Exam.find({'authorid':req.params.id}).select({'_id': 0}).exec()
+   return Exam.find({'authorid':req.params.id}).select({}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 export function getExamListForStudent(req, res){
-   return Exam.find({students:req.params.id}).select({'_id':0, 'authorid':0}).exec()
+   return Exam.find({students:req.params.id}).select({'authorid':0}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

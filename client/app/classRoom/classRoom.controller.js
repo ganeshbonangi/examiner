@@ -34,7 +34,7 @@ class classRoomCtrl{
 		this.displayStudents.splice(index,1);
 	}
 	saveClassRoom(){
-		this.cr.admin = this.getCurrentUser().id || 1000;
+		this.cr.admin = this.getCurrentUser()._id || 1000;
 		this.$http.post('/api/classrooms',this.cr).then(response=>{
 			response.data.type = 'newClass';
 			this.$uibModalInstance.close(response.data);

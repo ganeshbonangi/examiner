@@ -3,14 +3,13 @@
 import mongoose from 'mongoose';
 
 var ExamSchema = new mongoose.Schema({
-  id: Number,
   name: String,
   activationdate: Number,
   expiredate: Number,
   duration: Number,
   students: [Number],
   questions: [Number],
-  authorid: Number,
+  authorid: String,
   authorname: String
 });
 

@@ -3,10 +3,9 @@
 import mongoose from 'mongoose';
 
 var ClassroomSchema = new mongoose.Schema({
-  id: Number,
   name: String,
-  admin: Number,
-  students: [Number]
+  admin: String,
+  students: [String]
 });
 
 export default mongoose.model('Classroom', ClassroomSchema);

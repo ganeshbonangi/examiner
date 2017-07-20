@@ -61,7 +61,7 @@ function handleError(res, statusCode) {
 
 
 export function getClassRoomList(req, res) {
-  return Classroom.find({'admin': req.params.id}).select({'_id': 0, 'admin': 0}).exec()
+  return Classroom.find({'admin': req.params.id}).select({ 'admin': 0}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

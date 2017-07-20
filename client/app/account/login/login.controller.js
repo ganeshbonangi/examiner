@@ -32,10 +32,10 @@ class LoginController {
             this.user.email = 'admin@example.com';
             this.user.password = 'admin';
         } else if (role === 'Teacher') {
-            this.user.email = 'test@example.com'
+            this.user.email = 'test@example.com';
             this.user.password = 'test';
         } else {
-            this.user.email = 'test@example.com'
+            this.user.email = 'test@example.com';
             this.user.password = 'test';
         }
     }

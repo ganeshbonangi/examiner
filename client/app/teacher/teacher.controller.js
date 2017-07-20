@@ -60,7 +60,7 @@
             this.createdClasses.splice(index, 1);
         }
         addEditClass(size, cr) {
-            var CRoom = {};
+            var CRoom = {},self = this;
             if(cr){
                 CRoom = JSON.parse(JSON.stringify(cr));
             }
@@ -80,7 +80,9 @@
             });
 
             modalInstance.result.then(function(selectedItem) {
-                this.selected = selectedItem;
+                if(selectedItem.type === 'newClass'){
+                    self.createdClasses.push(selectedItem);
+                }
             }, function() {
                 //$log.info('Modal dismissed at: ' + new Date());
             });

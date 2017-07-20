@@ -32,6 +32,22 @@ export function index(req, res) {
 }
 
 /**
+ * Get list of students
+ * restriction: 'no restruction'
+ */
+export function getFilteredStudents(req, res) {
+  return User.find({'name':{'$regex':req.body.name,'$options':'i'}},'-salt -password').exec()
+    .then(users => {
+      console.log('users');
+      console.log(users);
+      console.log('users');
+      return res.status(200).json(users);
+    })
+    .catch(handleError(res));
+}
+
+
+/**
  * Creates a new user
  */
 export function create(req, res, next) {
@@ -110,7 +126,7 @@ export function me(req, res, next) {
       if (!user) {
         return res.status(401).end();
       }
-      res.json(user);
+      return res.json(user);
     })
     .catch(err => next(err));
 }

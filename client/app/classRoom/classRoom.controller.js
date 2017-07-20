@@ -36,7 +36,8 @@ class classRoomCtrl{
 	saveClassRoom(){
 		this.cr.admin = this.getCurrentUser().id || 1000;
 		this.$http.post('/api/classrooms',this.cr).then(response=>{
-			console.log(response.data);
+			response.data.type = 'newClass';
+			this.$uibModalInstance.close(response.data);
 		});
 	}
 	updateClassRoom(){

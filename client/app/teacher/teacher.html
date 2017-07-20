@@ -45,7 +45,7 @@
             <tr ng-repeat="cr in teacherCtrl.createdClasses">
                 <td>{{cr.name}}</td>
                 <td>{{cr.students.length}}
-                <td>{{cr.id}}
+                <td>{{cr._id}}
                 <td>
                   <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditClass('lg',cr)"></a>
                   <a class="button fa fa-trash" ng-click="teacherCtrl.deleteClassRoom($index)"></a>

@@ -2,13 +2,39 @@
  * Populate DB with sample data on server start
  * to disable, edit config/environment/index.js, and set `seedDB: false`
  */
-
+/*
 'use strict';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import ClassRoom from '../api/classroom/classroom.model';
 import Exam from '../api/exam/exam.model';
 import Questions from '../api/question/question.model';
+import Counter from '../api/counter/counter.model';
+var counterController = require('../api/counter/counter.controller');
+
+Counter.find({}).remove()
+    .then(() => {
+        Counter.create({
+            id: 'question',
+            seq: 0
+            
+        }, {
+            id: 'Server and Client integration',
+            seq: 0
+        }, {
+            id: 'Smart Build System',
+            seq: 0
+        }, {
+            id: 'Modular Structure',
+            seq: 0
+        }, {
+            id: 'Optimized Build',
+            seq: 0
+        }, {
+            id: 'Deployment Ready',
+            seq: 0
+        });
+    });
 
 Thing.find({}).remove()
     .then(() => {
@@ -41,28 +67,28 @@ Thing.find({}).remove()
 Questions.find({}).remove()
     .then(() => {
         Questions.create({
-            id: 123,
+            id: counterController.getNextSequence('question'),
             information: 'information text',
             instruction: 'information text',
             questiontext: 'what is your question?',
             type: 'mcms',
             options: [1,2,3,4,5]
         }, {
-            id: 124,
+            id: counterController.getNextSequence('question'),
             information: 'info text',
             instruction: 'String',
             questiontext: 'String',
             type: 'mcss',
             options: [2,3,4]
         }, {
-            id: 125,
+            id: counterController.getNextSequence('question'),
             information: 'String',
             instruction: 'String',
             questiontext: 'String',
             type: 'fibd',
             options: [4,5,6,7]
         }, {
-            id: 126,
+            id: 33,
             information: 'String',
             instruction: 'String',
             questiontext: 'String',
@@ -74,34 +100,34 @@ ClassRoom.find({}).remove()
     .then(() => {
         ClassRoom.create({
             id: 1,
-            name: 'String',
+            name: 'Sunday Batch',
             admin: 123,
-            students: [123]
+            students: [123,234,233]
         }, {
             id: 2,
-            name: 'String',
+            name: 'Batch 2',
             admin: 23,
-            students: [234]
+            students: [234,233,235]
         }, {
             id: 3,
-            name: 'String',
+            name: 'Noon Batch',
             admin: 123,
-            students: [234]
+            students: [234,233,235]
         }, {
             id: 4,
-            name: 'String',
+            name: 'Evening Batch',
             admin: 123,
-            students: [234]
+            students: [234,233,235]
         }, {
             id: 5,
-            name: 'String',
+            name: 'Morning Batch',
             admin: 67,
             students: [678]
         }, {
             id: 6,
-            name: 'String',
+            name: 'Sunday Batch',
             admin: 898,
-            students: [89890]
+            students: [234,233,235]
         });
     });
 
@@ -109,40 +135,40 @@ Exam.find({}).remove()
     .then(() => {
         Exam.create({
             id: 1,
-            name: 'String1',
-            activationdate: 1,
-            expiredate: 1200,
-            duration: 12,
+            name: 'SBI PO',
+            activationdate: 1460572200000,
+            expiredate: 1593147200000,
+            duration: 1498243800960,
             students: [234, 2, 3],
             questions: [124, 123, 125],
             authorid: 123,
             authorname: 'String 123'
         }, {
             id: 2,
-            name: 'String2',
-            activationdate: 1,
-            expiredate: 1200,
-            duration: 12,
+            name: 'RRB',
+            activationdate: 1460572200000,
+            expiredate: 1693147258206,
+            duration: 1493154058376,
             students: [234, 2, 3],
             questions: [12, 123],
-            authorid: 123,
+            authorid: 124,
             authorname: 'String 123'
         }, {
             id: 3,
-            name: 'String3',
-            activationdate: 1,
-            expiredate: 1200,
-            duration: 12,
-            students: [234, 2, 3],
+            name: 'CIVEL 000',
+            activationdate: 1460572200000,
+            expiredate: 1793147258206,
+            duration: 1493154058376,
+            students: [23, 2, 234],
             questions: [12, 123],
             authorid: 123,
             authorname: 'String 123'
         }, {
             id: 4,
-            name: 'String4',
-            activationdate: 1,
-            expiredate: 1200,
-            duration: 12,
+            name: 'SI',
+            activationdate: 1460572200000,
+            expiredate: 1893147258206,
+            duration: 1493154058376,
             students: [1, 2, 3],
             questions: [12, 123],
             authorid: 123,
@@ -150,9 +176,9 @@ Exam.find({}).remove()
         }, {
             id: 5,
             name: 'String5',
-            activationdate: 1,
-            expiredate: 1200,
-            duration: 12,
+            activationdate: 1460572200000,
+            expiredate: 1993147258206,
+            duration: 1493154058376,
             students: [1, 2, 3],
             questions: [12, 123],
             authorid: 124,
@@ -160,9 +186,9 @@ Exam.find({}).remove()
         }, {
             id: 6,
             name: 'String6',
-            activationdate: 1,
-            expiredate: 1200,
-            duration: 12,
+            activationdate: 1460572200000,
+            expiredate: 1493147258206,
+            duration: 1493154058376,
             students: [1, 2, 3],
             questions: [12, 123],
             authorid: 124,
@@ -217,8 +243,27 @@ User.find({}).remove()
                 name: 'Admin',
                 email: 'admin@example.com',
                 password: 'admin'
+            }, {
+                id: 125,
+                provider: 'local',
+                name: 'Admire',
+                email: 'admin@example.com',
+                password: 'admin'
+            },{
+                id: 126,
+                provider: 'local',
+                name: 'Test User1',
+                email: 'test1@example.com',
+                password: 'test1'
+            },{
+                id: 127,
+                provider: 'local',
+                name: 'Test User2',
+                email: 'test2@example.com',
+                password: 'test2'
             })
             .then(() => {
                 console.log('finished populating users');
             });
     });
+*/

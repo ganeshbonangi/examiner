@@ -71,13 +71,13 @@
         }
         saveNdNext() {
             if(this.exam.questions.length-1===this.currentQuestion){
-                alert('No more questions!');
+               // alert('No more questions!');
             }else{
                 this.currentQuestion++;                
             }
         }
         resetCurrentQuestion() {
-            this.exam.questions[this.currentQuestion].ans = "";
+            this.exam.questions[this.currentQuestion].ans = '';
         }
     }
 

@@ -6,6 +6,7 @@ class classRoomCtrl{
 		this.$uibModalInstance = $uibModalInstance;
 		this.$http = $http;
 		this.getCurrentUser = Auth.getCurrentUser;
+    this.userId = this.getCurrentUser()._id || 1000;
 		if(!this.cr.students){
 			this.cr.students = [];			
 		}
@@ -27,17 +28,23 @@ class classRoomCtrl{
 		this.student = '';
 	}
 	removeStudentFromClassRoom(index){
-		this.cr.students.splice(index,1);
+    this.cr.disconnect = true;
+	  this.$http.put('/api/classrooms/'+this.userId,this.cr).then(response=>{
+			this.$uibModalInstance.close(response.data);
+      this.cr.students.splice(index,1);
+		});
 	}
 	saveClassRoom(){
-		this.cr.admin = this.getCurrentUser()._id || 1000;
+		this.cr.admin = this.userId;
 		this.$http.post('/api/classrooms',this.cr).then(response=>{
 			response.data.type = 'newClass';
 			this.$uibModalInstance.close(response.data);
 		});
 	}
 	updateClassRoom(){
-		
+		 this.$http.put('/api/classrooms/'+this.userId,this.cr).then(response=>{
+			this.$uibModalInstance.close(response.data);
+		});
 	}
 }
 angular.module('authCellApp')

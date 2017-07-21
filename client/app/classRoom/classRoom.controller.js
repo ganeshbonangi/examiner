@@ -6,16 +6,14 @@ class classRoomCtrl{
 		this.$uibModalInstance = $uibModalInstance;
 		this.$http = $http;
 		this.getCurrentUser = Auth.getCurrentUser;
-		this.cr.students = [1,2,3];
-		this.displayStudents = ['gani','gani1','gani2'];
+		if(!this.cr.students){
+			this.cr.students = [];			
+		}
 		this.suggestedStudents = [];
 		this.showList = false;
 	}
 	cancel(){
 		this.$uibModalInstance.dismiss('dismiss reason');
-	}
-	saveThisClassRoom(){
-		this.$uibModalInstance.close(this.cr);
 	}
 	getStudents(){
 		this.$http.post('/api/users/students',{name:this.student}).then(response=>{
@@ -24,14 +22,12 @@ class classRoomCtrl{
 		});
 	}
 	addStudentToClassRoom(student){
-		this.cr.students.push(student.id);
-		this.displayStudents.push(student.name);
+		this.cr.students.push({name:student.name,id:student.id});
 		this.showList = false;
 		this.student = '';
 	}
 	removeStudentFromClassRoom(index){
 		this.cr.students.splice(index,1);
-		this.displayStudents.splice(index,1);
 	}
 	saveClassRoom(){
 		this.cr.admin = this.getCurrentUser()._id || 1000;

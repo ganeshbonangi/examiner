@@ -42,3 +42,13 @@ Clarity:
   ☐ should have verify that _id will be to another record even after it deleted from the collection.
   ☐ auto increment for ids
   ☐ _v in collection return object
+
+
+
+
+
+
+  Warnings:
+    (node:14891) Warning: Possible EventEmitter memory leak detected. 11 disconnect listeners added. Use emitter.setMaxListeners() to increase limit
+
+    have to eliminate duplicate student suggestion from the class room creating and updating.

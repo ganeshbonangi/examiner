@@ -5,13 +5,15 @@
     class TeacherComponent {
         constructor($uibModal, $http, Auth) {
             this.$uibModal = $uibModal;
+            this.$http = $http;
             this.currentExam = {};
             this.getCurrentUser = Auth.getCurrentUser;
-            var id = this.getCurrentUser()._id||1000;
-            $http.get('/api/exams/teacher/' + id).then(response => {
+            this.userId = this.getCurrentUser()._id||1000;
+
+            this.$http.get('/api/exams/teacher/' + this.userId).then(response => {
                 this.conductingExams = response.data;
             });
-            $http.get('/api/classrooms/teacher/' + id).then(response => {
+            this.$http.get('/api/classrooms/teacher/' + this.userId).then(response => {
                 this.createdClasses = response.data;
             });
 
@@ -59,13 +61,14 @@
         }
 
         deleteClassRoom(index) {
-            this.createdClasses.splice(index, 1);
+            var cr = this.createdClasses[index];
+            cr.disconnect = true;
+            this.$http.put('/api/classrooms/'+cr._id,cr).then(response=>{
+                this.createdClasses.splice(index, 1);
+            });
         }
         addEditClass(size, cr) {
-            var CRoom = {},self = this;
-            if(cr){
-                CRoom = JSON.parse(JSON.stringify(cr));
-            }
+            var self = this;
             var modalInstance = this.$uibModal.open({
                 animation: true,
                 ariaLabelledBy: 'modal-title',
@@ -76,7 +79,7 @@
                 size: size,
                 resolve: {
                     cr: function() {
-                        return CRoom;
+                        return cr;
                     }
                 }
             });

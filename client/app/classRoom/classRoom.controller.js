@@ -2,7 +2,12 @@
 
 class classRoomCtrl{
 	constructor($uibModalInstance,cr,$http,Auth) {
-		this.cr=cr;
+		var copyCr = {};
+		if(cr){
+			copyCr = JSON.parse(JSON.stringify(cr));			
+		}
+		this.cr=copyCr;
+		this.refCr=cr;
 		this.$uibModalInstance = $uibModalInstance;
 		this.$http = $http;
 		this.getCurrentUser = Auth.getCurrentUser;
@@ -28,11 +33,7 @@ class classRoomCtrl{
 		this.student = '';
 	}
 	removeStudentFromClassRoom(index){
-    this.cr.disconnect = true;
-	  this.$http.put('/api/classrooms/'+this.userId,this.cr).then(response=>{
-			this.$uibModalInstance.close(response.data);
-      this.cr.students.splice(index,1);
-		});
+    	this.cr.students.splice(index,1);
 	}
 	saveClassRoom(){
 		this.cr.admin = this.userId;
@@ -42,8 +43,9 @@ class classRoomCtrl{
 		});
 	}
 	updateClassRoom(){
-		 this.$http.put('/api/classrooms/'+this.userId,this.cr).then(response=>{
-			this.$uibModalInstance.close(response.data);
+		 this.$http.put('/api/classrooms/'+this.cr._id,this.cr).then(response=>{
+			angular.extend(this.refCr,response.data);
+			this.$uibModalInstance.close(response.data);			
 		});
 	}
 }

@@ -22,10 +22,12 @@ function respondWithResult(res, statusCode) {
 }
 
 function saveUpdates(updates) {
+
   return function(entity) {
-    var updated = _.merge(entity, updates);
+    var updated = _.extend(entity, updates);
     return updated.save()
       .then(updated => {
+        console.log('saveUpdates updated');
         return updated;
       });
   };
@@ -61,7 +63,7 @@ function handleError(res, statusCode) {
 
 
 export function getClassRoomList(req, res) {
-  return Classroom.find({'admin': req.params.id}).select({ 'admin': 0}).exec()
+  return Classroom.find({'admin': req.params.id,'disconnect':false}).select({ 'admin': 0}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

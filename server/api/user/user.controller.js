@@ -38,9 +38,6 @@ export function index(req, res) {
 export function getFilteredStudents(req, res) {
   return User.find({'name':{'$regex':req.body.name,'$options':'i'}},'-salt -password').exec()
     .then(users => {
-      console.log('users');
-      console.log(users);
-      console.log('users');
       return res.status(200).json(users);
     })
     .catch(handleError(res));

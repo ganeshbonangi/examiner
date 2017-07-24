@@ -69,6 +69,15 @@ export function getClassRoomList(req, res) {
     .catch(handleError(res));
 }
 
+//Gets filtered class room list
+
+export function getFilteredClassRoomList(req, res) {
+  return Classroom.find({'disconnect':false,'name':{'$regex':req.body.name,'$options':'i'}}).select({ 'admin': 0}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 // Gets a list of Classrooms
 export function index(req, res) {
   return Classroom.find().exec()

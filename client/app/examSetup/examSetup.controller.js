@@ -44,8 +44,8 @@ class examSetupCtrl {
         this.$uibModalInstance.close(this.exam);
     }
     getClassRooms(){
-        this.$http.get('/api/classrooms').then(response=>{
-            this.suggestedStudents = response.data;
+        this.$http.post('/api/classrooms/filterData',{name:this.className}).then(response=>{
+            this.suggestedClassRooms = response.data;
             this.showList = true;
         });
     }

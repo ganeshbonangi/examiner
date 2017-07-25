@@ -91,3 +91,11 @@ Timer style
     color:red;
     font-weight:bold;
 }
+
+.suggestion-list{
+    position: absolute;
+    height: 100px;
+    overflow: scroll;
+    padding-right:0px; 
+    z-index: 99;
+}

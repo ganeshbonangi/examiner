@@ -5,8 +5,8 @@
 	      <!--button ng-click="removeOption($index)" class="btn btn-danger pull-right">delete options</button> 
 	      <button ng-click="addOption($index)" class="btn btn-success pull-right">add options</button-->
 	      <div ng-repeat="option in question.opctions">
-	      	<input type='checkbox' ng-model="option[$index].ans" />
-	      	<div  text-angular class="radiooption" ng-model="option[$index].content" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
+	      	<input type='checkbox' ng-model="option.ans" />
+	      	<div  text-angular class="radiooption" ng-model="option.content" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
 	      </div>
 	       	
 	      	<!--div text-angular ng-model="option2" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div-->

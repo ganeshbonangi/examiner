@@ -115,8 +115,7 @@
   "scripts": {
     "test": "gulp test",
     "update-webdriver": "node node_modules/protractor/bin/webdriver-manager update",
-    "start": "node server",
-    "heroku-postbuild": "gulp" 
+    "start": "node server" 
   },
   "private": true
 }

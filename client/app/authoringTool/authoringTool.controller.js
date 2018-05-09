@@ -8,9 +8,9 @@ class authoringToolCtrl {
     	questionInfo:'<p>Qinfo</p>',
     	question:[{
     		opctions:[{},{},{},{}]
-    	},{
+    	}/*,{// for second question
     		opctions:[{},{},{},{}]
-    	}]
+    	}*/]
     };
     this.questionTitle= 'Question ';
     this.currentQuestionIndex = this.currentQuestion.question.length-1;

@@ -227,7 +227,7 @@ Thing.find({}).remove()
                 'and openshift subgenerators'
         });
     });
-
+   
 User.find({}).remove()
     .then(() => {
         User.create({

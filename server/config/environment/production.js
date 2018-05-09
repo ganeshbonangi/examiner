@@ -19,6 +19,6 @@ module.exports = {
           process.env.MONGOHQ_URL ||
           process.env.OPENSHIFT_MONGODB_DB_URL +
           process.env.OPENSHIFT_APP_NAME ||
-          'mongodb://localhost/authcell'
+          'mongodb://ganesh007:ganesh007@ds061208.mlab.com:61208/examcolors'
   }
 };

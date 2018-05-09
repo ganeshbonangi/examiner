@@ -31,7 +31,7 @@ export default function(app) {
   if (env === 'production') {
     app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
   }
-
+ 
   app.set('appPath', path.join(config.root, 'client'));
   app.use(express.static(app.get('appPath')));
   app.use(morgan('dev'));
@@ -55,7 +55,7 @@ export default function(app) {
     resave: false,
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      db: 'auth-cell'
+      db: 'examcolors'
     })
   }));
 

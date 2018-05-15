@@ -72,3 +72,19 @@ It will commit code to local repositery
 Sublime 
 
 Goto 'projects' tab in menu bar then 'add folder to project' then your add your 'examiner' folder
+
+
+
+Deployemnt procedue:
+
+
+gulp build,
+
+then go to dist folder
+
+git add .
+git commit -m ""
+git push heroku master
+ heroku ps:scale web=1  // to restart server
+
+ heroku logs // to see log file

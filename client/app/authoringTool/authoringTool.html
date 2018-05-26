@@ -1,6 +1,6 @@
 <div style="margin:0px 15px;">
     <div text-angular-toolbar name="statictoolbar" class="statictoolbar"></div>
-    <div style="margin:0px 15px;padding-right:15px;" class=" auther-tmp-container">
+    <div class="auther-tmp-container">
         <div class="instructiontext">
             Enter question instruction
             <div text-angular ng-model="at.currentQuestion.questionInstruction" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
@@ -9,7 +9,7 @@
             </div>
         </div>
         <div id="questionContainer">
-            Enter question information
+            Enter question information(or Hint text for ans)
             <div text-angular ng-model="at.currentQuestion.questionInfo" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
             <br />
             <div>
@@ -17,18 +17,17 @@
         </div>
         <div>
             <uib-tabset>
-                <uib-tab select="setSelectedQuestion($index)" ng-repeat="question in at.currentQuestion.question" heading="{{at.questionTitle}} {{$index+1}}">
+                <uib-tab select="at.setSelectedQuestion($index)" ng-repeat="question in at.currentQuestion.question" heading="{{at.questionTitle}} {{$index+1}}">
                     <!-- <fibt-auth></fibt-auth> -->
                     <mcmq-auth question="question"> </mcmq-auth>
-                    <mcsq-auth></mcsq-auth>
                 </uib-tab>
-                <i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>
-                <i class="fa fa-trash pull-right" ng-click="at.deleteQuestion()" aria-hidden="true"></i>
+                <!-- <i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>
+                <i class="fa fa-trash pull-right" ng-click="at.deleteQuestion()" aria-hidden="true"></i> -->
             </uib-tabset>
         </div>
-        <pre ng-class="currentSection?'bg-success':'bg-danger'">
+        <pre ng-class="at.currentSection?'bg-success':'bg-danger'">
 		        <b>Select the option</b>
-		        <label ng-repeat="sectionname in sections"><input type="radio" ng-change="sectionChanger()" name="4" ng-value="sectionname" ng-model="$parent.currentSection"/>{{sectionname}} </label>
+		        <label ng-repeat="sectionname in at.sections"><input type="radio" ng-change="at.sectionChanger()" name="4" ng-value="sectionname" ng-model="at.$parent.currentSection"/>{{sectionname}} </label>
 		</pre>
         <button class="btn btn-success pull-right" ng-click="at.sendData()">Save Question</button>
     </div>

@@ -4,8 +4,10 @@
 	      <p>Options</p>
 	      <!--button ng-click="removeOption($index)" class="btn btn-danger pull-right">delete options</button> 
 	      <button ng-click="addOption($index)" class="btn btn-success pull-right">add options</button-->
-	      <div ng-repeat="option in question.opctions">
-	      	<input type='checkbox' ng-model="option.ans" />
+	      <div ng-repeat="option in question.opctions" class="table-row">
+	      	<span class="table-input">
+	      		<input type='radio' name="a" ng-model="option.ans" />	      		
+	      	</span>
 	      	<div  text-angular class="radiooption" ng-model="option.content" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
 	      </div>
 	       	

@@ -1,0 +1,12 @@
+.table-row{
+	margin-bottom: 10px;
+}
+.table-input{
+	display: table-cell;
+	vertical-align: middle;
+	padding: 5px;
+}
+.table-row .radiooption{
+	width: 100%;
+	display: table-cell;
+}

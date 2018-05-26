@@ -1,0 +1,14 @@
+<div class="container">
+    <div ng-repeat="question in mocktestCtrl.mocktest.questions">
+        <fib-dropdown-preview ng-if="question.questionType=='fibd'"></fib-dropdown-preview>
+        <fib-text-preview ng-if="question.questionType=='fibt'"></fib-text-preview>
+        <mcss-preview ng-if="question.questionType=='mcss'" question="question"></mcss-preview>
+        <mcms-preview question="question" ng-if="question.questionType=='mcms'">
+        </mcms-preview>
+        <guidlines-preview ng-if="question.questionType=='guid'"></guidlines-preview>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" ng-click="mocktestCtrl.showResult()">Submit</button>
+        <button class="btn btn-default" ng-click="mocktestCtrl.resetAllSelection()">Reset</button>
+    </div>
+</div>

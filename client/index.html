@@ -42,7 +42,7 @@
       <link rel="stylesheet" href="components/oauth-buttons/oauth-buttons.css">
       <!-- endinjector -->
     <!-- endbuild -->
-      <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.0/css/font-awesome.min.css">
   </head>
   <body ng-app="authCellApp">
     <!--[if lt IE 7]>
@@ -51,7 +51,7 @@
 
     <!-- Add your site or application content here -->
     <navbar></navbar>
-    <div ui-view=""></div>
+    <div ui-view="" class="single-page-part"></div>
     <footer></footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -121,6 +121,8 @@
       <script src="app/mcmsPreview/mcmsPreview.directive.js"></script>
       <script src="app/mcsqAuth/mcsqAuth.directive.js"></script>
       <script src="app/mcssPreview/mcssPreview.directive.js"></script>
+      <script src="app/mocktest/mocktest.controller.js"></script>
+      <script src="app/mocktest/mocktest.js"></script>
       <script src="app/student/student.controller.js"></script>
       <script src="app/student/student.js"></script>
       <script src="app/teacher/teacher.controller.js"></script>

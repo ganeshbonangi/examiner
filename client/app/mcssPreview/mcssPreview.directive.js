@@ -6,7 +6,8 @@ angular.module('authCellApp')
       templateUrl: 'app/mcssPreview/mcssPreview.html',
       restrict: 'EA',
       scope:{
-      	question:'='
+      	question:'=',
+        isSubmited:'='
       },
       link: function (/*scope, element, attrs*/) {
       }

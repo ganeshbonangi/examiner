@@ -6,7 +6,10 @@
             <p ng-bind-html="question.question"></p>
             <div ng-repeat="option in question.options">
                 <label>
-                    <input type="radio" name="a" ng-model="question.ans" value="{{$index}}" /> <span ng-bind-html="option.optionText"></span>
+                    <input type="radio" name="{{$parent.$index}}" ng-model="question.userAns" value="{{$index}}" /> 
+                    <span ng-bind-html="option.optionText"></span>
+                    <i class="fa fa-check-circle" aria-hidden="true" ng-show="$parent.isSubmited&&option.isAns"></i>
+                    <i class="fa fa-times-circle" aria-hidden="true" ng-show="$parent.isSubmited&&(question.userAns==$index)&&!option.isAns"></i>
                 </label>
             </div>
         </div>

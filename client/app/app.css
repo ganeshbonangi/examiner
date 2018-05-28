@@ -103,3 +103,11 @@ Timer style
 .single-page-part{
   margin-bottom: 55px;
 }
+.fa-check-circle{
+  color: green;
+  font-size: 20px !important;
+}
+.fa-times-circle{
+  color: red;
+  font-size: 20px !important;
+}

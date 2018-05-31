@@ -103,6 +103,9 @@
         showResult() {
             this.isSubmited = true;
         }
+        resetAllSelection() {
+            this.isSubmited = false;
+        }
     }
 
     angular.module('authCellApp')

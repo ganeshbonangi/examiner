@@ -1,8 +1,14 @@
 'use strict';
 
 class authoringToolCtrl {
-  constructor($http) {
+  constructor($http, $window, $scope) {
     this.message = 'Hello';
+    this.toolBarFeatures = [
+        ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
+        ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
+        ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
+        ['html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
+    ];
     this.currentQuestion = {
     	questionInstruction:'',
     	questionInfo:'<p>Qinfo</p>',
@@ -14,7 +20,18 @@ class authoringToolCtrl {
     };
     this.questionTitle= 'Question ';
     this.currentQuestionIndex = this.currentQuestion.question.length-1;
-    this.$http = $http;
+    angular.extend(this,{$window, $http, $scope});
+    var _this = this;
+    let header = document.getElementById("statictoolbar");
+    let sticky = header.offsetTop;
+    angular.element(this.$window).bind("scroll", function() {
+      if (this.pageYOffset >= sticky) {
+        _this.boolChangeClass = true;
+      } else {
+        _this.boolChangeClass = false;
+      }
+      _this.$scope.$apply();
+    });
   }
   setSelectedQuestion(index){
   	this.currentQuestionIndex = index;

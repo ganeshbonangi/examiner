@@ -8,27 +8,40 @@
             <div>
             </div>
         </div>
-        <div id="questionContainer">
-            Enter question information(or Hint text for ans)
+<!--         <div id="questionContainer">
+            Enter question information(This is for passages)
             <div text-angular ng-model="at.currentQuestion.questionInfo" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
             <br />
             <div>
             </div>
+        </div> -->
+        <div>
+        <uib-accordion close-others="true">
+            <uib-accordion-group is-open="status.isCustomHeaderOpen" ng-repeat="question in at.currentQuestion.question">
+            <div class="question-block">
+              <uib-accordion-heading ng-class="at.currentSection?'bg-success':'bg-danger'">
+                {{at.questionTitle}} {{$index+1}}:
+                <span class="pull-right action-panel">
+                    <i class="fa fa-pencil" ng-click="at.editQuestion($event)" aria-hidden="true"></i>
+                    <i class="fa fa-floppy-o" ng-click="at.saveQuestion($event, $index)" aria-hidden="true"></i>
+                    <i class="fa fa-trash" ng-click="at.deleteQuestion($event)" aria-hidden="true"></i>
+                    <i class="glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}" ></i>
+                </span>
+              </uib-accordion-heading>
+              <mcmq-auth question="question"> </mcmq-auth> 
+              <div class="loader-layer" ng-show="at.loader[$index]">
+              </div>
+              <i class="fa fa-spinner fa-spin" ng-show="at.loader[$index]" ></i>
+            </div>
+            </uib-accordion-group>
+        </uib-accordion>
+        <div class="add-question">
+            <i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>    
+        </div>
         </div>
         <div>
-            <uib-tabset>
-                <uib-tab select="at.setSelectedQuestion($index)" ng-repeat="question in at.currentQuestion.question" heading="{{at.questionTitle}} {{$index+1}}">
-                    <!-- <fibt-auth></fibt-auth> -->
-                    <mcmq-auth question="question"> </mcmq-auth>
-                </uib-tab>
-                <!-- <i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>
-                <i class="fa fa-trash pull-right" ng-click="at.deleteQuestion()" aria-hidden="true"></i> -->
-            </uib-tabset>
+            {{at.requestJSON}}
         </div>
-        <pre ng-class="at.currentSection?'bg-success':'bg-danger'">
-		        <b>Select the option</b>
-		        <label ng-repeat="sectionname in at.sections"><input type="radio" ng-change="at.sectionChanger()" name="4" ng-value="sectionname" ng-model="at.$parent.currentSection"/>{{sectionname}} </label>
-		</pre>
-        <button class="btn btn-success pull-right" ng-click="at.sendData()">Save Question</button>
+        <div style="height:40px;"></div>
     </div>
 </div>

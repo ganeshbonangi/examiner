@@ -9,9 +9,10 @@ class authoringToolCtrl {
         ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
         ['html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
     ];
+    this.loader = [];
     this.currentQuestion = {
-    	questionInstruction:'',
-    	questionInfo:'<p>Qinfo</p>',
+    	questionInstruction:'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.',
+    	questionInfo:'',
     	question:[{
     		opctions:[{},{},{},{}]
     	}/*,{// for second question
@@ -23,7 +24,7 @@ class authoringToolCtrl {
     angular.extend(this,{$window, $http, $scope});
     var _this = this;
     let header = document.getElementById("statictoolbar");
-    let sticky = header.offsetTop;
+    let sticky = header.offsetTop-15;
     angular.element(this.$window).bind("scroll", function() {
       if (this.pageYOffset >= sticky) {
         _this.boolChangeClass = true;
@@ -33,27 +34,32 @@ class authoringToolCtrl {
       _this.$scope.$apply();
     });
   }
-  setSelectedQuestion(index){
-  	this.currentQuestionIndex = index;
+  editQuestion($event, $index){
+    $event.stopPropagation();
+    $event.preventDefault();
+  }
+  saveQuestion($event, $index){
+    $event.stopPropagation();
+    $event.preventDefault();
+    this.loader[$index] = true;
+    this.requestJSON = JSON.stringify(this.currentQuestion, null, 4);
+    let _this = this;
+     this.$http.post('/api/questions',this.currentQuestion).success(function(data){
+       console.log(data);
+       _this.loader[$index] = false;
+     });
   }
   addQuestion(){
-  	if(this.currentQuestion.question.length<5){
-  	  	this.currentQuestion.question.push({
-  									    		disabled:false,
-  									    		active:true
-  									    	});
-  	    this.currentQuestionIndex = this.currentQuestion.question.length-1;
-  	}
-  }
-  sendData(){
-
-    this.$http.post('/api/questions',this.currentQuestion).success(function(data){
-      console.log(data);
+  	this.currentQuestion.question.push({
+      opctions:[{},{},{},{}]
     });
   }
-  deleteQuestion(){
-  	this.currentQuestion.question.splice(this.currentQuestionIndex,1);
-  	this.currentQuestionIndex--;
+  deleteQuestion($event, $index){
+    $event.stopPropagation();
+    $event.preventDefault();
+    if(this.currentQuestion.question.length>1){
+        this.currentQuestion.question.splice($index, 1);
+    }
   }
 }
 

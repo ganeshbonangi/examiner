@@ -1,10 +1,17 @@
 <div >
+        <div class="instructiontext">
+            Enter question instruction
+            <div text-angular ng-model="mcmqAuthCtrl.question.questionInstruction" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
+            <br />
+            <div>
+            </div>
+        </div>
 		<p>Question Text</p>
 	    <div text-angular ng-model="mcmqAuthCtrl.question.questionMarkup" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
 	      <p>Options</p>
 	      <!--button ng-click="removeOption($index)" class="btn btn-danger pull-right">delete options</button> 
 	      <button ng-click="addOption($index)" class="btn btn-success pull-right">add options</button-->
-	      <div ng-repeat="option in mcmqAuthCtrl.question.opctions" class="table-row">
+	      <div ng-repeat="option in mcmqAuthCtrl.question.options" class="table-row">
 	      	<span class="table-input">
 	      		<input type='radio' name="a" ng-change="mcmqAuthCtrl.answerChanged($index)" ng-model="mcmqAuthCtrl.isAns" ng-value="$index" />
 	      	</span>

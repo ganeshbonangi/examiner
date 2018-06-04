@@ -3,6 +3,8 @@
 class authoringToolCtrl {
   constructor($http, $window, $scope) {
     this.message = 'Hello';
+    this.cat = 'testing';
+    this.questionType = 'MCSS';
     this.toolBarFeatures = [
         ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
         ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
@@ -10,17 +12,24 @@ class authoringToolCtrl {
         ['html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
     ];
     this.loader = [];
-    this.currentQuestion = {
-    	questionInstruction:'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.',
-    	questionInfo:'',
-    	question:[{
-    		opctions:[{},{},{},{}]
-    	}/*,{// for second question
-    		opctions:[{},{},{},{}]
-    	}*/]
-    };
+    this.isInValid = [];
+    this.emptyQuestion =   {
+        questionInstruction:'',
+        questionInfo:'',
+        questionMarkup: '', 
+        explainaiton:'',
+        options:[{
+          content:''
+        },{
+          content:''
+        },{
+          content:''
+        },{
+          content:''
+        }]
+      };
+    this.questions = [];
     this.questionTitle= 'Question ';
-    this.currentQuestionIndex = this.currentQuestion.question.length-1;
     angular.extend(this,{$window, $http, $scope});
     var _this = this;
     let header = document.getElementById("statictoolbar");
@@ -34,6 +43,9 @@ class authoringToolCtrl {
       _this.$scope.$apply();
     });
   }
+  getEmptyQuestion(){
+    return angular.copy(this.emptyQuestion);
+  }
   editQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
@@ -41,24 +53,49 @@ class authoringToolCtrl {
   saveQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
-    this.loader[$index] = true;
-    this.requestJSON = JSON.stringify(this.currentQuestion, null, 4);
-    let _this = this;
-     this.$http.post('/api/questions',this.currentQuestion).success(function(data){
-       console.log(data);
-       _this.loader[$index] = false;
-     });
+    this.questions[$index].category = this.cat;
+    this.questions[$index].questionType = this.questionType;
+    if(this.isValidQuestion($index)){
+      this.loader[$index] = true;
+      this.isInValid[$index] = false;
+      let _this = this;
+      this.$http.post('/api/questions',this.questions[$index]).success(function(data){
+        console.log(data);
+        _this.loader[$index] = false;
+      });
+    }else{
+      this.isInValid[$index] = true;
+    }
+    this.requestJSON = JSON.stringify(this.questions[$index], null, 4);
+
+  }
+  isValidQuestion($index){
+    return (this.questions[$index].questionMarkup&&this.checkOptionsMarkup($index));
+  }
+  checkOptionsMarkup($index){
+    let options = this.questions[$index].options;
+    let ans = false;
+    for(let i=0;i<options.length;i++){
+      if(!options[i].content.trim()){
+        return false;
+      }else if(options[i].isAns){
+        ans=true;
+      }
+    }
+    if(ans){
+      return true;
+    }else{
+      return false;
+    }
   }
   addQuestion(){
-  	this.currentQuestion.question.push({
-      opctions:[{},{},{},{}]
-    });
+  	this.questions.push(this.getEmptyQuestion());
   }
   deleteQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
-    if(this.currentQuestion.question.length>1){
-        this.currentQuestion.question.splice($index, 1);
+    if(this.questions.length>1){
+        this.questions.splice($index, 1);
     }
   }
 }

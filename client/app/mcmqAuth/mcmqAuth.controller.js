@@ -2,14 +2,14 @@
 (function() {
 	class mcmqAuthComponent {
         constructor() {
-            
+            this.question.questionInstruction = 'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.';
         }
         answerChanged(index){
-        	for(var i=0;i<this.question.opctions.length;i++){
+        	for(var i=0;i<this.question.options.length;i++){
         		if(index==i){
-        			this.question.opctions[i].isAns = true;
+        			this.question.options[i].isAns = true;
         		}else{
-        			this.question.opctions[i].isAns = false;
+        			this.question.options[i].isAns = false;
         		}
         	}
         }

@@ -1,43 +1,44 @@
 <div>
     <div text-angular-toolbar ta-toolbar="at.toolBarFeatures" name="statictoolbar" class="statictoolbar" id="statictoolbar" ng-class="{'sticky':at.boolChangeClass}"></div>
     <div class="auther-tmp-container">
-        <div class="instructiontext">
-            Enter question instruction
-            <div text-angular ng-model="at.currentQuestion.questionInstruction" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
-            <br />
-            <div>
-            </div>
+        <div>
+            <select ng-model="at.cat">
+                <option value="testing" selected>testing-telugu</option>
+                <option value="arthematics-TEL">Arthematics-telugu</option>
+            </select>
+            <button class="btn btn-primary btn-xs"> get </button>
         </div>
-<!--         <div id="questionContainer">
+        <!--div id="questionContainer">
             Enter question information(This is for passages)
-            <div text-angular ng-model="at.currentQuestion.questionInfo" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
+            <div text-angular ng-model="at.questions.questionInfo" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
             <br />
             <div>
             </div>
         </div> -->
         <div>
-        <uib-accordion close-others="true">
-            <uib-accordion-group is-open="status.isCustomHeaderOpen" ng-repeat="question in at.currentQuestion.question">
-            <div class="question-block">
-              <uib-accordion-heading ng-class="at.currentSection?'bg-success':'bg-danger'">
-                {{at.questionTitle}} {{$index+1}}:
-                <span class="pull-right action-panel">
-                    <i class="fa fa-pencil" ng-click="at.editQuestion($event)" aria-hidden="true"></i>
-                    <i class="fa fa-floppy-o" ng-click="at.saveQuestion($event, $index)" aria-hidden="true"></i>
-                    <i class="fa fa-trash" ng-click="at.deleteQuestion($event)" aria-hidden="true"></i>
-                    <i class="glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}" ></i>
-                </span>
-              </uib-accordion-heading>
-              <mcmq-auth question="question"> </mcmq-auth> 
-              <div class="loader-layer" ng-show="at.loader[$index]">
-              </div>
-              <i class="fa fa-spinner fa-spin" ng-show="at.loader[$index]" ></i>
+            <uib-accordion close-others="true">
+                <uib-accordion-group is-open="status.isCustomHeaderOpen" ng-repeat="question in at.questions">
+                <div class="question-block">
+                  <uib-accordion-heading ng-class="at.isInValid[$index]?'bg-danger':'bg-success'">
+                    {{at.questionTitle}} {{$index+1}}:
+                    <span class="pull-right action-panel">
+                        <i class="fa fa-pencil" ng-click="at.editQuestion($event)" aria-hidden="true"></i>
+                        <i class="fa fa-floppy-o" ng-click="at.saveQuestion($event, $index)" aria-hidden="true"></i>
+                        <i class="fa fa-trash" ng-click="at.deleteQuestion($event)" aria-hidden="true"></i>
+                        <i class="glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}" ></i>
+                    </span>
+                  </uib-accordion-heading>
+                  <uib-alert type="danger" ng-show="at.isInValid[$index]"><strong>Warning!</strong> Invalid Question to save.</uib-alert>
+                  <mcmq-auth question="question"> </mcmq-auth> 
+                  <div class="loader-layer" ng-show="at.loader[$index]">
+                  </div>
+                  <i class="fa fa-spinner fa-spin" ng-show="at.loader[$index]" ></i>
+                </div>
+                </uib-accordion-group>
+            </uib-accordion>
+            <div class="add-question">
+                <i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>    
             </div>
-            </uib-accordion-group>
-        </uib-accordion>
-        <div class="add-question">
-            <i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>    
-        </div>
         </div>
         <div>
             {{at.requestJSON}}

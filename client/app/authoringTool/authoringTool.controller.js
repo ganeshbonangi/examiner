@@ -46,6 +46,12 @@ class authoringToolCtrl {
   getEmptyQuestion(){
     return angular.copy(this.emptyQuestion);
   }
+  getQuestion(){
+    let _this = this;
+    this.$http.get('/api/questions/getCategory/'+this.cat).success(function(data){
+      _this.questions = data;
+    });
+  }
   editQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();

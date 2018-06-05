@@ -75,6 +75,13 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single Question from the DB
+export function getCategory(req, res) {
+  return Question.find({'category':req.params.category}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
 // Creates a new Question in the DB
 export function create(req, res) {
   return Question.create(req.body)

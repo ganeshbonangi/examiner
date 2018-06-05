@@ -37,34 +37,34 @@ Counter.find({}).remove()
         });
     });
 
-Thing.find({}).remove()
-    .then(() => {
-        Thing.create({
-            name: 'Development Tools',
-            admin: 11,
-            students: [1, 2, 3, 4]
-        }, {
-            name: 'Server and Client integration',
-            admin: 12,
-            students: [1, 2, 3, 4, 5]
-        }, {
-            name: 'Smart Build System',
-            admin: 11,
-            students: [1, 2, 3, 4, 5]
-        }, {
-            name: 'Modular Structure',
-            admin: 11,
-            students: [1, 2, 3, 4, 5]
-        }, {
-            name: 'Optimized Build',
-            admin: 13,
-            students: [1, 2, 3, 4, 5]
-        }, {
-            name: 'Deployment Ready',
-            admin: 31,
-            students: [1, 2, 3, 4, 5]
-        });
-    });
+// Thing.find({}).remove()
+//     .then(() => {
+//         Thing.create({
+//             name: 'Development Tools',
+//             admin: 11,
+//             students: [1, 2, 3, 4]
+//         }, {
+//             name: 'Server and Client integration',
+//             admin: 12,
+//             students: [1, 2, 3, 4, 5]
+//         }, {
+//             name: 'Smart Build System',
+//             admin: 11,
+//             students: [1, 2, 3, 4, 5]
+//         }, {
+//             name: 'Modular Structure',
+//             admin: 11,
+//             students: [1, 2, 3, 4, 5]
+//         }, {
+//             name: 'Optimized Build',
+//             admin: 13,
+//             students: [1, 2, 3, 4, 5]
+//         }, {
+//             name: 'Deployment Ready',
+//             admin: 31,
+//             students: [1, 2, 3, 4, 5]
+//         });
+//     });
 Questions.find({}).remove()
     .then(() => {
         Questions.create({

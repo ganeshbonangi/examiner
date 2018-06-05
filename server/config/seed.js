@@ -72,29 +72,22 @@ Questions.find({}).remove()
             information: 'information text',
             instruction: 'information text',
             questiontext: 'what is your question?',
+            explainaiton: 'explainaiton text',
+            category: 'category text',
             type: 'mcms',
-            options: [1,2,3,4,5]
-        }, {
-            id: counterController.getNextSequence('question'),
-            information: 'info text',
-            instruction: 'String',
-            questiontext: 'String',
-            type: 'mcss',
-            options: [2,3,4]
-        }, {
-            id: counterController.getNextSequence('question'),
-            information: 'String',
-            instruction: 'String',
-            questiontext: 'String',
-            type: 'fibd',
-            options: [4,5,6,7]
-        }, {
-            id: 33,
-            information: 'String',
-            instruction: 'String',
-            questiontext: 'String',
-            type: 'fibt',
-            options: [7,8,9]
+            options: [{
+                content:'content',
+                isAns:false
+            },{
+                content:'content',
+                isAns:true
+            },{
+                content:'content',
+                isAns:false
+            },{
+                content:'content',
+                isAns:false
+            }]
         });
     });
 ClassRoom.find({}).remove()

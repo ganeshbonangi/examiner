@@ -2,7 +2,7 @@
 (function() {
 	class mcmqAuthComponent {
         constructor() {
-            this.question.questionInstruction = 'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.';
+            this.question.instruction = 'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.';
         }
         answerChanged(index){
         	for(var i=0;i<this.question.options.length;i++){

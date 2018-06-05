@@ -4,7 +4,7 @@ class authoringToolCtrl {
   constructor($http, $window, $scope) {
     this.message = 'Hello';
     this.cat = 'testing';
-    this.questionType = 'MCSS';
+    this.type = 'MCSS';
     this.toolBarFeatures = [
         ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
         ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
@@ -14,18 +14,18 @@ class authoringToolCtrl {
     this.loader = [];
     this.isInValid = [];
     this.emptyQuestion =   {
-        questionInstruction:'',
-        questionInfo:'',
-        questionMarkup: '', 
-        explainaiton:'',
+        instruction:'fg',
+        information:'ds',
+        questiontext: 'dsf', 
+        explainaiton:'df',
         options:[{
-          content:''
+          content:'1'
         },{
-          content:''
+          content:'2'
         },{
-          content:''
+          content:'3'
         },{
-          content:''
+          content:'4'
         }]
       };
     this.questions = [];
@@ -54,15 +54,22 @@ class authoringToolCtrl {
     $event.stopPropagation();
     $event.preventDefault();
     this.questions[$index].category = this.cat;
-    this.questions[$index].questionType = this.questionType;
+    this.questions[$index].type = this.type;
     if(this.isValidQuestion($index)){
       this.loader[$index] = true;
       this.isInValid[$index] = false;
       let _this = this;
-      this.$http.post('/api/questions',this.questions[$index]).success(function(data){
-        console.log(data);
-        _this.loader[$index] = false;
-      });
+      if(this.questions[$index]._id){
+        this.$http.put('/api/questions/'+this.questions[$index]._id,this.questions[$index]).success(function(data){
+          _this.loader[$index] = false;
+        });
+      }else{
+        this.$http.post('/api/questions',this.questions[$index]).success(function(data){
+          _this.questions[$index]._id = data._id;
+          _this.loader[$index] = false;
+        }); 
+      }
+
     }else{
       this.isInValid[$index] = true;
     }
@@ -70,7 +77,7 @@ class authoringToolCtrl {
 
   }
   isValidQuestion($index){
-    return (this.questions[$index].questionMarkup&&this.checkOptionsMarkup($index));
+    return (this.questions[$index].questiontext&&this.checkOptionsMarkup($index));
   }
   checkOptionsMarkup($index){
     let options = this.questions[$index].options;

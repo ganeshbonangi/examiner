@@ -8,7 +8,12 @@ var QuestionSchema = new mongoose.Schema({
   instruction: String,
   questiontext: String,
   type: String,
-  options: [Number]
+  explainaiton: String,
+  category: String,
+  options: [{
+  	content:String,
+    isAns:Boolean
+  }]
 });
 
 export default mongoose.model('Question', QuestionSchema);

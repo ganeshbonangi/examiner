@@ -10,7 +10,7 @@
         </div>
         <!--div id="questionContainer">
             Enter question information(This is for passages)
-            <div text-angular ng-model="at.questions.questionInfo" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
+            <div text-angular ng-model="at.questions.information" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
             <br />
             <div>
             </div>
@@ -21,6 +21,8 @@
                 <div class="question-block">
                   <uib-accordion-heading ng-class="at.isInValid[$index]?'bg-danger':'bg-success'">
                     {{at.questionTitle}} {{$index+1}}:
+                    <!--span ng-bind-html="question.questiontext">
+                    </span-->
                     <span class="pull-right action-panel">
                         <i class="fa fa-pencil" ng-click="at.editQuestion($event)" aria-hidden="true"></i>
                         <i class="fa fa-floppy-o" ng-click="at.saveQuestion($event, $index)" aria-hidden="true"></i>

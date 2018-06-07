@@ -14,22 +14,22 @@ class authoringToolCtrl {
     this.loader = [];
     this.isInValid = [];
     this.emptyQuestion =   {
-        instruction:'fg',
-        information:'ds',
-        questiontext: 'dsf', 
-        explainaiton:'df',
+        instruction:'',
+        information:'',
+        questiontext: '', 
+        explainaiton:'',
         options:[{
-          content:'1'
+          content:''
         },{
-          content:'2'
+          content:''
         },{
-          content:'3'
+          content:''
         },{
-          content:'4'
+          content:''
         }]
       };
     this.questions = [];
-    this.questionTitle= 'Question ';
+    this.questionTitle= 'Q ';
     angular.extend(this,{$window, $http, $scope});
     var _this = this;
     let header = document.getElementById("statictoolbar");
@@ -79,8 +79,6 @@ class authoringToolCtrl {
     }else{
       this.isInValid[$index] = true;
     }
-    this.requestJSON = JSON.stringify(this.questions[$index], null, 4);
-
   }
   isValidQuestion($index){
     return (this.questions[$index].questiontext&&this.checkOptionsMarkup($index));

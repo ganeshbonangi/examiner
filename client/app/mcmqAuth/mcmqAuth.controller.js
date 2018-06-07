@@ -13,12 +13,19 @@
         		}
         	}
         }
+        $onInit(){
+        	for(let i=0;i<this.question.options.length;i++){
+        		if(this.question.options[i].isAns){
+        			this.isAns = i+'';
+        		}
+        	}
+        }
     }
     angular.module('authCellApp')
         .component('mcmqAuth', {
             templateUrl: 'app/mcmqAuth/mcmqAuth.html',
             controller: mcmqAuthComponent,
             controllerAs: 'mcmqAuthCtrl',
-            bindings: {question: '='}
+            bindings: {question: '=',isAns: '<'}
         });
 })();

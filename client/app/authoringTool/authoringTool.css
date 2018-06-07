@@ -51,3 +51,13 @@
   color:red;
   position: absolute;
 }
+.inline-block,.inline-block *{
+  display: inline-block;
+   margin-bottom: 0px;
+}
+.inline-block{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 700px;
+}

@@ -13,7 +13,7 @@
 	      <button ng-click="addOption($index)" class="btn btn-success pull-right">add options</button-->
 	      <div ng-repeat="option in mcmqAuthCtrl.question.options" class="table-row">
 	      	<span class="table-input">
-	      		<input type='radio' name="a" ng-change="mcmqAuthCtrl.answerChanged($index)" ng-model="mcmqAuthCtrl.isAns" ng-value="$index" />
+	      		<input type='radio' name="{{$parent.$index}}" ng-change="mcmqAuthCtrl.answerChanged($index)" ng-model="mcmqAuthCtrl.isAns" ng-value="$index" />
 	      	</span>
 	      	<div  text-angular class="radiooption" ng-model="option.content" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div>
 	      </div>

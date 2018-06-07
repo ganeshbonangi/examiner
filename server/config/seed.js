@@ -268,36 +268,18 @@ Thing.find({}).remove()
 User.find({}).remove()
     .then(() => {
         User.create({
-                id: 123,
-                provider: 'local',
-                name: 'Test User',
-                email: 'test@example.com',
-                password: 'test'
-            }, {
                 id: 124,
                 provider: 'local',
                 role: 'admin',
-                name: 'Admin',
-                email: 'admin@example.com',
-                password: 'admin'
+                name: 'Ganesh',
+                email: 'ganesh@exambuds.com',
+                password: 'ganesh'
             }, {
-                id: 125,
                 provider: 'local',
-                name: 'Admire',
-                email: 'admin@example.com',
-                password: 'admin'
-            },{
-                id: 126,
-                provider: 'local',
-                name: 'Test User1',
-                email: 'test1@example.com',
-                password: 'test1'
-            },{
-                id: 127,
-                provider: 'local',
-                name: 'Test User2',
-                email: 'test2@example.com',
-                password: 'test2'
+                role: 'admin',
+                name: 'Satesh',
+                email: 'satesh@exambuds.com',
+                password: 'satesh'
             })
             .then(() => {
                 console.log('finished populating users');

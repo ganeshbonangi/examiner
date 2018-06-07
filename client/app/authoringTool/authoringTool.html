@@ -4,7 +4,10 @@
         <div>
             <select ng-model="at.cat">
                 <option value="testing" selected>testing-telugu</option>
-                <option value="arthematics-TEL">Arthematics-telugu</option>
+                <option value="averages-TEL">సరాసరి</option>
+                <option value="calender-TEL">క్యాలెండర్</option>
+                <option value="clocks-TEL">గడియారాలు</option>
+                <option value="interests-TEL">బారువడ్డీ-చక్రవడ్డీ</option>
             </select>
             <button class="btn btn-primary btn-xs" ng-click="at.getQuestion()"> get </button>
         </div>
@@ -16,13 +19,12 @@
             </div>
         </div> -->
         <div>
-            <uib-accordion close-others="true">
+            <uib-accordion close-others="false">
                 <uib-accordion-group is-open="status.isCustomHeaderOpen" ng-repeat="question in at.questions">
                 <div class="question-block">
                   <uib-accordion-heading ng-class="at.isInValid[$index]?'bg-danger':'bg-success'">
                     {{at.questionTitle}} {{$index+1}}:
-                    <!--span ng-bind-html="question.questiontext">
-                    </span-->
+                    <p class="inline-block" ng-bind-html="question.questiontext"></p>
                     <span class="pull-right action-panel">
                         <i class="fa fa-pencil" ng-click="at.editQuestion($event)" aria-hidden="true"></i>
                         <i class="fa fa-floppy-o" ng-click="at.saveQuestion($event, $index)" aria-hidden="true"></i>
@@ -31,7 +33,7 @@
                     </span>
                   </uib-accordion-heading>
                   <uib-alert type="danger" ng-show="at.isInValid[$index]"><strong>Warning!</strong> Invalid Question to save.</uib-alert>
-                  <mcmq-auth question="question"> </mcmq-auth> 
+                  <mcmq-auth question="question" is-ans="isAns"> </mcmq-auth> 
                   <div class="loader-layer" ng-show="at.loader[$index]">
                   </div>
                   <i class="fa fa-spinner fa-spin" ng-show="at.loader[$index]" ></i>
@@ -41,9 +43,6 @@
             <div class="add-question">
                 <i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>    
             </div>
-        </div>
-        <div>
-            {{at.requestJSON}}
         </div>
         <div style="height:40px;"></div>
     </div>

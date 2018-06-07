@@ -3,7 +3,7 @@
 class authoringToolCtrl {
   constructor($http, $window, $scope) {
     this.message = 'Hello';
-    this.cat = 'testing';
+    this.cat = '';
     this.type = 'MCSS';
     this.toolBarFeatures = [
         ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
@@ -48,22 +48,26 @@ class authoringToolCtrl {
   }
   getQuestion(){
     let _this = this;
-    this.$http.get('/api/questions/getCategory/'+this.cat).success(function(data){
-      _this.questions = data;
-    });
+    if(this.cat){
+        this.$http.get('/api/questions/getCategory/'+this.cat).success(function(data){
+          _this.questions = data;
+        });
+    }else{
+      this.showCatErrMessage = true;
+    }
   }
-  editQuestion($event, $index){
+  editQuestion($event){
     $event.stopPropagation();
     $event.preventDefault();
   }
   saveQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
-    this.questions[$index].category = this.cat;
     this.questions[$index].type = this.type;
     if(this.isValidQuestion($index)){
       this.loader[$index] = true;
       this.isInValid[$index] = false;
+      this.questions[$index].category = this.cat;
       let _this = this;
       if(this.questions[$index]._id){
         this.$http.put('/api/questions/'+this.questions[$index]._id,this.questions[$index]).success(function(data){
@@ -81,7 +85,10 @@ class authoringToolCtrl {
     }
   }
   isValidQuestion($index){
-    return (this.questions[$index].questiontext&&this.checkOptionsMarkup($index));
+    if(!this.cat){
+      this.showCatErrMessage = true;
+    }
+    return (this.cat&&this.questions[$index].questiontext&&this.checkOptionsMarkup($index));
   }
   checkOptionsMarkup($index){
     let options = this.questions[$index].options;

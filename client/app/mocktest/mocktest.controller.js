@@ -2,8 +2,8 @@
 
 (function() {
     class mocktestComponent {
-        constructor($http) {
-            this.$http = $http;
+        constructor($http, $stateParams) {
+            angular.extend(this,{$http,$stateParams})
             this.isSubmited = false;
             this.mocktest = {
                 title: 'SBI PO online exam',
@@ -80,8 +80,9 @@
                 duration: new Date().getTime()
             };
             this.currentQuestion = 0;
-            $http.get('/api/exams/1', function(response) {
-                console.log(response);
+            let _this = this;
+            $http.get('/api/questions/getCategory/'+this.$stateParams.mocktestId).success(function(data){
+              _this.mocktest.questions = data;
             });
         }
         getQuestoin(index, questionId) {

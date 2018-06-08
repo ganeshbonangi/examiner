@@ -1,0 +1,12 @@
+.table-cell{
+	display: table-cell;
+}
+input.radio-margin-right{
+	margin-right: 10px;
+}
+.tick-padding-left{
+	padding-left: 10px;
+}
+.table-row{
+	display: table-row;
+}

@@ -3,8 +3,9 @@
 (function() {
 
     class ExamcenterComponent {
-        constructor($http) {
+        constructor($http, $stateParams) {
             this.$http = $http;
+            console.log($stateParams.examId)
             this.exam = {
                 title: 'SBI PO online exam',
                 questions: [{

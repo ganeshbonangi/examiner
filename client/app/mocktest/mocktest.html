@@ -1,11 +1,11 @@
 <div class="container">
     <div ng-repeat="question in mocktestCtrl.mocktest.questions">
-        <fib-dropdown-preview ng-if="question.questionType=='fibd'"></fib-dropdown-preview>
-        <fib-text-preview ng-if="question.questionType=='fibt'"></fib-text-preview>
-        <mcss-preview ng-if="question.questionType=='mcss'" question="question" is-submited="mocktestCtrl.isSubmited"></mcss-preview>
-        <mcms-preview question="question" ng-if="question.questionType=='mcms'">
+        <fib-dropdown-preview ng-if="question.type=='fibd'"></fib-dropdown-preview>
+        <fib-text-preview ng-if="question.type=='fibt'"></fib-text-preview>
+        <mcss-preview ng-if="question.type=='MCSS'" question="question" is-submited="mocktestCtrl.isSubmited"></mcss-preview>
+        <mcms-preview question="question" ng-if="question.type=='mcms'">
         </mcms-preview>
-        <guidlines-preview ng-if="question.questionType=='guid'"></guidlines-preview>
+        <guidlines-preview ng-if="question.type=='guid'"></guidlines-preview>
     </div>
     <div class="text-center">
         <button class="btn btn-primary" ng-click="mocktestCtrl.showResult()">Submit</button>

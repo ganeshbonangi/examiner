@@ -65,31 +65,31 @@ Counter.find({}).remove()
 //             students: [1, 2, 3, 4, 5]
 //         });
 //     });
-Questions.find({}).remove()
-    .then(() => {
-        Questions.create({
-            id: counterController.getNextSequence('question'),
-            information: 'information text',
-            instruction: 'information text',
-            questiontext: 'what is your question?',
-            explainaiton: 'explainaiton text',
-            category: 'category text',
-            type: 'mcms',
-            options: [{
-                content:'content',
-                isAns:false
-            },{
-                content:'content',
-                isAns:true
-            },{
-                content:'content',
-                isAns:false
-            },{
-                content:'content',
-                isAns:false
-            }]
-        });
-    });
+// Questions.find({}).remove()
+//     .then(() => {
+//         Questions.create({
+//             id: counterController.getNextSequence('question'),
+//             information: 'information text',
+//             instruction: 'information text',
+//             questiontext: 'what is your question?',
+//             explainaiton: 'explainaiton text',
+//             category: 'category text',
+//             type: 'mcms',
+//             options: [{
+//                 content:'content',
+//                 isAns:false
+//             },{
+//                 content:'content',
+//                 isAns:true
+//             },{
+//                 content:'content',
+//                 isAns:false
+//             },{
+//                 content:'content',
+//                 isAns:false
+//             }]
+//         });
+//     });
 ClassRoom.find({}).remove()
     .then(() => {
         ClassRoom.create({

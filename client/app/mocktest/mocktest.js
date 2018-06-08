@@ -4,7 +4,7 @@ angular.module('authCellApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('mocktest', {
-        url: '/mocktest',
+        url: '/mocktest?mocktestId',
         template: '<mocktest></mocktest>'
       });
   });

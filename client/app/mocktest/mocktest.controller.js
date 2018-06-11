@@ -81,12 +81,15 @@
             };
             this.currentQuestion = 0;
             let _this = this;
+            this.showSpinner = true;
             $http.get('/api/questions/getCategory/'+this.$stateParams.mocktestId).success(function(data){
               _this.mocktest.questions = data;
+              _this.showSpinner = false;
             });
         }
         getQuestoin(index, questionId) {
             this.currentQuestion = index;
+
             this.$http.get('/api/questions/'+questionId,function(response){
                 console.log(response);
             });

@@ -6,7 +6,7 @@
         }
         answerChanged(index){
         	for(var i=0;i<this.question.options.length;i++){
-        		if(index==i){
+        		if(index===i){
         			this.question.options[i].isAns = true;
         		}else{
         			this.question.options[i].isAns = false;

@@ -32,9 +32,9 @@ class authoringToolCtrl {
     this.questionTitle= 'Q ';
     angular.extend(this,{$window, $http, $scope});
     var _this = this;
-    let header = document.getElementById("statictoolbar");
+    let header = document.getElementById('statictoolbar');
     let sticky = header.offsetTop-15;
-    angular.element(this.$window).bind("scroll", function() {
+    angular.element(this.$window).bind('scroll', function() {
       if (this.pageYOffset >= sticky) {
         _this.boolChangeClass = true;
       } else {
@@ -71,6 +71,7 @@ class authoringToolCtrl {
       let _this = this;
       if(this.questions[$index]._id){
         this.$http.put('/api/questions/'+this.questions[$index]._id,this.questions[$index]).success(function(data){
+          console.log(data);
           _this.loader[$index] = false;
         });
       }else{

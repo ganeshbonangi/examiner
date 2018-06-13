@@ -1,9 +1,7 @@
 'use strict';
-
-(function() {
     class mocktestComponent {
-        constructor($http, $stateParams) {
-            angular.extend(this,{$http,$stateParams})
+        constructor($http, $stateParams, $uibModal) {
+            angular.extend(this,{$http, $stateParams, $uibModal});
             this.isSubmited = false;
             this.mocktest = {
                 title: 'SBI PO online exam',
@@ -94,18 +92,26 @@
                 console.log(response);
             });
         }
-        showResult() {
-            if(this.exam.questions.length-1===this.currentQuestion){
-               // alert('No more questions!');
-            }else{
-                this.currentQuestion++;                
-            }
-        }
         resetCurrentQuestion() {
             this.exam.questions[this.currentQuestion].ans = '';
         }
         showResult() {
+            let _this = this;
             this.isSubmited = true;
+            this.$uibModal.open({
+                animation: true,
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'app/mocktest/result.modal.html',
+                controller: 'modalInstanceCtrl',
+                controllerAs: 'modalInstanceCtrl',
+                size: '',
+                resolve: {
+                    mocktest: function() {
+                        return _this.mocktest;
+                    }
+                }
+            });
         }
         resetAllSelection() {
             this.isSubmited = false;
@@ -118,5 +124,3 @@
             controller: mocktestComponent,
             controllerAs: 'mocktestCtrl'
         });
-
-})();

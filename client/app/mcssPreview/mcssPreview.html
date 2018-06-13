@@ -4,7 +4,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
         <div class="table-row">
-            <span  class="table-cell">{{$parent.$index+1}}. </span>
+            <span  class="table-cell question-num-space">{{$parent.$index+1}}) </span>
             <p ng-bind-html="question.questiontext"></p>
         </div>
             <div ng-repeat="option in question.options">

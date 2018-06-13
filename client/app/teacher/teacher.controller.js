@@ -65,6 +65,7 @@
             cr.disconnect = true;
             this.$http.put('/api/classrooms/'+cr._id,cr).then(response=>{
                 this.createdClasses.splice(index, 1);
+                console.log(response);
             });
         }
         addEditClass(size, cr) {
@@ -102,11 +103,3 @@
         });
 
 })();
-
-class ModalInstanceCtrl {
-    constructor() {
-
-    }
-}
-angular.module('authCellApp')
-    .controller('ModalInstanceCtrl', ModalInstanceCtrl);

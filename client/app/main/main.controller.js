@@ -4,9 +4,10 @@
 
   class MainController {
 
-    constructor($http, $scope) {
+    constructor($http) {
       this.$http = $http;
       this.awesomeThings = [];
+      this.isFirstOpen = true;
     }
 
     $onInit() {

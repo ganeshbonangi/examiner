@@ -9,8 +9,8 @@
     }
 
     delete(user) {
-      user.$remove();
-      this.users.splice(this.users.indexOf(user), 1);
+      //user.$remove();
+      //this.users.splice(this.users.indexOf(user), 1);
     }
   }
 

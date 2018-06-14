@@ -265,23 +265,23 @@ Option.find({}).remove()
 //         });
 //     });
    
-User.find({}).remove()
-    .then(() => {
-        User.create({
-                id: 124,
-                provider: 'local',
-                role: 'admin',
-                name: 'Ganesh',
-                email: 'ganesh@exambuds.com',
-                password: 'ganesh'
-            }, {
-                provider: 'local',
-                role: 'admin',
-                name: 'Satesh',
-                email: 'satesh@exambuds.com',
-                password: 'satesh'
-            })
-            .then(() => {
-                console.log('finished populating users');
-            });
-    });
+// User.find({}).remove()
+//     .then(() => {
+//         User.create({
+//                 id: 124,
+//                 provider: 'local',
+//                 role: 'admin',
+//                 name: 'Ganesh',
+//                 email: 'ganesh@exambuds.com',
+//                 password: 'ganesh'
+//             }, {
+//                 provider: 'local',
+//                 role: 'admin',
+//                 name: 'Satesh',
+//                 email: 'satesh@exambuds.com',
+//                 password: 'satesh'
+//             })
+//             .then(() => {
+//                 console.log('finished populating users');
+//             });
+//     });

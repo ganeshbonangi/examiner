@@ -25,7 +25,9 @@
                 <option value="samitilu-TEL">సమితిలు</option>
                 <option value="samvargamanalu-TEL">సంవర్గమానాలు</option> -->
             </select>
-            <button class="btn btn-primary btn-xs" ng-click="at.getQuestion()"> Get All Uploaded Question to Edit/Check </button>
+            <button class="btn btn-primary btn-xs" ng-click="at.getQuestion()">Get Questions</button>
+            <a class="btn btn-default btn-xs" target="_blank" href="/mocktest?mocktestId={{at.cat}}">Preview <i class="fa fa-eye" aria-hidden="true"></i></a>
+            
             <uib-alert type="danger" ng-show="at.showCatErrMessage"><strong>Warning!</strong> Please Select Chapter First.</uib-alert>
         </div>
         <!--div id="questionContainer">
@@ -64,8 +66,11 @@
                 </uib-accordion-group>
             </uib-accordion>
             <div class="add-question">
-                <i class="fa fa-plus-circle  pull-right" aria-hidden="true" ng-click="at.addQuestion()"></i>    
+                <button class="btn btn-default btn-xs" ng-click="at.addQuestion()">
+                    Add Question <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>   
             </div>
+
         </div>
         <div style="height:40px;"></div>
     </div>

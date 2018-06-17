@@ -9,7 +9,7 @@ class authoringToolCtrl {
         ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
         ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
         ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
-        ['html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
+        ['html', 'insertImage', 'insertLink', 'insertVideo','speach']
     ];
     this.loader = [];
     this.isInValid = [];

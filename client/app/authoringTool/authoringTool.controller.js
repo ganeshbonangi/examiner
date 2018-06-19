@@ -63,6 +63,9 @@ class authoringToolCtrl {
   saveQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
+    if(this.loader[$index]){
+      return false;
+    }
     this.questions[$index].type = this.type;
     if(this.isValidQuestion($index)){
       this.loader[$index] = true;
@@ -71,7 +74,6 @@ class authoringToolCtrl {
       let _this = this;
       if(this.questions[$index]._id){
         this.$http.put('/api/questions/'+this.questions[$index]._id,this.questions[$index]).success(function(data){
-          console.log(data);
           _this.loader[$index] = false;
         });
       }else{

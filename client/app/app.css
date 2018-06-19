@@ -116,3 +116,11 @@ Timer style
 .margin-left{
   margin-left: 15px;
 }
+.ta-insert-video{
+  padding: 5px;
+  border: 1px solid silver;
+  border-radius: 5px;
+  -moz-box-shadow: inset 0 0 10px silver;
+  -webkit-box-shadow: inset 0 0 10px silver;
+  box-shadow: inset 0 0 10px silver;
+}

@@ -1,12 +1,12 @@
 <div>
-    <div ta-bind ng-model="question.instruction" class="alert alert-info"> </div>
+    <div ng-hide="$parent.mocktestCtrl.mocktest.questions[$parent.$index-1].type === question.type" ta-bind ng-model="question.instruction" class="alert alert-info"> </div>
     <div ta-bind ng-model="question.information"> </div>
     <div class="panel panel-default">
         <div class="panel-body">
-        <div class="table-row">
-            <span  class="table-cell question-num-space">{{$parent.$index+1}}) </span>
-            <p ta-bind ng-model="question.questiontext"></p>
-        </div>
+            <div class="table-row">
+                <span  class="table-cell question-num-space">{{$parent.$index+1}}) </span>
+                <p ta-bind ng-model="question.questiontext"></p>
+            </div>
             <div ng-repeat="option in question.options">
                 <label class="table-row">
                     <span class="table-cell">
@@ -19,6 +19,7 @@
                     </span>                    
                 </label>
             </div>
+            <div ta-bind ng-model="question.explainaiton"> </div>
         </div>
     </div>
 </div>

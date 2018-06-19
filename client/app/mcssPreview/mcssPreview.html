@@ -19,7 +19,10 @@
                     </span>                    
                 </label>
             </div>
-            <div ta-bind ng-model="question.explainaiton"> </div>
+            <div ng-show="isSubmited&&question.explainaiton">
+                <h5>Explaination:</h5>
+                <div  ta-bind ng-model="question.explainaiton"> </div>
+            </div>
         </div>
     </div>
 </div>

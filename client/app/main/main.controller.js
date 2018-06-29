@@ -35,6 +35,7 @@
   angular.module('authCellApp')
     .component('main', {
       templateUrl: 'app/main/main.html',
-      controller: MainController
+      controller: MainController,
+      controllerAs:'mc'
     });
 })();

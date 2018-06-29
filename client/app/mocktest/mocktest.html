@@ -7,11 +7,12 @@
         </mcms-preview>
         <guidlines-preview ng-if="question.type=='guid'"></guidlines-preview>
     </div>
-    <div class="text-center">
+    <div class="text-center" ng-show="mocktestCtrl.mocktest.questions.length">
         <button class="btn btn-primary" ng-click="mocktestCtrl.showResult()">Submit</button>
         <button class="btn btn-default" ng-click="mocktestCtrl.resetAllSelection()">Reset</button>
     </div>
-    <div class="loader-layer" ng-show="mocktestCtrl.showSpinner">
-                  </div>
+    <div class="loader-layer" ng-show="mocktestCtrl.showSpinner||!mocktestCtrl.mocktest.questions.length">
+        <h3 class="coming-soon" ng-hide="mocktestCtrl.mocktest.questions.length">Coming Soon...</h3>
+    </div>
     <i class="fa fa-spinner fa-spin" ng-show="mocktestCtrl.showSpinner" ></i>
 </div>

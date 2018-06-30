@@ -26,6 +26,6 @@
             templateUrl: 'app/mcmqAuth/mcmqAuth.html',
             controller: mcmqAuthComponent,
             controllerAs: 'mcmqAuthCtrl',
-            bindings: {question: '=',isAns: '<'}
+            bindings: {question: '=',isAns: '<', editModeOn:'='}
         });
 })();

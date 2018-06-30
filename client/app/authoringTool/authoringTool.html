@@ -9,7 +9,7 @@
                 <option value="clocks-TEL">గడియారాలు</option>
                 <option value="interests-TEL">బారువడ్డీ-చక్రవడ్డీ</option>
                 <option value="lcmgcd-TEL">క.సా.గు  గ.సా.భా</option>
-               <!--  <option value="karunalu-TEL">క్షేత్రమితి </option> -->
+                <option value="karunalu-TEL">క్షేత్రమితి </option>
                 <option value="mixers-TEL">మిశ్రమాలు</option>                
                 <option value="numseries-TEL">నంబర్ సిరీస్ </option>
                 <option value="numsys-TEL">నంబర్ సిస్టం</option>
@@ -17,16 +17,16 @@
                 <option value="percent-TEL">శాతాలు </option>
                 <option value="profitloss-TEL">లాభనష్టాలు</option>
                 <option value="proposinal-TEL">నిష్పత్తి-అనుపాతం</option>
-               <!-- <option value="simplification-TEL">సూక్ష్మీకరణ</option>
-                 <option value="power-TEL">ఘాతంకాలు-కరణలు</option> -->
+                <option value="simplification-TEL">సూక్ష్మీకరణ</option>
+                 <option value="power-TEL">ఘాతంకాలు-కరణలు</option>
                 <option value="timedist-TEL">కాలం దూరం</option>
                 <option value="timework-TEL">కాలం-పని</option>
-<!--                 <option value="pobability-TEL">సంభావ్యత</option>
+                <option value="pobability-TEL">సంభావ్యత</option>
                 <option value="samitilu-TEL">సమితిలు</option>
-                <option value="samvargamanalu-TEL">సంవర్గమానాలు</option> -->
+                <option value="samvargamanalu-TEL">సంవర్గమానాలు</option>
             </select>
             <button class="btn btn-primary btn-xs" ng-click="at.getQuestion()">Get Questions</button>
-            <a class="btn btn-default btn-xs" target="_blank" href="/mocktest?mocktestId={{at.cat}}">Preview <i class="fa fa-eye" aria-hidden="true"></i></a>
+            <a class="btn btn-default btn-xs" target="_blank" href="/mocktest?mocktestId={{at.cat}}"><i class="fa fa-eye" aria-hidden="true"></i> Preview </a>
             
             <uib-alert type="danger" ng-show="at.showCatErrMessage"><strong>Warning!</strong> Please Select Chapter First.</uib-alert>
         </div>
@@ -43,22 +43,22 @@
                 <div class="question-block">
                   <uib-accordion-heading ng-class="at.isInValid[$index]?'bg-danger':'bg-success'">
                     {{at.questionTitle}} {{$index+1}}:
-                    <p class="inline-block" ng-bind-html="question.questiontext"></p>
+                    <p class="inline-block" ng-bind-html="at.stripText(question.questiontext)"></p>
                     <span class="pull-right action-panel">
-                        <button class="btn btn-default btn-xs" ng-click="at.editQuestion($event)">
-                            Edit<i class="fa fa-pencil" aria-hidden="true"></i>
+                        <button class="btn btn-default btn-xs" ng-click="at.editQuestion($event, $index)">
+                            <i class="fa fa-pencil" aria-hidden="true"></i> Edit
                         </button>                        
                         <button class="btn btn-default btn-xs" ng-click="at.saveQuestion($event, $index)">
-                            Save<i class="fa fa-floppy-o" aria-hidden="true"></i>
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
                         </button>                        
                         <button class="btn btn-default btn-xs" ng-click="at.deleteQuestion($event)">
-                            Delete<i class="fa fa-trash" aria-hidden="true"></i>
+                            <i class="fa fa-trash" aria-hidden="true"></i> Delete
                         </button>
                         <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isOpned, 'glyphicon-chevron-right': !isOpned}" ></i>
                     </span>
                   </uib-accordion-heading>
                   <uib-alert type="danger" ng-show="at.isInValid[$index]"><strong>Warning!</strong> Invalid Question to save.</uib-alert>
-                  <mcmq-auth question="question" is-ans="isAns"> </mcmq-auth> 
+                  <mcmq-auth question="question" is-ans="isAns" edit-mode-on="at.editModeOn[$index]"> </mcmq-auth> 
                   <div class="loader-layer" ng-show="at.loader[$index]">
                   </div>
                   <i class="fa fa-spinner fa-spin" ng-show="at.loader[$index]" ></i>
@@ -67,11 +67,13 @@
             </uib-accordion>
             <div class="add-question">
                 <button class="btn btn-default btn-xs" ng-click="at.addQuestion()">
-                    Add Question <i class="fa fa-plus" aria-hidden="true"></i>
+                    <i class="fa fa-plus" aria-hidden="true"></i> Add Question 
                 </button>   
             </div>
-
         </div>
+        <div class="loader-layer" ng-show="at.showLoader">
+        </div>
+        <i class="fa fa-spinner fa-spin" ng-show="at.showLoader" ></i>
         <div style="height:40px;"></div>
     </div>
 </div>

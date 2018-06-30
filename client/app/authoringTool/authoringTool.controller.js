@@ -12,6 +12,7 @@ class authoringToolCtrl {
         ['html', 'insertImage', 'insertLink', 'insertVideo','speach']
     ];
     this.loader = [];
+    this.editModeOn = [];
     this.isInValid = [];
     this.emptyQuestion =   {
         instruction:'',
@@ -49,16 +50,20 @@ class authoringToolCtrl {
   getQuestion(){
     let _this = this;
     if(this.cat){
+        this.showLoader = true;
         this.$http.get('/api/questions/getCategory/'+this.cat).success(function(data){
           _this.questions = data;
+          _this.showLoader = false;
+          _this.editModeOn = [];
         });
     }else{
       this.showCatErrMessage = true;
     }
   }
-  editQuestion($event){
+  editQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
+    this.editModeOn[$index] = true;
   }
   saveQuestion($event, $index){
     $event.stopPropagation();
@@ -75,11 +80,13 @@ class authoringToolCtrl {
       if(this.questions[$index]._id){
         this.$http.put('/api/questions/'+this.questions[$index]._id,this.questions[$index]).success(function(data){
           _this.loader[$index] = false;
+          _this.editModeOn[$index] = false;
         });
       }else{
         this.$http.post('/api/questions',this.questions[$index]).success(function(data){
           _this.questions[$index]._id = data._id;
           _this.loader[$index] = false;
+          _this.editModeOn[$index] = false;
         }); 
       }
 
@@ -92,6 +99,11 @@ class authoringToolCtrl {
       this.showCatErrMessage = true;
     }
     return (this.cat&&this.questions[$index].questiontext&&this.checkOptionsMarkup($index));
+  }
+  stripText(html){
+    var tmp = document.createElement('DIV');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
   }
   checkOptionsMarkup($index){
     let options = this.questions[$index].options;
@@ -110,13 +122,14 @@ class authoringToolCtrl {
     }
   }
   addQuestion(){
+    this.editModeOn[this.questions.length] = true;
   	this.questions.push(this.getEmptyQuestion());
   }
   deleteQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
     if(this.questions.length>1){
-        this.questions.splice($index, 1);
+        //this.questions.splice($index, 1);
     }
   }
 }

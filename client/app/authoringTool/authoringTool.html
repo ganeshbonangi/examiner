@@ -39,19 +39,19 @@
         </div> -->
         <div>
             <uib-accordion close-others="false">
-                <uib-accordion-group is-open="isOpned" ng-repeat="question in at.questions">
+                <uib-accordion-group ng-init="isOpned = true;" is-open="isOpned" ng-repeat="question in at.questions">
                 <div class="question-block">
                   <uib-accordion-heading ng-class="at.isInValid[$index]?'bg-danger':'bg-success'">
                     {{at.questionTitle}} {{$index+1}}:
                     <p class="inline-block" ng-bind-html="at.stripText(question.questiontext)"></p>
                     <span class="pull-right action-panel">
-                        <button class="btn btn-default btn-xs" ng-click="at.editQuestion($event, $index)">
+                        <button ng-disabled="!isOpned" class="btn btn-default btn-xs" ng-click="at.editQuestion($event, $index)">
                             <i class="fa fa-pencil" aria-hidden="true"></i> Edit
                         </button>                        
-                        <button class="btn btn-default btn-xs" ng-click="at.saveQuestion($event, $index)">
+                        <button ng-disabled="!at.editModeOn[$index]" class="btn btn-default btn-xs" ng-click="at.saveQuestion($event, $index)">
                             <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
                         </button>                        
-                        <button class="btn btn-default btn-xs" ng-click="at.deleteQuestion($event)">
+                        <button ng-disabled="!at.editModeOn[$index]" class="btn btn-default btn-xs" ng-click="at.deleteQuestion($event, $index)">
                             <i class="fa fa-trash" aria-hidden="true"></i> Delete
                         </button>
                         <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isOpned, 'glyphicon-chevron-right': !isOpned}" ></i>

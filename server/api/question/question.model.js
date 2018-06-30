@@ -8,7 +8,7 @@ var QuestionSchema = new mongoose.Schema({
   instruction: String,
   questiontext: String,
   type: String,
-  explainaiton: String,
+  explainaiton: [{text:String}],
   category: String,
   options: [{
   	content:String,

@@ -18,7 +18,7 @@ class authoringToolCtrl {
         instruction:'',
         information:'',
         questiontext: '', 
-        explainaiton:'',
+        explainaiton:[{text:''}],
         options:[{
           content:''
         },{
@@ -34,7 +34,7 @@ class authoringToolCtrl {
     angular.extend(this,{$window, $http, $scope});
     var _this = this;
     let header = document.getElementById('statictoolbar');
-    let sticky = header.offsetTop-15;
+    let sticky = header.offsetTop;
     angular.element(this.$window).bind('scroll', function() {
       if (this.pageYOffset >= sticky) {
         _this.boolChangeClass = true;
@@ -128,8 +128,17 @@ class authoringToolCtrl {
   deleteQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
-    if(this.questions.length>1){
-        //this.questions.splice($index, 1);
+    let result = window.confirm('Are you sure you want to delete question? Press ok to delete, press cancel to cancel delete');
+    if(result&&this.questions.length){
+      // todo make service call to delte
+      this.loader[$index] = true;
+      let _this = this;
+      this.$http.delete('/api/questions/'+this.questions[$index]._id).success(function(data){
+        _this.loader[$index] = false;
+        _this.questions.splice($index, 1);
+        _this.editModeOn.splice($index, 1);
+      });
+
     }
   }
 }

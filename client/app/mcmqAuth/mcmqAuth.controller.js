@@ -3,6 +3,9 @@
 	class mcmqAuthComponent {
         constructor() {
             this.question.instruction = 'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.';
+            if(!Array.isArray(this.question.explainaiton)){
+                this.question.explainaiton = [{text:''}];
+            }
         }
         answerChanged(index){
         	for(var i=0;i<this.question.options.length;i++){

@@ -9,7 +9,7 @@
 }
 .sticky {
   position: fixed;
-  top: 15px;
+  top: 0px;
   width: 100%;
   background-color: #F8F8F8;
 }

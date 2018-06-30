@@ -1,6 +1,6 @@
 <div >
         <div class="instructiontext">
-            Enter question instruction:{{mcmqAuthCtrl.editModeOn}}
+            Enter question instruction:
             <div text-angular ng-model="mcmqAuthCtrl.question.instruction" ta-default-wrap="p" ta-target-toolbars='statictoolbar' ta-disabled="!mcmqAuthCtrl.editModeOn"> </div>
             <br />
             <div>
@@ -17,10 +17,11 @@
 	      	</span>
 	      	<div  text-angular class="radiooption" ng-model="option.content" ta-default-wrap="p" ta-target-toolbars='statictoolbar' ta-disabled="!mcmqAuthCtrl.editModeOn"> </div>
 	      </div>
-		<p>Explaination Text</p>
-	    <div text-angular ng-model="mcmqAuthCtrl.question.explainaiton" ta-default-wrap="p" ta-target-toolbars='statictoolbar' ta-disabled="!mcmqAuthCtrl.editModeOn"> </div>
-	      	<!--div text-angular ng-model="option2" ta-default-wrap="p" ta-target-toolbars='statictoolbar'> </div-->
-	      <!--{{tab.content}}-->
-<!--div><button class="btn btn-success pull-right" ng-click="preview()">Preview</button></div--><br />
-		<!--button id="addQuestion" ng-click="addQuestionModel()">AddQuestion</button><br /-->
+		<p>Explaination Methods</p>
+	    <uib-tabset>
+	      <uib-tab ng-repeat="exp in mcmqAuthCtrl.question.explainaiton" heading="Method {{$index+1}}">
+	      	<p>Explaination text:</p>
+			<div text-angular ng-model="mcmqAuthCtrl.question.explainaiton[$index].text" ta-default-wrap="p" ta-target-toolbars='statictoolbar' ta-disabled="!mcmqAuthCtrl.editModeOn"  stop-event="focusout"> </div>
+	      </uib-tab>
+	    </uib-tabset>
 </div>

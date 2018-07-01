@@ -6,7 +6,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/authcell-dev'
+    uri: 'mongodb://localhost/examcolors'
   },
 
   // Seed database on startup

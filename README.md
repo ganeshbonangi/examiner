@@ -88,3 +88,6 @@ git push heroku master
  heroku ps:scale web=1  // to restart server
 
  heroku logs // to see log file
+
+ DB back up cmd
+ mongodump -h ds061208.mlab.com:61208 -d examcolors -u ganesh007 -p ganesh007 -o /Users/ganeshbonangi/Desktop/workspace/examiner/dbbackup/

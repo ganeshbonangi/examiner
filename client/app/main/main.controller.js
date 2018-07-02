@@ -4,10 +4,11 @@
 
   class MainController {
 
-    constructor($http) {
+    constructor($http, appConfig) {
       this.$http = $http;
       this.awesomeThings = [];
-      this.isFirstOpen = true;
+      this.isFirstOpen = [true];
+      this.subjects = appConfig.subjects.telugu;
     }
 
     $onInit() {

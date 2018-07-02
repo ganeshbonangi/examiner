@@ -1,7 +1,7 @@
 'use strict';
 
 class authoringToolCtrl {
-  constructor($http, $window, $scope) {
+  constructor($http, $window, $scope, appConfig) {
     this.message = 'Hello';
     this.cat = '';
     this.type = 'MCSS';
@@ -11,6 +11,7 @@ class authoringToolCtrl {
         ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
         ['html', 'insertImage', 'insertLink', 'insertVideo','speach']
     ];
+    this.subjects = appConfig.subjects.telugu;
     this.loader = [];
     this.editModeOn = [];
     this.isInValid = [];
@@ -43,6 +44,9 @@ class authoringToolCtrl {
       }
       _this.$scope.$apply();
     });
+  }
+  chapterChange(){
+    this.questions = [];
   }
   getEmptyQuestion(){
     return angular.copy(this.emptyQuestion);

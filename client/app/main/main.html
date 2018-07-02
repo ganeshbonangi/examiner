@@ -1,18 +1,25 @@
 <header>
   <div class="container">
 <uib-accordion close-others="true">
-    <uib-accordion-group is-open="mc.isFirstOpen">
+    <uib-accordion-group is-open="mc.isFirstOpen[$index]" ng-repeat="subject in mc.subjects">
       <uib-accordion-heading>
+        {{subject.displaytext}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': mc.isFirstOpen[$index], 'glyphicon-chevron-right': !mc.isFirstOpen[$index]}"></i>
+      </uib-accordion-heading>
+      <div class="list-group">
+        <a ui-sref="mocktest({ mocktestId: chapter.url })" class="list-group-item" ng-repeat="chapter in subject.chapters">{{chapter.displaytext}}</a>
+    </div>
+    </uib-accordion-group>
+<!--     <uib-accordion-group>
+    <uib-accordion-heading>
         అర్థమెటిక్ ప్రాక్టీస్ టెస్ట్ <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': mc.isFirstOpen, 'glyphicon-chevron-right': !mc.isFirstOpen}"></i>
       </uib-accordion-heading>
       <div class="list-group">
-
         <a ui-sref="mocktest({ mocktestId: 'averages-TEL' })" class="list-group-item">సరాసరి</a>
         <a ui-sref="mocktest({ mocktestId: 'calender-TEL' })" class="list-group-item">క్యాలెండర్</a>
         <a ui-sref="mocktest({ mocktestId: 'clocks-TEL' })" class="list-group-item">గడియారాలు</a>
         <a ui-sref="mocktest({ mocktestId: 'interests-TEL' })" class="list-group-item">బారువడ్డీ-చక్రవడ్డీ</a>
         <a ui-sref="mocktest({ mocktestId: 'lcmgcd-TEL' })" class="list-group-item">క.సా.గు  గ.సా.భా</a>
-       <!--  <a ui-sref="mocktest({ mocktestId: 'karunalu-TEL' })" class="list-group-item">క్షేత్రమితి</a> -->
+       <a ui-sref="mocktest({ mocktestId: 'karunalu-TEL' })" class="list-group-item">క్షేత్రమితి</a>
         <a ui-sref="mocktest({ mocktestId: 'mixers-TEL' })" class="list-group-item">మిశ్రమాలు</a>
         <a ui-sref="mocktest({ mocktestId: 'numseries-TEL' })" class="list-group-item">నంబర్ సిరీస్</a>
         <a ui-sref="mocktest({ mocktestId: 'numsys-TEL' })" class="list-group-item">నంబర్ సిస్టం</a>
@@ -20,15 +27,15 @@
         <a ui-sref="mocktest({ mocktestId: 'percent-TEL' })" class="list-group-item">శాతాలు</a>
         <a ui-sref="mocktest({ mocktestId: 'profitloss-TEL' })" class="list-group-item">లాభనష్టాలు</a>
         <a ui-sref="mocktest({ mocktestId: 'proposinal-TEL' })" class="list-group-item">నిష్పత్తి-అనుపాతం</a>
-        <!-- <a ui-sref="mocktest({ mocktestId: 'simplification-TEL' })" class="list-group-item">సూక్ష్మీకరణ</a> 
-        <a ui-sref="mocktest({ mocktestId: 'power-TEL' })" class="list-group-item">ఘాతంకాలు-కరణలు</a>-->
+        <a ui-sref="mocktest({ mocktestId: 'simplification-TEL' })" class="list-group-item">సూక్ష్మీకరణ</a> 
+        <a ui-sref="mocktest({ mocktestId: 'power-TEL' })" class="list-group-item">ఘాతంకాలు-కరణలు</a>
         <a ui-sref="mocktest({ mocktestId: 'timedist-TEL' })" class="list-group-item">కాలం దూరం</a>
         <a ui-sref="mocktest({ mocktestId: 'timework-TEL' })" class="list-group-item">కాలం-పని</a>
-       <!--  <a ui-sref="mocktest({ mocktestId: 'pobability-TEL' })" class="list-group-item">సంభావ్యత</a>
+        <a ui-sref="mocktest({ mocktestId: 'pobability-TEL' })" class="list-group-item">సంభావ్యత</a>
         <a ui-sref="mocktest({ mocktestId: 'samitilu-TEL' })" class="list-group-item">సమితిలు</a>
-        <a ui-sref="mocktest({ mocktestId: 'samvargamanalu-TEL' })" class="list-group-item">సంవర్గమానాలు</a> -->
+        <a ui-sref="mocktest({ mocktestId: 'samvargamanalu-TEL' })" class="list-group-item">సంవర్గమానాలు</a>
     </div>
-    </uib-accordion-group>
+    </uib-accordion-group> -->
 </uib-accordion>
 
   </div>

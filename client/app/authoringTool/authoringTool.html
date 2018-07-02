@@ -1,8 +1,14 @@
 <div>
     <div text-angular-toolbar ta-toolbar="at.toolBarFeatures" name="statictoolbar" class="statictoolbar" id="statictoolbar" ng-class="{'sticky':at.boolChangeClass}"></div>
     <div class="auther-tmp-container">
-        <div>Select Chapter
-            <select ng-model="at.cat" ng-change="at.showCatErrMessage=false;">
+        <div>
+        Select Subject
+         <select ng-model="at.chapters" ng-options="subject.chapters as subject.displaytext for subject in at.subjects">
+        </select>
+        Select Chapter
+        <select ng-model="at.cat" ng-change="at.chapterChange();at.showCatErrMessage=false;" ng-options="chapter.url as chapter.displaytext for chapter in at.chapters">
+        </select>
+     <!--        <select ng-model="at.cat" ng-change="at.showCatErrMessage=false;">
                 <option value="testing">testing-telugu</option>
                 <option value="averages-TEL">సరాసరి</option>
                 <option value="calender-TEL">క్యాలెండర్</option>
@@ -24,7 +30,7 @@
                 <option value="pobability-TEL">సంభావ్యత</option>
                 <option value="samitilu-TEL">సమితిలు</option>
                 <option value="samvargamanalu-TEL">సంవర్గమానాలు</option>
-            </select>
+            </select> -->
             <button class="btn btn-primary btn-xs" ng-click="at.getQuestion()">Get Questions</button>
             <a class="btn btn-default btn-xs" target="_blank" href="/mocktest?mocktestId={{at.cat}}"><i class="fa fa-eye" aria-hidden="true"></i> Preview </a>
             

@@ -12,16 +12,14 @@
 <label><input type="radio" name="role" ng-change="vm.roleChange(vm.value)" value='Teacher' ng-model="vm.value"/>Teacher</label>
 <label><input type="radio" name="role" ng-change="vm.roleChange(vm.value)" value='Student' ng-model="vm.value"/>Student</label> -->
       <form class="form" name="form" ng-submit="vm.login(form)" novalidate>
-        <div class="form-group row">
-          <label class="col-md-4 col-sm-12">Email</label>
-
-          <input class="form-control margin-left col-md-8 col-sm-12" type="email" name="email" ng-model="vm.user.email" required />
+        <div class="form-group">
+          <label class="">Email</label>
+          <input class="form-control" type="email" name="email" ng-model="vm.user.email" required />
         </div>
 
-        <div class="form-group row">
-          <label class="col-md-4 col-sm-12">Password</label>
-
-          <input class="form-control margin-left col-md-8 col-sm-12" type="password" name="password" ng-model="vm.user.password" required>
+        <div class="form-group">
+          <label class="">Password</label>
+          <input class="form-control" type="password" name="password" ng-model="vm.user.password" required />
         </div>
 
         <div class="form-group has-error">

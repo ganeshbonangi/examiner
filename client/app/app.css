@@ -26,6 +26,22 @@
   font-weight: normal;
   font-style: normal;
 }
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
 a:focus {
   outline: none !important;
 }
@@ -102,9 +118,6 @@ Timer style
     z-index: 99;
 }
 
-.single-page-part{
-  margin-bottom: 55px;
-}
 .fa-check-circle{
   color: green;
   font-size: 20px !important;

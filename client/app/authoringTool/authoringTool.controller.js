@@ -80,15 +80,15 @@ class authoringToolCtrl {
       this.loader[$index] = true;
       this.isInValid[$index] = false;
       this.questions[$index].category = this.cat;
-      let _this = this;
-      let question = angular.copy(this.questions[$index]);
+      let _this = this, question;
+      question = JSON.parse(JSON.stringify(this.questions[$index]));
       for(let i=0;i<question.explainaiton.length;i++){
-        if(!question.explainaiton[i].text){
+        if(!question.explainaiton[i].text.trim()){
           question.explainaiton.splice(i,1);
         }
       }
-      if(this.questions[$index]._id){
-        this.$http.put('/api/questions/'+this.questions[$index]._id,question).success(function(data){
+      if(question._id){
+        this.$http.put('/api/questions/'+question._id,question).success(function(data){
           _this.loader[$index] = false;
           _this.editModeOn[$index] = false;
         });

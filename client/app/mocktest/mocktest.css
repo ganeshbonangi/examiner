@@ -6,3 +6,10 @@
     position: relative;
     text-align: center;
 }
+.sticky-timer{
+	position: absolute;
+	right:15px;
+}
+#timer{
+	background-color: aliceblue;
+}

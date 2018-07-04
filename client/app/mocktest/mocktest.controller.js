@@ -1,7 +1,7 @@
 'use strict';
     class mocktestComponent {
-        constructor($http, $stateParams, $uibModal) {
-            angular.extend(this,{$http, $stateParams, $uibModal});
+        constructor($http, $stateParams, $uibModal, $scope, $window) {
+            angular.extend(this,{$http, $stateParams, $uibModal, $scope, $window});
             this.isSubmited = false;
             this.mocktest = {
                 title: 'SBI PO online exam',
@@ -82,7 +82,19 @@
             this.showSpinner = true;
             $http.get('/api/questions/getCategory/'+this.$stateParams.mocktestId).success(function(data){
               _this.mocktest.questions = data;
+              _this.duration = (_this.mocktest.questions.length*60*1000);//converting 1 question to 1 min
               _this.showSpinner = false;
+            });
+            let ele = angular.element(document.getElementById('timer'));
+            let sticky = ele.offset().top;
+            angular.element(this.$window).bind('scroll', function() {
+              if (this.pageYOffset >= sticky) {
+                _this.boolChangeClass = true;
+                ele.parent().css('top',this.pageYOffset-sticky);
+              } else {
+                _this.boolChangeClass = false;
+              }
+              _this.$scope.$apply();
             });
         }
         getQuestoin(index, questionId) {

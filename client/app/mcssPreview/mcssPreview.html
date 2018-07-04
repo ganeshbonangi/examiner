@@ -19,7 +19,7 @@
                     </span>                    
                 </label>
             </div>
-            <div ng-show="isSubmited&&question.explainaiton" >
+            <div ng-show="isSubmited&&question.explainaiton.length" >
                 <h5>Explaination:</h5>
                 <uib-tabset class="row">
                     <uib-tab ng-repeat="exp in question.explainaiton" heading="Method {{$index+1}}">

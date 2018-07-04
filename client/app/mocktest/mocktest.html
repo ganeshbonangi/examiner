@@ -1,4 +1,10 @@
-<div class="container">
+<div class="container" style="position:relative;">
+    <div class="" style="width:100%;padding:0;" ng-class="{'sticky-timer':mocktestCtrl.boolChangeClass}">
+        <timer id="timer" duration="mocktestCtrl.duration" class=" pull-right cout-down"></timer> 
+        <div ng-if="mocktestCtrl.duration===0">
+            <span ng-init="mocktestCtrl.showResult()"></span>
+        </div>   
+    </div>
     <div ng-repeat="question in mocktestCtrl.mocktest.questions">
         <fib-dropdown-preview ng-if="question.type=='fibd'"></fib-dropdown-preview>
         <fib-text-preview ng-if="question.type=='fibt'"></fib-text-preview>

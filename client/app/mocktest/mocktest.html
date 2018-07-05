@@ -1,7 +1,7 @@
 <div class="container" style="position:relative;">
-    <div class="" style="width:100%;padding:0;" ng-class="{'sticky-timer':mocktestCtrl.boolChangeClass}">
+    <div class="" style="width:100%;padding:0;" ng-show="mocktestCtrl.mocktest.questions.length" ng-class="{'sticky-timer':mocktestCtrl.boolChangeClass}">
         <timer id="timer" duration="mocktestCtrl.duration" class=" pull-right cout-down"></timer> 
-        <div ng-if="mocktestCtrl.duration===0">
+        <div ng-if="mocktestCtrl.duration===0&&mocktestCtrl.mocktest.questions.length">
             <span ng-init="mocktestCtrl.showResult()"></span>
         </div>   
     </div>
@@ -13,7 +13,7 @@
         </mcms-preview>
         <guidlines-preview ng-if="question.type=='guid'"></guidlines-preview>
     </div>
-    <div class="text-center" ng-show="mocktestCtrl.mocktest.questions.length">
+    <div class="text-center" ng-hide="mocktestCtrl.showSpinner||!mocktestCtrl.mocktest.questions.length">
         <button class="btn btn-primary" ng-click="mocktestCtrl.showResult()">Submit</button>
         <button class="btn btn-default" ng-click="mocktestCtrl.resetAllSelection()">Reset</button>
     </div>

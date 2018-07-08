@@ -12,6 +12,7 @@
 			{
 				"topicname": "Arithmetic",
 				"displaytext": "అర్థమెటిక్ ప్రాక్టీస్ టెస్ట్",
+				"isInProd": true,
 				"chapters": [
 					{
 						"url": "averages-TEL",
@@ -80,23 +81,63 @@
 					{
 						"url": "timework-TEL",
 						"displaytext": "కాలం-పని"
+					}
+				]
+			},
+			{
+				"topicname": "Reasoning",
+				"displaytext": "రీజనింగ్",
+				"isInProd": false,
+				"chapters": [
+					{
+						"url": "seatingarrange-TEL",
+						"displaytext": "సీటింగ్ అరేంజ్ మెంట్"
 					},
 					{
-						"url": "pobability-TEL",
-						"displaytext": "సంభావ్యత"
+						"url": "series-TEL",
+						"displaytext": "సంఖ్యా శ్రేణి"
 					},
 					{
-						"url": "samitilu-TEL",
-						"displaytext": "సమితిలు"
+						"url": "ranking-TEL",
+						"displaytext": "ర్యాంకింగ్ పరీక్షఎడిషన్"
 					},
 					{
-						"url": "samvargamanalu-TEL",
-						"displaytext": "సంవర్గమానాలు"
+						"url": "puzzle-TEL",
+						"displaytext": "పజిల్ టెస్ట్"
+					},
+					{
+						"url": "direction-TEL",
+						"displaytext": "దిక్కులు"
+					},
+					{
+						"url": "dies-TEL",
+						"displaytext": "పాచికలు"
+					},
+					{
+						"url": "codingdecoding-TEL",
+						"displaytext": "కోడింగ్ -  డీకోడింగ్"
+					},
+					{
+						"url": "blodrelation-TEL",
+						"displaytext": "రక్త సంబంధాలు"
+					},
+					{
+						"url": "plika-TEL",
+						"displaytext": "పోలిక పరీక్ష"
+					},
+					{
+						"url": "vendiagroms-TEL",
+						"displaytext": "వెన్ డయాగ్రమ్స్"
+					},
+					{
+						"url": "statementconclusion-TEL",
+						"displaytext": "ప్రకటనలు - తీర్మానాలు"
 					}
 				]
 			},
 			{
 				"topicname": "General Knowledge",
+				"isInProd": true,
 				"displaytext": "జనరల్ నాలెడ్జ్ ప్రాక్టీస్ టెస్ట్",
 				"chapters": [
 					{
@@ -218,6 +259,108 @@
 					{
 						"url": "abbr-TEL",
 						"displaytext": "అబ్రివేషన్"
+					}
+				]
+			},
+			{
+				"topicname": "Inidan Economy",
+				"displaytext": "ఇండియన్ ఎకానమీ",
+				"isInProd": false,
+				"chapters": [
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "ఆర్థిక వ్యవస్థ"
+					},
+					{
+						"url": "indianplanning-TEL",
+						"displaytext": "భారత ప్రణాళికలు"
+					},
+					{
+						"url": "indiannationalincom-TEL",
+						"displaytext": "జాతీయ ఆదాయం"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "ప్రభుత్వ విత్తం"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "ద్రవ్యం"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "బ్యాంకింగ్ రంగం"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "వ్యవసాయ రంగం"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "పారిశ్రామిక రంగం"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "అంతర్జాతీయ వ్యాపారం-  సంస్థలు - స్టాక్ మార్కెట్లు"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "బడ్జెట్"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "ఆర్థిక వృద్ధి-  ఆర్థికావృద్ధి"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "భారతదేశం- ఆంధ్ర ప్రదేశ్ సంక్షేమ పథకాలు"
+					}
+				]
+			},
+			{
+				"topicname": "Indian Polytics",
+				"displaytext": "ఇండియన్ పాలిటిక్స్",
+				"isInProd": false,
+				"chapters": [
+					{
+						"url": "indianconsthist-TEL",
+						"displaytext": "భారత రాజ్యాంగం చారిత్రక నేపథ్యం - బ్రిటిష్ వారు చేసిన చట్టాలు"
+					},
+					{
+						"url": "indianconstwrit-TEL",
+						"displaytext": "భారత రాజ్యాంగం పరిచయం - రచన"
+					},
+					{
+						"url": "indianforeigncontimp-TEL",
+						"displaytext": "వివిధ దేశాలు రాజ్యాంగాల  నుండి  స్వీకరించిన  ముఖ్యమైన అంశాలు"
+					},
+					{
+						"url": "prevesika-TEL",
+						"displaytext": "ప్రవేశిక/పీఠిక"
+					},
+					{
+						"url": "indianconstsymptoms-TEL",
+						"displaytext": "భారత రాజ్యాంగ లక్షణాలు"
+					},
+					{
+						"url": "centeralgov-TEL",
+						"displaytext": "కేంద్ర ప్రభుత్వం"
+					},
+					{
+						"url": "stategov-TEL",
+						"displaytext": "రాష్ట్ర ప్రభుత్వం"
+					},
+					{
+						"url": "localinst-TEL",
+						"displaytext": "స్థానిక సంస్థలు"
+					},
+					{
+						"url": "indianconstparts-TEL",
+						"displaytext": "భారత రాజ్యాంగంలోని అధి కారణలు మరియు భాగాలు"
+					},
+					{
+						"url": "indianconstchanges-TEL",
+						"displaytext": "రాజ్యాంగ సవరణలు"
 					}
 				]
 			}

@@ -93,7 +93,6 @@ git push heroku master
  mongodump -h ds061208.mlab.com:61208 -d examcolors -u ganesh007 -p ganesh007 -o /Users/ganeshbonangi/Desktop/workspace/examiner/dbbackup/
 
 
-
  db sequance
 
 step 1:
@@ -114,3 +113,7 @@ var coll = db.questions.find({});
  for(var i=0;i<coll.length();i++){  
  db.questions.update({_id:coll[i]._id},{$set:{id:getValueForNextSequence()}});
  }
+ mongo db restore cmd
+
+ mongorestore dbbackup
+

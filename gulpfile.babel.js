@@ -310,7 +310,8 @@ gulp.task('start:inspector', () => {
 gulp.task('start:server:debug', () => {
     process.env.NODE_ENV = process.env.NODE_ENV || 'development';
         config = require(`./${serverPath}/config/environment`);
-    nodemon(`-w ${serverPath} --debug-brk ${serverPath}`)
+    //nodemon(`-w ${serverPath} --debug-brk ${serverPath}`)
+    nodemon(`-w ${serverPath} --inspect-brk ${serverPath}`)
         .on('log', onServerLog);
 });
 
@@ -369,7 +370,7 @@ gulp.task('serve:debug', cb => {
         ['lint:scripts', 'inject'],
         ['wiredep:client'],
         ['transpile:client', 'styles'],
-        'start:inspector',
+        /*'start:inspector',*/
         ['start:server:debug', 'start:client'],
         'watch',
         cb);

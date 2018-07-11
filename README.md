@@ -91,3 +91,7 @@ git push heroku master
 
  DB back up cmd
  mongodump -h ds061208.mlab.com:61208 -d examcolors -u ganesh007 -p ganesh007 -o /Users/ganeshbonangi/Desktop/workspace/examiner/dbbackup/
+
+ mongo db restore cmd
+
+ mongorestore dbbackup

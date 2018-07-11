@@ -11,13 +11,13 @@
 
 import _ from 'lodash';
 import Question from './question.model';
-//var counterController = require('./../counter/counter.controller');
+import Counters from './../counter/counter.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
     if (entity) {
-      res.status(statusCode).json(entity);
+      return res.status(statusCode).json(entity);
     }
   };
 }
@@ -59,7 +59,13 @@ function handleError(res, statusCode) {
     res.status(statusCode).send(err);
   };
 }
-
+ function getValueForNextSequence(){
+    return Counters.findOneAndUpdate(
+       {'_id': 'questions_id' },
+       {$inc:{sequence_value:1}},
+       {sequence_value:1}
+    ).exec();
+ }
 // Gets a list of Questions
 export function index(req, res) {
   return Question.find().exec()
@@ -84,9 +90,13 @@ export function getCategory(req, res) {
 }
 // Creates a new Question in the DB
 export function create(req, res) {
-  return Question.create(req.body)
+  getValueForNextSequence().then((doc)=>{
+    console.log(doc);
+    req.body.id = doc.sequence_value;
+    return Question.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
+  });
 }
 
 // Updates an existing Question in the DB

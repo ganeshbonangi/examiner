@@ -1,7 +1,7 @@
 'use strict';
     class mocktestComponent {
-        constructor($http, $stateParams, $uibModal, $scope, $window) {
-            angular.extend(this,{$http, $stateParams, $uibModal, $scope, $window});
+        constructor($http, $stateParams, $uibModal, $scope, $window, Auth) {
+            angular.extend(this,{$http, $stateParams, $uibModal, $scope, $window, Auth});
             this.isSubmited = false;
             this.mocktest = {
                 title: 'SBI PO online exam',

@@ -3,8 +3,7 @@
 import mongoose from 'mongoose';
 
 var CounterSchema = new mongoose.Schema({
-  id: String,
-  seq: Number
+  sequence_value: Number
 });
 
 export default mongoose.model('Counter', CounterSchema);

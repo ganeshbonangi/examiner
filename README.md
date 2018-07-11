@@ -91,3 +91,26 @@ git push heroku master
 
  DB back up cmd
  mongodump -h ds061208.mlab.com:61208 -d examcolors -u ganesh007 -p ganesh007 -o /Users/ganeshbonangi/Desktop/workspace/examiner/dbbackup/
+
+
+
+ db sequance
+
+step 1:
+creating counters collection with one recode with _id = 'questions_id'
+step 2:
+ function getValueForNextSequence(){
+
+    var sequenceDoc = db.counters.findAndModify({
+       query:{_id: 'questions_id' },
+       update: {$inc:{sequence_value:1}},
+       new:true
+    });
+
+    return sequenceDoc.sequence_value;
+ }
+step 3:
+var coll = db.questions.find({});
+ for(var i=0;i<coll.length();i++){  
+ db.questions.update({_id:coll[i]._id},{$set:{id:getValueForNextSequence()}});
+ }

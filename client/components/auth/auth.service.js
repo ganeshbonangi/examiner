@@ -173,6 +173,17 @@
       },
 
       /**
+       * Check if a user is an admin
+       *   (synchronous|asynchronous)
+       *
+       * @param  {Function|*} callback - optional, function(is)
+       * @return {Bool|Promise}
+       */
+      isGuest() {
+        return Auth.hasRole.apply(Auth, [].concat.apply(['guest'], arguments));
+      },
+
+      /**
        * Get auth token
        *
        * @return {String} - a token string used for authenticating

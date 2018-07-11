@@ -5,7 +5,10 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/authcell-test'
+    uri: 'mongodb://localhost/authcell-test',
+    options:{
+      useMongoClient: true
+    }
   },
   sequelize: {
     uri: 'sqlite://',

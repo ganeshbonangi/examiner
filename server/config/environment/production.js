@@ -22,6 +22,7 @@ module.exports = {
           'mongodb://ganesh007:ganesh007@ds061208.mlab.com:61208/examcolors',
     options:{
       useMongoClient: true
-    }
+    },
+    debug:false
   }
 };

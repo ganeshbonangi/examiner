@@ -16,25 +16,9 @@ var counterController = require('../api/counter/counter.controller');
 // Counter.find({}).remove()
 //     .then(() => {
 //         Counter.create({
-//             id: 'question',
-//             seq: 0
-            
-//         }, {
-//             id: 'Server and Client integration',
-//             seq: 0
-//         }, {
-//             id: 'Smart Build System',
-//             seq: 0
-//         }, {
-//             id: 'Modular Structure',
-//             seq: 0
-//         }, {
-//             id: 'Optimized Build',
-//             seq: 0
-//         }, {
-//             id: 'Deployment Ready',
-//             seq: 0
-//         });
+//             id: 'questions_id',
+//             sequence_value: 0  
+//         })
 //     });
 
 // Thing.find({}).remove()

@@ -61,9 +61,8 @@ function handleError(res, statusCode) {
 }
  function getValueForNextSequence(){
     return Counters.findOneAndUpdate(
-       {'_id': 'questions_id' },
-       {$inc:{sequence_value:1}},
-       {sequence_value:1}
+           {id: 'questions_id' },
+           {$inc:{sequence_value:1}}
     ).exec();
  }
 // Gets a list of Questions
@@ -90,9 +89,8 @@ export function getCategory(req, res) {
 }
 // Creates a new Question in the DB
 export function create(req, res) {
-  getValueForNextSequence().then((doc)=>{
-    console.log(doc);
-    req.body.id = doc.sequence_value;
+  getValueForNextSequence().then((response)=>{
+    req.body.id = response._doc.sequence_value;
     return Question.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

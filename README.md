@@ -95,13 +95,31 @@ git push heroku master
 
  db sequance
 
+
+
 step 1:
-creating counters collection with one recode with _id = 'questions_id'
+creating counters collection with one recode with id = 'questions_id'
+setting counter to 0
+
+db.counters.update({},{$set:{"sequence_value":0}}); //for setting sequantial initial number
+
+db.questions.update({},{$set:{'id':0}},{upsert:false,multi:true})// for adding field to all collection
+
+//below will set seq number to existing collection
+ var i = 0;
+db.questions.find().forEach(function(myDoc) {
+
+ db.questions.update(myDoc,{$set:{'id':i++}});
+ 
+});
+
+
+
 step 2:
  function getValueForNextSequence(){
 
     var sequenceDoc = db.counters.findAndModify({
-       query:{_id: 'questions_id' },
+       query:{id: 'questions_id' },
        update: {$inc:{sequence_value:1}},
        new:true
     });
@@ -113,7 +131,14 @@ var coll = db.questions.find({});
  for(var i=0;i<coll.length();i++){  
  db.questions.update({_id:coll[i]._id},{$set:{id:getValueForNextSequence()}});
  }
+
+
+
+
  mongo db restore cmd
 
  mongorestore dbbackup
 
+Debugging:
+gulp serve:debug
+goto nim then it'll open server code in script

@@ -9,7 +9,8 @@ module.exports = {
     uri: 'mongodb://localhost/examcolors',
     options:{
       useMongoClient: true
-    }
+    },
+    debug:true
   },
 
   // Seed database on startup

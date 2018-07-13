@@ -180,7 +180,7 @@
        * @return {Bool|Promise}
        */
       isGuest() {
-        return Auth.hasRole.apply(Auth, [].concat.apply(['guest'], arguments));
+        return Auth.getCurrentUser().role === 'guest';
       },
 
       /**

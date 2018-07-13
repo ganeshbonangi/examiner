@@ -7,6 +7,10 @@
     background-color: white;
     padding: 0px 15px;
 }
+.badge-auth{
+  top: -3px;
+  position: relative;
+}
 .sticky {
   position: fixed;
   top: 0px;

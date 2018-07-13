@@ -31,7 +31,6 @@ class authoringToolCtrl {
         }]
       };
     this.questions = [];
-    this.questionTitle= 'Q ';
     angular.extend(this,{$window, $http, $scope});
     var _this = this;
     let header = document.getElementById('statictoolbar');

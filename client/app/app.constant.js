@@ -268,12 +268,12 @@
 				"isInProd": false,
 				"chapters": [
 					{
-						"url": "indianeconsys-TEL",
-						"displaytext": "ఆర్థిక వ్యవస్థ"
-					},
-					{
 						"url": "indianplanning-TEL",
 						"displaytext": "భారత ప్రణాళికలు"
+					},
+					{
+						"url": "indianeconsys-TEL",
+						"displaytext": "పేదరికం"
 					},
 					{
 						"url": "indiannationalincom-TEL",

@@ -222,7 +222,7 @@ exports = module.exports = {
 			},{
 				'topicname':'Inidan Economy',
 				'displaytext':'ఇండియన్ ఎకానమీ',
-				'isInProd':false,
+				'isInProd':true,
 				'chapters':[
 					{
 					'url':'indianplanning-TEL',

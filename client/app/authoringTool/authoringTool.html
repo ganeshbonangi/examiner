@@ -3,16 +3,38 @@
     <div class="auther-tmp-container">
         <div class="panel panel-default">
             <div class="panel-body">
-                Select Subject
-                 <select ng-model="at.chapters" ng-options="subject.chapters as subject.displaytext for subject in at.subjects">
-                </select>
-                Select Chapter
-                <select ng-model="at.cat" ng-change="at.chapterChange();at.showCatErrMessage=false;" ng-options="chapter.url as chapter.displaytext for chapter in at.chapters">
-                </select>
-                <button class="btn btn-primary btn-xs" ng-click="at.getQuestion()">Get Questions</button>
-                <a class="btn btn-default btn-xs" target="_blank" href="/mocktest?mocktestId={{at.cat}}"><i class="fa fa-eye" aria-hidden="true"></i> Preview </a>
+                <div class="row">
+                    <label class="col-md-3">
+                        <input type="radio" name="abc" ng-model="at.searchBy" value="subject" ng-change="at.filterChange()"/> Topic
+                    </label>
+                    <div class="col-md-3" ng-show="at.searchBy==='subject'">
+                        Subject
+                         <select ng-model="at.chapters" ng-options="subject.chapters as subject.displaytext for subject in at.subjects track by subject.displaytext" ng-change="at.subjectChange()">
+                        </select>               
+                    </div>
+                    <div class="col-md-6" ng-show="at.searchBy==='subject'">
+                        Chapter
+                        <select ng-model="at.cat" ng-change="at.chapterChange();at.showCatErrMessage=false;">
+                            <option value="{{chapter.url}}" ng-repeat="chapter in at.chapters">
+                                {{chapter.displaytext.length>50?(chapter.displaytext.slice(0,50)+'...'):chapter.displaytext}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-3">
+                        <input type="radio" name="abc" ng-model="at.searchBy" value="question" ng-change="at.filterChange()"/> Question
+                    </label>
+                    <div class="col-md-3" ng-show="at.searchBy==='question'">
+                        Question Number<input type="text" ng-model="at.qid" placeholder="Question Number" />
+                    </div>
+                </div>
+                <div class='text-center'>
+                    <button class="btn btn-primary btn-xs" ng-click="at.getQuestion()">Search</button>
+                    <a class="btn btn-default btn-xs" target="_blank" ng-disabled="at.isAddQuestionDisable()" href="/mocktest?mocktestId={{at.cat}}"><i class="fa fa-eye" aria-hidden="true"></i> Preview </a>
+                </div>
                 <uib-alert type="danger" ng-show="at.showCatErrMessage">
-                    <strong>Warning!</strong> Please Select Chapter First.
+                    <strong>Warning!</strong> Some thing went wrong.
                 </uib-alert>
             </div>
         </div>
@@ -25,7 +47,7 @@
         </div> -->
         <div>
             <uib-accordion close-others="false">
-                <uib-accordion-group ng-init="isOpned = true;" is-open="isOpned" ng-repeat="question in at.questions">
+                <uib-accordion-group ng-init="isOpned = false;" is-open="isOpned" ng-repeat="question in at.questions">
                 <div class="question-block">
                   <uib-accordion-heading ng-class="at.isInValid[$index]?'bg-danger':'bg-success'">
                     <span class="badge badge-auth">{{$index+1}}</span>
@@ -52,7 +74,7 @@
                 </uib-accordion-group>
             </uib-accordion>
             <div class="add-question">
-                <button class="btn btn-default btn-xs" ng-click="at.addQuestion()">
+                <button class="btn btn-default btn-xs" ng-click="at.addQuestion()" ng-disabled="at.isAddQuestionDisable()">
                     <i class="fa fa-plus" aria-hidden="true"></i> Add Question 
                 </button>   
             </div>
@@ -60,6 +82,5 @@
         <div class="loader-layer" ng-show="at.showLoader">
         </div>
         <i class="fa fa-spinner fa-spin" ng-show="at.showLoader" ></i>
-        <div style="height:40px;"></div>
     </div>
 </div>

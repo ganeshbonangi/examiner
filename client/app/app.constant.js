@@ -265,14 +265,14 @@
 			{
 				"topicname": "Inidan Economy",
 				"displaytext": "ఇండియన్ ఎకానమీ",
-				"isInProd": false,
+				"isInProd": true,
 				"chapters": [
 					{
 						"url": "indianplanning-TEL",
 						"displaytext": "భారత ప్రణాళికలు"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianpoverty-TEL",
 						"displaytext": "పేదరికం"
 					},
 					{

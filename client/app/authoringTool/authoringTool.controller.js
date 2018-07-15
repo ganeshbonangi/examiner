@@ -11,10 +11,12 @@ class authoringToolCtrl {
         ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
         ['html', 'insertImage', 'insertLink', 'insertVideo','speach']
     ];
+    //console.log(window.localStorage.getItem('subject'));
     this.subjects = appConfig.subjects.telugu;
     this.loader = [];
     this.editModeOn = [];
     this.isInValid = [];
+    this.searchBy = 'subject';
     this.emptyQuestion =   {
         instruction:'',
         information:'',
@@ -50,17 +52,46 @@ class authoringToolCtrl {
   getEmptyQuestion(){
     return angular.copy(this.emptyQuestion);
   }
+  subjectChange(){
+    this.questions = [];
+    this.cat = undefined;
+  }
+  filterChange(){
+    this.questions = [];
+  }
+  isAddQuestionDisable(){
+    return !(this.searchBy === 'subject'&&this.cat);
+  }
   getQuestion(){
     let _this = this;
-    if(this.cat){
+    if(this.searchBy === 'subject'){
+      if(this.cat){
+        //window.localStorage.setItem('subject',this.chapters);
         this.showLoader = true;
         this.$http.get('/api/questions/getCategory/'+this.cat).success(function(data){
           _this.questions = data;
           _this.showLoader = false;
           _this.editModeOn = [];
+          _this.showCatErrMessage = false;
         });
+      }else{
+        this.showCatErrMessage = true;
+      }
     }else{
-      this.showCatErrMessage = true;
+      if(this.qid){
+        this.showLoader = true;
+        this.$http.get('/api/questions/'+this.qid).success(function(data){
+          _this.questions = [data];
+          _this.showLoader = false;
+          _this.editModeOn = [];
+          _this.showCatErrMessage = false;
+        }).error((err)=>{
+          _this.showLoader = false;
+          _this.showCatErrMessage = true;
+        });
+      }else{
+        this.showCatErrMessage = true;
+      }
     }
   }
   editQuestion($event, $index){
@@ -78,7 +109,6 @@ class authoringToolCtrl {
     if(this.isValidQuestion($index)){
       this.loader[$index] = true;
       this.isInValid[$index] = false;
-      this.questions[$index].category = this.cat;
       let _this = this, question;
       question = JSON.parse(JSON.stringify(this.questions[$index]));
       for(let i=0;i<question.explainaiton.length;i++){
@@ -92,6 +122,7 @@ class authoringToolCtrl {
           _this.editModeOn[$index] = false;
         });
       }else{
+        this.questions[$index].category = this.cat;
         this.$http.post('/api/questions',question).success(function(data){
           _this.questions[$index]._id = data._id;
           _this.loader[$index] = false;

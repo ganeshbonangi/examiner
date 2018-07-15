@@ -1,5 +1,5 @@
 .ta-editor.ta-html, .ta-scroll-window.form-control,.ta-scroll-window > .ta-bind{
-	    min-height: 50px !important;
+	    min-height: 42px !important;
 }
 .statictoolbar{
     height:50px;

@@ -1,5 +1,5 @@
 <div class="container" style="position:relative;">
-    <div class="" style="width:100%;padding:0;" ng-show="mocktestCtrl.mocktest.questions.length" ng-class="{'sticky-timer':mocktestCtrl.boolChangeClass}">
+    <div class="time-container" ng-show="mocktestCtrl.mocktest.questions.length" >
         <timer id="timer" duration="mocktestCtrl.duration" class=" pull-right cout-down"></timer> 
         <div ng-if="mocktestCtrl.duration===0&&mocktestCtrl.mocktest.questions.length">
             <span ng-init="mocktestCtrl.showResult()"></span>

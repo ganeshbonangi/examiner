@@ -85,17 +85,6 @@
               _this.duration = (_this.mocktest.questions.length*60*1000);//converting 1 question to 1 min
               _this.showSpinner = false;
             });
-            let ele = angular.element(document.getElementById('timer'));
-            let sticky = ele.offset().top;
-            angular.element(this.$window).bind('scroll', function() {
-              if (this.pageYOffset >= sticky) {
-                _this.boolChangeClass = true;
-                ele.parent().css('top',this.pageYOffset-sticky);
-              } else {
-                _this.boolChangeClass = false;
-              }
-              _this.$scope.$apply();
-            });
         }
         getQuestoin(index, questionId) {
             this.currentQuestion = index;

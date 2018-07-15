@@ -106,7 +106,7 @@ class room popup style
 Timer style
 */
 .cout-down{
-    color:red;
+    color:#E73A2F;
     font-weight:bold;
 }
 
@@ -123,7 +123,7 @@ Timer style
   font-size: 20px !important;
 }
 .fa-times-circle{
-  color: red;
+  color: #E73A2F;
   font-size: 20px !important;
 }
 .margin-left{

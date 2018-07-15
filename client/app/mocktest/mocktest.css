@@ -6,10 +6,13 @@
     position: relative;
     text-align: center;
 }
-.sticky-timer{
-	position: absolute;
-	right:15px;
-}
 #timer{
-	background-color: aliceblue;
+	background-color: #F4F3F3;
+	border-radius: 5px;
+	padding:0 5px;
+	position: fixed;
+}
+.time-container{
+	position: absolute;
+	right: 80px;
 }

@@ -109,6 +109,7 @@ class authoringToolCtrl {
     if(this.isValidQuestion($index)){
       this.loader[$index] = true;
       this.isInValid[$index] = false;
+      this.questions[$index].category = this.cat;
       let _this = this, question;
       question = JSON.parse(JSON.stringify(this.questions[$index]));
       for(let i=0;i<question.explainaiton.length;i++){
@@ -122,7 +123,6 @@ class authoringToolCtrl {
           _this.editModeOn[$index] = false;
         });
       }else{
-        this.questions[$index].category = this.cat;
         this.$http.post('/api/questions',question).success(function(data){
           _this.questions[$index]._id = data._id;
           _this.loader[$index] = false;

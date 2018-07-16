@@ -121,17 +121,26 @@ class authoringToolCtrl {
         this.$http.put('/api/questions/'+question._id,question).success(function(data){
           _this.loader[$index] = false;
           _this.editModeOn[$index] = false;
+        }).error((err)=>{
+          _this.loader[$index] = false;
+          _this.isInValid[$index] = true;
+          _this.errMsg = 'Not saved your question, Please try again.'
         });
       }else{
         this.$http.post('/api/questions',question).success(function(data){
           _this.questions[$index]._id = data._id;
           _this.loader[$index] = false;
           _this.editModeOn[$index] = false;
+        }).error((err)=>{
+          _this.loader[$index] = false;
+          _this.isInValid[$index] = true;
+          _this.errMsg = 'Not saved your question, Please try again.'
         }); 
       }
 
     }else{
       this.isInValid[$index] = true;
+      this.errMsg = 'You missed some thing the the question.';
     }
   }
   isValidQuestion($index){

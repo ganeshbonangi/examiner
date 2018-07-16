@@ -65,7 +65,7 @@
                         <i class="glyphicon" ng-class="{'glyphicon-chevron-down': isOpned, 'glyphicon-chevron-right': !isOpned}" ></i>
                     </span>
                   </uib-accordion-heading>
-                  <uib-alert type="danger" ng-show="at.isInValid[$index]"><strong>Warning!</strong> Invalid Question to save.</uib-alert>
+                  <uib-alert type="danger" dismiss-on-timeout="10000" close="at.isInValid[$index]=false;" ng-if="at.isInValid[$index]"><strong>Warning!</strong> {{at.errMsg}}</uib-alert>
                   <mcmq-auth question="question" is-ans="isAns" edit-mode-on="at.editModeOn[$index]"> </mcmq-auth> 
                   <div class="loader-layer" ng-show="at.loader[$index]">
                   </div>

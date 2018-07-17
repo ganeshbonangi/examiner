@@ -4,11 +4,14 @@
 
   class MainController {
 
-    constructor($http, appConfig) {
+    constructor($http, appConfig, Auth) {
       this.$http = $http;
       this.awesomeThings = [];
       this.isFirstOpen = [true];
       this.subjects = appConfig.subjects.telugu;
+      Auth.setCallBackForLangSwith(()=>{
+          this.subjects = appConfig.subjects[Auth.currentLang];
+      });
     }
 
     $onInit() {

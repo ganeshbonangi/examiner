@@ -92,7 +92,12 @@
           })
           .$promise;
       },
-
+      refreshPageWithSelectedLang(){
+        this.switchLang();
+      },
+      setCallBackForLangSwith(callback){
+        this.switchLang = callback;
+      },
       /**
        * Gets all available info on a user
        *   (synchronous|asynchronous)

@@ -5,6 +5,7 @@ class NavbarController {
 
   //start-non-standard
   constructor(Auth) {
+    angular.extend(this,{Auth})
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
@@ -27,6 +28,8 @@ class NavbarController {
   }
   changeLang(lang){
   	this.currentLang = lang;
+    this.Auth.currentLang = this.currentLang.lang;
+    this.Auth.refreshPageWithSelectedLang();
   	this.isopen = false;
   }
 }

@@ -364,6 +364,39 @@
 					}
 				]
 			}
+		],
+		"english": [
+			{
+				"topicname": "Arithmetic",
+				"displaytext": "Arithmetic",
+				"isInProd": true,
+				"chapters": [
+					{
+						"url": "averages-EN",
+						"displaytext": "Averages"
+					},
+					{
+						"url": "calender-EN",
+						"displaytext": "Calender"
+					},
+					{
+						"url": "clocks-EN",
+						"displaytext": "Clocks"
+					},
+					{
+						"url": "interests-EN",
+						"displaytext": "Simple Interest and Compond Interest"
+					},
+					{
+						"url": "lcmgcd-EN",
+						"displaytext": "LCM and GCD"
+					},
+					{
+						"url": "timework-EN",
+						"displaytext": "Time and Distance"
+					}
+				]
+			}
 		]
 	}
 })

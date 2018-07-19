@@ -197,7 +197,7 @@
         return $cookies.get('token');
       }
     };
-
+    Auth.currentLang = 'telugu';
     return Auth;
   }
 

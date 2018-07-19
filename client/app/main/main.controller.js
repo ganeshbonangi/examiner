@@ -6,20 +6,20 @@
 
     constructor($http, appConfig, Auth) {
       this.$http = $http;
-      this.awesomeThings = [];
+     // this.awesomeThings = [];
       this.isFirstOpen = [true];
-      this.subjects = appConfig.subjects.telugu;
+      this.subjects = appConfig.subjects[Auth.currentLang];
       Auth.setCallBackForLangSwith(()=>{
           this.subjects = appConfig.subjects[Auth.currentLang];
       });
     }
 
     $onInit() {
-      this.$http.get('/api/things')
-        .then(response => {
-          this.awesomeThings = response.data;
-        //  this.socket.syncUpdates('thing', this.awesomeThings);
-        });
+      // this.$http.get('/api/things')
+      //   .then(response => {
+      //     this.awesomeThings = response.data;
+      //     this.socket.syncUpdates('thing', this.awesomeThings);
+      //   });
     }
 
     addThing() {

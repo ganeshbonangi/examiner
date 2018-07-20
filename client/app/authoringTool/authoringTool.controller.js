@@ -115,6 +115,7 @@ class authoringToolCtrl {
       for(let i=0;i<question.explainaiton.length;i++){
         if(!question.explainaiton[i].text.trim()){
           question.explainaiton.splice(i,1);
+          i--;
         }
       }
       if(question._id){

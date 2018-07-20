@@ -16,6 +16,15 @@
         		}
         	}
         }
+        addOption(){
+            this.question.options.push({isAns:false,content:''});
+        }
+        removeOption(index){
+            this.question.options.splice(index,1);
+        }
+        addExp(){
+            this.question.explainaiton.push({text:''});
+        }
         $onInit(){
         	for(let i=0;i<this.question.options.length;i++){
         		if(this.question.options[i].isAns){

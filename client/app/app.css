@@ -101,6 +101,9 @@ class room popup style
     right: 0px;
     position: absolute;
 }
+.nav-tabs{
+  background : #ddd;
+}
 
 /**
 Timer style

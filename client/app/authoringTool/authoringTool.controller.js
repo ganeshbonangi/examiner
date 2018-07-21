@@ -141,14 +141,18 @@ class authoringToolCtrl {
 
     }else{
       this.isInValid[$index] = true;
-      this.errMsg = 'You missed some thing the the question.';
+      this.errMsg = 'You missed some thing in the question.';
     }
   }
   isValidQuestion($index){
-    if(!this.cat){
-      this.showCatErrMessage = true;
+    if(this.searchBy === 'subject'){
+      if(!this.cat){
+        this.showCatErrMessage = true;
+      }
+      return (this.cat&&this.questions[$index].questiontext&&this.checkOptionsMarkup($index));
+    }else{
+      return true;
     }
-    return (this.cat&&this.questions[$index].questiontext&&this.checkOptionsMarkup($index));
   }
   stripText(html){
     var tmp = document.createElement('DIV');

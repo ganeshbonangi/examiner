@@ -284,35 +284,35 @@
 						"displaytext": "ప్రభుత్వ విత్తం"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianmoney-TEL",
 						"displaytext": "ద్రవ్యం"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianbanking-TEL",
 						"displaytext": "బ్యాంకింగ్ రంగం"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianaggri-TEL",
 						"displaytext": "వ్యవసాయ రంగం"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianindust-TEL",
 						"displaytext": "పారిశ్రామిక రంగం"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianstock-TEL",
 						"displaytext": "అంతర్జాతీయ వ్యాపారం-  సంస్థలు - స్టాక్ మార్కెట్లు"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianbudget-TEL",
 						"displaytext": "బడ్జెట్"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianecodev-TEL",
 						"displaytext": "ఆర్థిక వృద్ధి-  ఆర్థికావృద్ధి"
 					},
 					{
-						"url": "indianeconsys-TEL",
+						"url": "indianesocialsch-TEL",
 						"displaytext": "భారతదేశం- ఆంధ్ర ప్రదేశ్ సంక్షేమ పథకాలు"
 					}
 				]

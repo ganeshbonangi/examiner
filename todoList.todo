@@ -36,6 +36,75 @@ Todo for DB:
 
 
 
+Deployemnt procedue:
+
+
+gulp build,
+
+then go to dist folder
+
+git add .
+git commit -m ""
+git push heroku master
+ heroku ps:scale web=1  // to restart server
+
+ heroku logs // to see log file
+
+ DB back up cmd
+ mongodump -h ds061208.mlab.com:61208 -d examcolors -u ganesh007 -p ganesh007 -o /Users/ganeshbonangi/Desktop/workspace/examiner/dbbackup/
+
+
+ db sequance
+
+
+
+step 1:
+creating counters collection with one recode with id = 'questions_id'
+setting counter to 0
+
+db.counters.update({},{$set:{"sequence_value":0}}); //for setting sequantial initial number
+
+db.questions.update({},{$set:{'id':0}},{upsert:false,multi:true})// for adding field to all collection
+
+//below will set seq number to existing collection
+ var i = 0;
+db.questions.find().forEach(function(myDoc) {
+
+ db.questions.update(myDoc,{$set:{'id':i++}});
+ 
+});
+
+
+
+step 2:
+ function getValueForNextSequence(){
+
+    var sequenceDoc = db.counters.findAndModify({
+       query:{id: 'questions_id' },
+       update: {$inc:{sequence_value:1}},
+       new:true
+    });
+
+    return sequenceDoc.sequence_value;
+ }
+step 3:
+var coll = db.questions.find({});
+ for(var i=0;i<coll.length();i++){  
+ db.questions.update({_id:coll[i]._id},{$set:{id:getValueForNextSequence()}});
+ }
+
+
+
+
+ mongo db restore cmd
+
+ mongorestore dbbackup
+
+Debugging:
+gulp serve:debug
+goto nim then it'll open server code in script
+
+
 
 
 Clarity:

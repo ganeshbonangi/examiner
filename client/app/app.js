@@ -110,4 +110,6 @@ angular.module('authCellApp', ['authCellApp.auth', 'authCellApp.admin', 'authCel
         taOptions.toolbar[3].push('speach');
         return taOptions;
     }]);
+  }).controller('appCtrl', function($scope){
+  	$scope.isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1
   });

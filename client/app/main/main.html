@@ -7,8 +7,8 @@
           {{subject.displaytext}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': mc.isFirstOpen[$index], 'glyphicon-chevron-right': !mc.isFirstOpen[$index]}"></i>
         </uib-accordion-heading>
         <div class="list-group">
-          <a ui-sref="mocktest({ mocktestId: chapter.url })" class="list-group-item" ng-repeat="chapter in subject.chapters">{{chapter.displaytext}}<i class="fa fa-hand-o-left pull-right" aria-hidden="true"></i>
-          </a>
+          <a ui-sref="mocktest({ mocktestId: chapter.url })" class="list-group-item" ng-repeat="chapter in subject.chapters">{{chapter.displaytext}} ప్రాక్టీస్ టెస్ట్</a>
+          <i class="fa fa-hand-o-left pull-right" aria-hidden="true"></i>
         </div>
       </uib-accordion-group>
   </uib-accordion>

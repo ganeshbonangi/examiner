@@ -8,6 +8,12 @@
 .list-group{
   margin-bottom: 0px;
 }
+.practice-test{
+	color: blue !important;
+}
+.practice-test:hover{
+	text-decoration: underline !important;
+}
 .fa-hand-o-left{
 	color: red;
 	animation: blink-animation 1s steps(5, start) infinite;

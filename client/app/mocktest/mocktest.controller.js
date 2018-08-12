@@ -93,9 +93,6 @@
                 console.log(response);
             });
         }
-        resetCurrentQuestion() {
-            this.exam.questions[this.currentQuestion].ans = '';
-        }
         showResult() {
             let _this = this;
             this.isSubmited = true;
@@ -116,6 +113,9 @@
         }
         resetAllSelection() {
             this.isSubmited = false;
+            for(let i=0; i<this.mocktest.questions.length;i++){
+                this.mocktest.questions[i].userAns = false;                
+            }
         }
     }
 

@@ -12,12 +12,12 @@
             <div ng-repeat="option in question.options">
                 <label class="table-row">
                     <span class="table-cell">
-                        <input class="radio-margin-right" type="radio" name="{{$parent.$index}}" ng-model="question.userAns" value="{{$index}}" /> 
+                        <input class="radio-margin-right" type="radio" name="{{$parent.$index}}" ng-model="question.userAns" value="{{$index+1}}" /> 
                     </span>
                     <span ta-bind ng-model="option.content" ></span>
                     <span class="table-cell tick-padding-left">
                         <i class="fa fa-check-circle" aria-hidden="true" ng-show="$parent.isSubmited&&option.isAns"></i>
-                        <i class="fa fa-times-circle" aria-hidden="true" ng-show="$parent.isSubmited&&(question.userAns==$index)&&!option.isAns"></i>
+                        <i class="fa fa-times-circle" aria-hidden="true" ng-show="$parent.isSubmited&&(question.userAns==$index+1)&&!option.isAns"></i>
                     </span>                    
                 </label>
             </div>

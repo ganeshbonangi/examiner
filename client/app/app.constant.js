@@ -19,8 +19,28 @@
 						"displaytext": "సరాసరి"
 					},
 					{
+						"url": "calender-TEL",
+						"displaytext": "క్యాలెండర్"
+					},
+					{
+						"url": "clocks-TEL",
+						"displaytext": "గడియారాలు"
+					},
+					{
+						"url": "interests-TEL",
+						"displaytext": "బారువడ్డీ-చక్రవడ్డీ"
+					},
+					{
 						"url": "lcmgcd-TEL",
 						"displaytext": "క.సా.గు-గ.సా.భా"
+					},
+					{
+						"url": "karunalu-TEL",
+						"displaytext": "క్షేత్రమితి"
+					},
+					{
+						"url": "mixers-TEL",
+						"displaytext": "మిశ్రమాలు"
 					},
 					{
 						"url": "numseries-TEL",
@@ -39,12 +59,28 @@
 						"displaytext": "శాతాలు"
 					},
 					{
+						"url": "profitloss-TEL",
+						"displaytext": "లాభనష్టాలు"
+					},
+					{
 						"url": "proposinal-TEL",
 						"displaytext": "నిష్పత్తి-అనుపాతం"
 					},
 					{
+						"url": "simplification-TEL",
+						"displaytext": "సూక్ష్మీకరణ"
+					},
+					{
+						"url": "power-TEL",
+						"displaytext": "ఘాతంకాలు-కరణలు"
+					},
+					{
 						"url": "timedist-TEL",
 						"displaytext": "కాలం-దూరం"
+					},
+					{
+						"url": "timework-TEL",
+						"displaytext": "కాలం-పని"
 					}
 				]
 			},

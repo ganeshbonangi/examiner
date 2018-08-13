@@ -8,6 +8,8 @@ var QuestionSchema = new mongoose.Schema({
   instruction: String,
   questiontext: String,
   type: String,
+  uploadedby: String,
+  uploadeddate:{ type: Date, default: Date.now },
   explainaiton: [{text:String}],
   category: String,
   options: [{

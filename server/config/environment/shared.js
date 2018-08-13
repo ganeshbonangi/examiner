@@ -123,52 +123,17 @@ exports = module.exports = {
 						]
 			},{
 				'topicname':'RK Mocktest',
-				'displaytext':'RK రీజనింగ్',
-				'isInProd':true,
+				'displaytext':'RK Content',
+				'isInProd':false,
 				'chapters':[{
-							'url':'seatingarrange-TEL',
-							'displaytext':'సీటింగ్ అరేంజ్ మెంట్',
-						'isVerified':true
+							'url':'RK-Time-Work-TEL',
+							'displaytext':'RK-Time-Work-TEL'
 							},{
-							'url':'series-TEL',
-								'displaytext':'సంఖ్యా శ్రేణి',
-							'isVerified':true
+							'url':'RK-Profit-Loss-TEL',
+							'displaytext':'RK-Profit-Loss-TEL'
 							},{
-							'url':'ranking-TEL',
-								'displaytext':'ర్యాంకింగ్ పరీక్షఎడిషన్',
-							'isVerified':true
-							},{
-							'url':'puzzle-TEL',
-								'displaytext':'పజిల్ టెస్ట్',
-							'isVerified':true
-							},{
-							'url':'direction-TEL',
-								'displaytext':'దిక్కులు',
-							'isVerified':true
-							},{
-							'url':'dies-TEL',
-								'displaytext':'పాచికలు',
-							'isVerified':true
-							},{
-							'url':'codingdecoding-TEL',
-								'displaytext':'కోడింగ్ -  డీకోడింగ్',
-							'isVerified':true
-							},{
-							'url':'blodrelation-TEL',
-								'displaytext':'రక్త సంబంధాలు',
-							'isVerified':true
-							},{
-							'url':'plika-TEL',
-								'displaytext':'పోలిక పరీక్ష',
-							'isVerified':true
-							},{
-							'url':'vendiagroms-TEL',
-								'displaytext':'వెన్ డయాగ్రమ్స్',
-							'isVerified':true
-							},{
-							'url':'statementconclusion-TEL',
-								'displaytext':'ప్రకటనలు - తీర్మానాలు',
-							'isVerified':true
+							'url':'RK-Time-Distance-TEL',
+							'displaytext':'RK-Time-Distance-TEL'
 							}
 						]
 			},

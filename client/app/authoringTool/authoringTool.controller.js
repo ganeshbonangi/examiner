@@ -1,8 +1,9 @@
 'use strict';
 
 class authoringToolCtrl {
-  constructor($http, $window, $scope, appConfig) {
+  constructor($http, $window, $scope, appConfig, Auth) {
     this.message = 'Hello';
+    this.Auth = Auth;
     this.cat = '';
     this.type = 'MCSS';
     this.toolBarFeatures = [
@@ -128,6 +129,7 @@ class authoringToolCtrl {
         });
       }else{
         question.category = this.cat;
+        question.uploadedby = this.Auth.getCurrentUser()._id;
         this.$http.post('/api/questions',question).success(function(data){
           _this.questions[$index]._id = data._id;
           _this.questions[$index].category = data.category;

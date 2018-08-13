@@ -74,105 +74,105 @@ var counterController = require('../api/counter/counter.controller');
 //             }]
 //         });
 //     });
-ClassRoom.find({}).remove()
-    .then(() => {
-        ClassRoom.create({
-            id: 1,
-            name: 'Sunday Batch',
-            admin: 123,
-            students: [123,234,233]
-        }, {
-            id: 2,
-            name: 'Batch 2',
-            admin: 23,
-            students: [234,233,235]
-        }, {
-            id: 3,
-            name: 'Noon Batch',
-            admin: 123,
-            students: [234,233,235]
-        }, {
-            id: 4,
-            name: 'Evening Batch',
-            admin: 123,
-            students: [234,233,235]
-        }, {
-            id: 5,
-            name: 'Morning Batch',
-            admin: 67,
-            students: [678]
-        }, {
-            id: 6,
-            name: 'Sunday Batch',
-            admin: 898,
-            students: [234,233,235]
-        });
-    });
+// ClassRoom.find({}).remove()
+//     .then(() => {
+//         ClassRoom.create({
+//             id: 1,
+//             name: 'Sunday Batch',
+//             admin: 123,
+//             students: [123,234,233]
+//         }, {
+//             id: 2,
+//             name: 'Batch 2',
+//             admin: 23,
+//             students: [234,233,235]
+//         }, {
+//             id: 3,
+//             name: 'Noon Batch',
+//             admin: 123,
+//             students: [234,233,235]
+//         }, {
+//             id: 4,
+//             name: 'Evening Batch',
+//             admin: 123,
+//             students: [234,233,235]
+//         }, {
+//             id: 5,
+//             name: 'Morning Batch',
+//             admin: 67,
+//             students: [678]
+//         }, {
+//             id: 6,
+//             name: 'Sunday Batch',
+//             admin: 898,
+//             students: [234,233,235]
+//         });
+//     });
 
-Exam.find({}).remove()
-    .then(() => {
-        Exam.create({
-            id: 1,
-            name: 'SBI PO',
-            activationdate: 1460572200000,
-            expiredate: 1593147200000,
-            duration: 1498243800960,
-            students: [234, 2, 3],
-            questions: [124, 123, 125],
-            authorid: 123,
-            authorname: 'String 123'
-        }, {
-            id: 2,
-            name: 'RRB',
-            activationdate: 1460572200000,
-            expiredate: 1693147258206,
-            duration: 1493154058376,
-            students: [234, 2, 3],
-            questions: [12, 123],
-            authorid: 124,
-            authorname: 'String 123'
-        }, {
-            id: 3,
-            name: 'CIVEL 000',
-            activationdate: 1460572200000,
-            expiredate: 1793147258206,
-            duration: 1493154058376,
-            students: [23, 2, 234],
-            questions: [12, 123],
-            authorid: 123,
-            authorname: 'String 123'
-        }, {
-            id: 4,
-            name: 'SI',
-            activationdate: 1460572200000,
-            expiredate: 1893147258206,
-            duration: 1493154058376,
-            students: [1, 2, 3],
-            questions: [12, 123],
-            authorid: 123,
-            authorname: 'String 123'
-        }, {
-            id: 5,
-            name: 'String5',
-            activationdate: 1460572200000,
-            expiredate: 1993147258206,
-            duration: 1493154058376,
-            students: [1, 2, 3],
-            questions: [12, 123],
-            authorid: 124,
-            authorname: 'String'
-        }, {
-            id: 6,
-            name: 'String6',
-            activationdate: 1460572200000,
-            expiredate: 1493147258206,
-            duration: 1493154058376,
-            students: [1, 2, 3],
-            questions: [12, 123],
-            authorid: 124,
-            authorname: 'String'
-        });
-    });
+// Exam.find({}).remove()
+//     .then(() => {
+//         Exam.create({
+//             id: 1,
+//             name: 'SBI PO',
+//             activationdate: 1460572200000,
+//             expiredate: 1593147200000,
+//             duration: 1498243800960,
+//             students: [234, 2, 3],
+//             questions: [124, 123, 125],
+//             authorid: 123,
+//             authorname: 'String 123'
+//         }, {
+//             id: 2,
+//             name: 'RRB',
+//             activationdate: 1460572200000,
+//             expiredate: 1693147258206,
+//             duration: 1493154058376,
+//             students: [234, 2, 3],
+//             questions: [12, 123],
+//             authorid: 124,
+//             authorname: 'String 123'
+//         }, {
+//             id: 3,
+//             name: 'CIVEL 000',
+//             activationdate: 1460572200000,
+//             expiredate: 1793147258206,
+//             duration: 1493154058376,
+//             students: [23, 2, 234],
+//             questions: [12, 123],
+//             authorid: 123,
+//             authorname: 'String 123'
+//         }, {
+//             id: 4,
+//             name: 'SI',
+//             activationdate: 1460572200000,
+//             expiredate: 1893147258206,
+//             duration: 1493154058376,
+//             students: [1, 2, 3],
+//             questions: [12, 123],
+//             authorid: 123,
+//             authorname: 'String 123'
+//         }, {
+//             id: 5,
+//             name: 'String5',
+//             activationdate: 1460572200000,
+//             expiredate: 1993147258206,
+//             duration: 1493154058376,
+//             students: [1, 2, 3],
+//             questions: [12, 123],
+//             authorid: 124,
+//             authorname: 'String'
+//         }, {
+//             id: 6,
+//             name: 'String6',
+//             activationdate: 1460572200000,
+//             expiredate: 1493147258206,
+//             duration: 1493154058376,
+//             students: [1, 2, 3],
+//             questions: [12, 123],
+//             authorid: 124,
+//             authorname: 'String'
+//         });
+//     });
 Option.find({}).remove()
     .then(()=>{
         Option.create({

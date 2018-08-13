@@ -87,38 +87,88 @@ exports = module.exports = {
 				'displaytext':'రీజనింగ్',
 				'isInProd':false,
 				'chapters':[{
-							'url':'seatingarrange-TEL',
+							'url':'RK-seatingarrange-TEL',
 								'displaytext':'సీటింగ్ అరేంజ్ మెంట్'
 							},{
-							'url':'series-TEL',
+							'url':'RK-series-TEL',
 								'displaytext':'సంఖ్యా శ్రేణి'
 							},{
-							'url':'ranking-TEL',
+							'url':'RK-ranking-TEL',
 								'displaytext':'ర్యాంకింగ్ పరీక్షఎడిషన్'
 							},{
-							'url':'puzzle-TEL',
+							'url':'RK-puzzle-TEL',
 								'displaytext':'పజిల్ టెస్ట్'
 							},{
-							'url':'direction-TEL',
+							'url':'RK-direction-TEL',
 								'displaytext':'దిక్కులు'
 							},{
-							'url':'dies-TEL',
+							'url':'RK-dies-TEL',
 								'displaytext':'పాచికలు'
 							},{
-							'url':'codingdecoding-TEL',
+							'url':'RK-codingdecoding-TEL',
 								'displaytext':'కోడింగ్ -  డీకోడింగ్'
 							},{
-							'url':'blodrelation-TEL',
+							'url':'RK-blodrelation-TEL',
 								'displaytext':'రక్త సంబంధాలు'
 							},{
-							'url':'plika-TEL',
+							'url':'RK-plika-TEL',
 								'displaytext':'పోలిక పరీక్ష'
 							},{
-							'url':'vendiagroms-TEL',
+							'url':'RK-vendiagroms-TEL',
 								'displaytext':'వెన్ డయాగ్రమ్స్'
 							},{
-							'url':'statementconclusion-TEL',
+							'url':'RK-statementconclusion-TEL',
 								'displaytext':'ప్రకటనలు - తీర్మానాలు'
+							}
+						]
+			},{
+				'topicname':'RK Mocktest',
+				'displaytext':'RK రీజనింగ్',
+				'isInProd':true,
+				'chapters':[{
+							'url':'seatingarrange-TEL',
+							'displaytext':'సీటింగ్ అరేంజ్ మెంట్',
+						'isVerified':true
+							},{
+							'url':'series-TEL',
+								'displaytext':'సంఖ్యా శ్రేణి',
+							'isVerified':true
+							},{
+							'url':'ranking-TEL',
+								'displaytext':'ర్యాంకింగ్ పరీక్షఎడిషన్',
+							'isVerified':true
+							},{
+							'url':'puzzle-TEL',
+								'displaytext':'పజిల్ టెస్ట్',
+							'isVerified':true
+							},{
+							'url':'direction-TEL',
+								'displaytext':'దిక్కులు',
+							'isVerified':true
+							},{
+							'url':'dies-TEL',
+								'displaytext':'పాచికలు',
+							'isVerified':true
+							},{
+							'url':'codingdecoding-TEL',
+								'displaytext':'కోడింగ్ -  డీకోడింగ్',
+							'isVerified':true
+							},{
+							'url':'blodrelation-TEL',
+								'displaytext':'రక్త సంబంధాలు',
+							'isVerified':true
+							},{
+							'url':'plika-TEL',
+								'displaytext':'పోలిక పరీక్ష',
+							'isVerified':true
+							},{
+							'url':'vendiagroms-TEL',
+								'displaytext':'వెన్ డయాగ్రమ్స్',
+							'isVerified':true
+							},{
+							'url':'statementconclusion-TEL',
+								'displaytext':'ప్రకటనలు - తీర్మానాలు',
+							'isVerified':true
 							}
 						]
 			},

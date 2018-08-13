@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav">
         <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
         <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="authoringTool">Authoring Tool</a></li>
-        <li class="dropdown">
+       <!--  <li class="dropdown">
           <a class="dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false" uib-dropdown is-open="nav.isopen" ng-click="nav.toggleDropdown($event)">{{nav.currentLang.displayText}} <span class="caret"></span>
           </a>
             <ul class="dropdown-menu" ng-style="{'display':nav.isopen?'inline-block':'none'}">
@@ -23,14 +23,14 @@
                 </a>
               </li>
             </ul>
-        </li>
+        </li> -->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="teacher">Teacher</a></li>
+        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="teacher">Teacher</a></li>
         <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="student">Student</a></li>
-        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="examcenter">Exam Center</a></li> 
-        <li ui-sref-active="active"><a ui-sref="mocktest">Mock Test</a></li>-->
+        <!--<li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="examcenter">Exam Center</a></li> 
+         <li ui-sref-active="active"><a ui-sref="mocktest">Mock Test</a></li> -->
         <li ui-sref-active="active"><a ui-sref="main">Home</a></li>
         <li ui-sref-active="active"><a ui-sref="about">About Us</a></li>
         <li ui-sref-active="active"><a ui-sref="contact">Contact Us</a></li> 

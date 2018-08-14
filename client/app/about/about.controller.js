@@ -7,9 +7,6 @@
             
 
         }
-        getLocalStorage(){
-            alert(localStorage.getItem("isWebView"));
-        }
     }
 
     angular.module('authCellApp')

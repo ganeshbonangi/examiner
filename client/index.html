@@ -56,15 +56,8 @@
 
     <!-- Add your site or application content here -->
     <navbar></navbar>
-    <script>
-      function getCookie(name) {
-        var value = "; " + document.cookie;
-        var parts = value.split("; " + name + "=");
-        if (parts.length == 2) return parts.pop().split(";").shift();
-      }
-    </script>
-    <div class="row android-app" ng-show="isAndroid">
-      <a href="https://drive.google.com/uc?export=download&id=1I9r2JtsJycvkhBuzUGHZQY5NaanoR4Zv" >
+    <div class="row android-app" ng-show="isAndroidBrowser">
+      <a href="https://drive.google.com/uc?export=download&id=0B-5C0Z9cWzk_ei1td1pKZEhQODJXc19DcWViVUZyTFlnLXpz" download="ExamBuds.apk" >
         <img ng-src="assets/images/android-button@2x.jpg" />
       </a>
     </div>

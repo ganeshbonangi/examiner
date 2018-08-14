@@ -111,5 +111,5 @@ angular.module('authCellApp', ['authCellApp.auth', 'authCellApp.admin', 'authCel
         return taOptions;
     }]);
   }).controller('appCtrl', function($scope){
-  	$scope.isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1
+  	$scope.isAndroidBrowser = (navigator.userAgent.toLowerCase().indexOf("android") > -1 && window.document.URL.indexOf('isCordova') === -1);
   });

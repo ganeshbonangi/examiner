@@ -23,7 +23,7 @@ exports = module.exports = {
 					{
 						'url':'averages-TEL',
 						'displaytext':'సరాసరి'
-					},{
+					},/*{
 						'url':'calender-TEL',
 						'displaytext':'క్యాలెండర్'
 					},{
@@ -32,16 +32,16 @@ exports = module.exports = {
 					},{
 						'url':'interests-TEL',
 						'displaytext':'బారువడ్డీ-చక్రవడ్డీ'
-					},{
+					},*/{
 						'url':'lcmgcd-TEL',
 						'displaytext':'క.సా.గు-గ.సా.భా'
-					},{
+					},/*{
 						'url':'karunalu-TEL',
 						'displaytext':'క్షేత్రమితి'
 					},{
 						'url':'mixers-TEL',
 						'displaytext':'మిశ్రమాలు'
-					},{
+					},*/{
 						'url':'numseries-TEL',
 						'displaytext':'నంబర్ సిరీస్'
 					},{
@@ -56,7 +56,7 @@ exports = module.exports = {
 					},{
 						'url':'profitloss-TEL',
 						'displaytext':'లాభనష్టాలు'
-					},{
+					},/*{
 						'url':'proposinal-TEL',
 						'displaytext':'నిష్పత్తి-అనుపాతం'
 					},{
@@ -65,7 +65,7 @@ exports = module.exports = {
 					},{
 						'url':'power-TEL',
 						'displaytext':'ఘాతంకాలు-కరణలు'
-					},{
+					},*/{
 						'url':'timedist-TEL',
 						'displaytext':'కాలం-దూరం'
 					},{

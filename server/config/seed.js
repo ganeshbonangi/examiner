@@ -11,7 +11,6 @@ import Exam from '../api/exam/exam.model';
 import Questions from '../api/question/question.model';
 import Option from '../api/option/option.model';
 import Counter from '../api/counter/counter.model';
-var counterController = require('../api/counter/counter.controller');
 
 // Counter.find({}).remove()
 //     .then(() => {

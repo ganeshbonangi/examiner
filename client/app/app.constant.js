@@ -37,18 +37,6 @@
 					{
 						"url": "percent-TEL",
 						"displaytext": "శాతాలు"
-					},
-					{
-						"url": "profitloss-TEL",
-						"displaytext": "లాభనష్టాలు"
-					},
-					{
-						"url": "timedist-TEL",
-						"displaytext": "కాలం-దూరం"
-					},
-					{
-						"url": "timework-TEL",
-						"displaytext": "కాలం-పని"
 					}
 				]
 			},

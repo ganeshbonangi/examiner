@@ -11,7 +11,7 @@ class classRoomCtrl{
 		this.$uibModalInstance = $uibModalInstance;
 		this.$http = $http;
 		this.getCurrentUser = Auth.getCurrentUser;
-    this.userId = this.getCurrentUser()._id || 1000;
+    	this.userId = this.getCurrentUser()._id || 1000;
 		if(!this.cr.students){
 			this.cr.students = [];			
 		}

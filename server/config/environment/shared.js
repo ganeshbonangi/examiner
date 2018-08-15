@@ -53,10 +53,10 @@ exports = module.exports = {
 					},{
 						'url':'percent-TEL',
 						'displaytext':'శాతాలు'
-					},{
+					}/*,{
 						'url':'profitloss-TEL',
 						'displaytext':'లాభనష్టాలు'
-					},/*{
+					},{
 						'url':'proposinal-TEL',
 						'displaytext':'నిష్పత్తి-అనుపాతం'
 					},{
@@ -65,13 +65,13 @@ exports = module.exports = {
 					},{
 						'url':'power-TEL',
 						'displaytext':'ఘాతంకాలు-కరణలు'
-					},*/{
+					},{
 						'url':'timedist-TEL',
 						'displaytext':'కాలం-దూరం'
 					},{
 						'url':'timework-TEL',
 						'displaytext':'కాలం-పని'
-					}/*,{
+					},{
 						'url':'pobability-TEL',
 						'displaytext':'సంభావ్యత'
 					},{

@@ -9,6 +9,7 @@
             this.currentExam = {};
             this.getCurrentUser = Auth.getCurrentUser;
             this.userId = this.getCurrentUser()._id||1000;
+            this.conductingExams = [];
 
             this.$http.get('/api/exams/teacher/' + this.userId).then(response => {
                 this.conductingExams = response.data;
@@ -20,6 +21,7 @@
         }
         addEditExam(size, currentExam) {
             var exam = null;
+            var self = this;
             if(currentExam){
                 exam = JSON.parse(JSON.stringify(currentExam));                
             }
@@ -38,8 +40,8 @@
                 }
             });
 
-            modalInstance.result.then(function( /*selectedItem*/ ) {
-                // teacherCtrlScope.conductingExams.push(selectedItem);
+            modalInstance.result.then(function(exam) {
+                self.conductingExams.push(exam);
             }, function() {
                 //$log.info('Modal dismissed at: ' + new Date());
             });

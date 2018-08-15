@@ -7,8 +7,8 @@ var ExamSchema = new mongoose.Schema({
   name: String,
   activationdate: {type:Date},/*Date object */
   expiredate: {type:Date},
-  duration: Number,/*Total Minutes for the exams*/
-  students: [String],/*Students who will see the exams*/
+  duration: {type:Date},/*Total Minutes for the exams*/
+  classRooms: [String],/*class rooms who will see the exams*/
   authorid: String
 });
 

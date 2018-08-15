@@ -1,9 +1,11 @@
 'use strict';
 
 class examSetupCtrl {
-    constructor($uibModalInstance, exam, utilService, $http) {
+    constructor($uibModalInstance, exam, utilService, $http, Auth) {
         this.$uibModalInstance = $uibModalInstance;
         this.$http = $http;
+        this.Auth = Auth;
+        this.user = this.Auth.getCurrentUser();
         this.popup1 = {
             opened: false
         };
@@ -54,6 +56,11 @@ class examSetupCtrl {
         this.$uibModalInstance.dismiss('dismiss reason');
     }
     saveTheExam() {
+        this.exam.authorid = this.user._id;
+        this.$http.post('/api/exams',this.exam).then(response=>{
+            response.data.type = 'newClass';
+            this.$uibModalInstance.close(response.data);
+        });
         this.$uibModalInstance.close(this.exam);
     }
     getClassRooms(){

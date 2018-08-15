@@ -28,7 +28,7 @@ class classRoomCtrl{
 		});
 	}
 	addStudentToClassRoom(student){
-		this.cr.students.push({name:student.name,id:student.id});
+		this.cr.students.push({name:student.name,id:student._id});
 		this.showList = false;
 		this.student = '';
 	}

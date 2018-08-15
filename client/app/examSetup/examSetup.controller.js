@@ -57,7 +57,11 @@ class examSetupCtrl {
     }
     saveTheExam() {
         this.exam.authorid = this.user._id;
-        this.$http.post('/api/exams',this.exam).then(response=>{
+        let reqObj = angular.copy(this.exam);
+        for(let i=0;i<reqObj.classRooms.length;i++){
+            reqObj.classRooms[i] = reqObj.classRooms[i].id;
+        }
+        this.$http.post('/api/exams',reqObj).then(response=>{
             response.data.type = 'newClass';
             this.$uibModalInstance.close(response.data);
         });
@@ -73,12 +77,19 @@ class examSetupCtrl {
         this.exam.classRooms.splice(index,1);
     }
     addClassRoomToExam(clsObj){
-        this.exam.classRooms.push(clsObj);
+        this.exam.classRooms.push({id:clsObj._id,name:clsObj.name});
         this.showList = false;
         this.className = '';
     }
   updateTheExam() {
-  //has to make service call for update exam
+        let reqObj = angular.copy(this.exam);
+        for(let i=0;i<reqObj.classRooms.length;i++){
+            reqObj.classRooms[i] = reqObj.classRooms[i].id;
+        }
+        this.$http.put('/api/exams/'+this.exam._id,reqObj).then(response=>{
+            response.data.examType = 'updating';
+            this.$uibModalInstance.close(response.data);            
+        });
   }
   revertingBack() {
   //has to reset to it's original state.

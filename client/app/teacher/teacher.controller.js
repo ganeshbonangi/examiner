@@ -8,7 +8,7 @@
             this.$http = $http;
             this.currentExam = {};
             this.getCurrentUser = Auth.getCurrentUser;
-            this.userId = this.getCurrentUser()._id||1000;
+            this.userId = this.getCurrentUser()._id;
             this.conductingExams = [];
 
             let self = this;

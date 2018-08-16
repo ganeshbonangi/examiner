@@ -24,7 +24,7 @@ function respondWithResult(res, statusCode) {
 
 function saveUpdates(updates) {
   return function(entity) {
-    var updated = _.merge(entity, updates);
+    var updated = _.extend(entity, updates);
     console.log('entity');
     console.log(entity);
     console.log('updates');

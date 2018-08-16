@@ -57,13 +57,13 @@ class examSetupCtrl {
     }
     saveTheExam() {
         this.exam.authorid = this.user._id;
-        let reqObj = angular.copy(this.exam);
+        let reqObj = angular.copy(this.exam), self = this;
         for(let i=0;i<reqObj.classRooms.length;i++){
             reqObj.classRooms[i] = reqObj.classRooms[i].id;
         }
         this.$http.post('/api/exams',reqObj).then(response=>{
-            response.data.type = 'newClass';
-            this.$uibModalInstance.close(response.data);
+            self.exam.type = 'newClass';
+            this.$uibModalInstance.close(self.exam);
         });
         this.$uibModalInstance.close(this.exam);
     }
@@ -81,16 +81,16 @@ class examSetupCtrl {
         this.showList = false;
         this.className = '';
     }
-  updateTheExam() {
-        let reqObj = angular.copy(this.exam);
+    updateTheExam() {
+        let reqObj = angular.copy(this.exam), self = this;
         for(let i=0;i<reqObj.classRooms.length;i++){
             reqObj.classRooms[i] = reqObj.classRooms[i].id;
         }
         this.$http.put('/api/exams/'+this.exam._id,reqObj).then(response=>{
-            response.data.examType = 'updating';
-            this.$uibModalInstance.close(response.data);            
+            self.exam.examType = 'updating';
+            this.$uibModalInstance.close(self.exam);            
         });
-  }
+    }
   revertingBack() {
   //has to reset to it's original state.
   }

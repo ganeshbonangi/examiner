@@ -46,6 +46,12 @@ class authoringToolCtrl {
       }
       _this.$scope.$apply();
     });
+
+    $http.get('/api/exams/teacher/' + this.Auth.getCurrentUser()._id).then(response => {
+      _this.exams = response.data;
+    });
+
+
   }
   chapterChange(){
     this.questions = [];

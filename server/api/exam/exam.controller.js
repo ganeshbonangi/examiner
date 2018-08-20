@@ -12,6 +12,7 @@
 
 import _ from 'lodash';
 import Exam from './exam.model';
+import Classroom from './../classroom/classroom.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -76,8 +77,16 @@ export function getExamListForTeacher(req, res){
 }
 
 export function getExamListForStudent(req, res){
-   return Exam.find({students:req.params.id}).select({'authorid':0}).exec()
-    .then(handleEntityNotFound(res))
+   return Classroom.find({students:{ $elemMatch: { id: req.params.id } }}).exec()
+    .then((res)=>{
+      let classRoomList = [];
+      for(let i=0;i<res.length;i++){
+        classRoomList.push(res[i]._id);
+      }
+      return Exam.find({'classRooms':{$in:classRoomList}}).select({}).exec().then(function(res){
+        return res;
+      }); 
+    })
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

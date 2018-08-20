@@ -4,20 +4,20 @@
         <table class="table">
             <tr>
                 <th>Exam Name</th>
-                <th>Teacher Name</th>
-                <th>Class Name</th>
+               <!--  <th>Teacher Name</th>
+                <th>Class Name</th> -->
                 <th>Exam Expiration</th>
                 <th>Duration</th>
                 <th>Action</th>
             </tr>
             <tr ng-repeat="exam in studentCtrl.exams">
                 <td>{{exam.name}}</td>
-                <td>{{exam.authorname}}</td>
-                <td>{{exam.className}}</td>
+              <!--   <td>{{exam.authorname}}</td>
+                <td>{{exam.className}}</td> -->
                 <td>{{exam.expiredate|date:'medium'}}</td>
-                <td>{{exam.expiredate|date:'HH:mm'}}</td>
+                <td>{{exam.duration|date:'HH:mm'}}</td>
                 <td>
-                    <a ui-sref="examcenter.questions({examId:exam.id})">Attempt</a>
+                    <a ui-sref="mocktest({ mocktestId: exam._id })">Attempt</a>
                 </td>
             </tr>
         </table>

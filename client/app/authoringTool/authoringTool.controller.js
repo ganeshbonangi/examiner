@@ -65,13 +65,14 @@ class authoringToolCtrl {
   }
   filterChange(){
     this.questions = [];
+    this.cat = undefined;
   }
   isAddQuestionDisable(){
-    return !(this.searchBy === 'subject'&&this.cat);
+    return !((this.searchBy === 'subject'||this.searchBy === 'instute')&&this.cat);
   }
   getQuestion(){
     let _this = this;
-    if(this.searchBy === 'subject'){
+    if(this.searchBy === 'subject'||this.searchBy === 'instute'){
       if(this.cat){
         //window.localStorage.setItem('subject',this.chapters);
         this.showLoader = true;

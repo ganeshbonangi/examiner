@@ -16,6 +16,7 @@ export default function(app) {
   app.use('/api/exams', require('./api/exam'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
+  app.use('/api/reports', require('./api/report'));
 
   app.use('/auth', require('./auth').default);
 

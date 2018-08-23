@@ -87,7 +87,7 @@ export function index(req, res) {
 
 // Gets a single Report from the DB
 export function show(req, res) {
-  return Report.findById(req.params.id).exec()
+  return Report.find({'examid':req.params.id}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

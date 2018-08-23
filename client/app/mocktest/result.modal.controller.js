@@ -5,7 +5,7 @@ class modalInstanceCtrl{
         this.correctQuesCount = 0;
         for(let i=0;i<this.mocktest.questions.length;i++){
             let userAns = this.mocktest.questions[i].userAns;
-            if(userAns&&this.mocktest.questions[i].options[userAns].isAns){
+            if(userAns&&this.mocktest.questions[i].options[userAns-1].isAns){
                 this.correctQuesCount++;
             }
         }

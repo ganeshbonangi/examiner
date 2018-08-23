@@ -10,6 +10,7 @@
             this.getCurrentUser = Auth.getCurrentUser;
             this.userId = this.getCurrentUser()._id;
             this.conductingExams = [];
+            this.reports = [];
 
             let self = this;
             this.$http.get('/api/classrooms/teacher/' + this.userId).then(response => {
@@ -27,6 +28,14 @@
                         }
                     }
                     self.conductingExams = response.data;
+                    for(let i=0;i<self.conductingExams.length;i++){
+                        $http.get('/api/reports/'+self.conductingExams[i]._id).then(response=>{
+                            for(let j=0;j<response.data.length;j++){
+                                response.data[j].exam = self.conductingExams[i].name;
+                            }
+                            self.reports[i] = response.data;
+                        });
+                    }
                 });
             });
 

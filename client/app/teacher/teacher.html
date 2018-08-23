@@ -58,4 +58,21 @@
             </div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Results</div>
+        <table class="table" ng-repeat="report in teacherCtrl.reports">
+            <thead ng-if="report.length">
+                <th>Rank</th>
+                <th>Student Name</th>
+                <th>Marks</th>
+                <th>Exam</th>
+            </thead>
+            <tr ng-repeat="result in report | orderBy:'-corrects'">
+                <td>{{$index+1}}</td>
+                <td>{{result.username}}</td>
+                <td>{{result.corrects}}</td>
+                <td>{{result.exam}}</td>
+            </tr>
+        </table>
+    </div>
 </div>

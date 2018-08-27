@@ -3,21 +3,18 @@
         <div class="panel-heading">Exams</div>
         <table class="table">
             <tr>
-                <th>Exam Name</th>
-                <th>Exam Activation</th>
-                <th>Exam Expiration</th>
-                <th>Duratoin(HH:MM)</th>
-                <th>Students</th>
+                <th>Name</th>
+                <th>Activation</th>
+                <th>Expiration</th>
+                <!-- <th>Duratoin</th> -->
                 <th>Action</th>
             </tr>
 
             <tr ng-repeat="exam in teacherCtrl.conductingExams">
                 <td>{{exam.name}}</td>
-                <td>{{exam.activationdate | date:'medium'}}</td>
-                <td>{{exam.expiredate | date:'medium'}}</td>
-                <td>{{exam.duration | date:'HH:mm'}}</td>
-                
-                <td>{{exam.students.length<3? exam.students.length>1 ? exam.students[0]+','+exam.students[1] : exam.students[0] :exam.students[0]+','+exam.students[1]+', ...'}}</td>
+                <td>{{exam.activationdate | date:'dd-MM-yyyy'}}</td>
+                <td>{{exam.expiredate | date:'dd-MM-yyyy'}}</td>
+                <!-- <td>{{exam.duration | date:'HH:mm'}}</td> -->
                 <td>
                   <a class="button" ui-sref="authoringTool">Author</a>
                   <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditExam('lg',exam)"></a>
@@ -37,15 +34,13 @@
         <div class="panel-heading">Class Rooms</div>
         <table class="table">
             <tr>
-                <th>Class Room Name</th>
-                <th>Number of Students</th>
-                <th>Class Room Id</th>
+                <th>Name</th>
+                <th>#Students</th>
                 <th>Action</th>
             </tr>
             <tr ng-repeat="cr in teacherCtrl.createdClasses">
                 <td>{{cr.name}}</td>
                 <td>{{cr.students.length}}
-                <td>{{cr._id}}
                 <td>
                   <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditClass('lg',cr)"></a>
                   <!-- <a class="button fa fa-trash" ng-click="teacherCtrl.deleteClassRoom($index)"></a> -->
@@ -63,7 +58,7 @@
         <table class="table" ng-repeat="report in teacherCtrl.reports">
             <thead ng-if="report.length">
                 <th>Rank</th>
-                <th>Student Name</th>
+                <th>Name</th>
                 <th>Marks</th>
                 <th>Exam</th>
             </thead>

@@ -3,10 +3,10 @@
         <div class="panel-heading">Exams</div>
         <table class="table">
             <tr>
-                <th>Exam Name</th>
+                <th>Name</th>
                <!--  <th>Teacher Name</th>
                 <th>Class Name</th> -->
-                <th>Exam Expiration</th>
+                <th>Expiration</th>
                 <th>Duration</th>
                 <th>Action</th>
             </tr>
@@ -14,7 +14,7 @@
                 <td>{{exam.name}}</td>
               <!--   <td>{{exam.authorname}}</td>
                 <td>{{exam.className}}</td> -->
-                <td>{{exam.expiredate|date:'medium'}}</td>
+                <td>{{exam.expiredate|date:'dd-MM-yyyy'}}</td>
                 <td>{{exam.duration|date:'HH:mm'}}</td>
                 <td>
                     <a ui-sref="mocktest({ mocktestId: exam._id })">Attempt</a>
@@ -27,7 +27,7 @@
         <table class="table" ng-repeat="report in studentCtrl.reports">
             <thead ng-if="report.length">
                 <th>Rank</th>
-                <th>Student Name</th>
+                <th>Name</th>
                 <th>Marks</th>
                 <th>Exam</th>
             </thead>

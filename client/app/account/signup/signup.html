@@ -34,6 +34,22 @@
             {{ vm.errors.email }}
           </p>
         </div>
+        <div class="form-group" ng-class="{ 'has-success': form.mobileNumber.$valid && vm.submitted,
+                                            'has-error': form.mobileNumber.$invalid && vm.submitted }">
+          <label>MobileNumber</label>
+          <input type="number" name="mobileNumber" class="form-control" ng-model="vm.user.mobileNumber"
+                 required
+                 mongoose-error/>
+          <p class="help-block" ng-show="form.mobileNumber.$error.mobileNumber && vm.submitted">
+            Doesn't look like a valid mobileNumber.
+          </p>
+          <p class="help-block" ng-show="form.mobileNumber.$error.required && vm.submitted">
+            What's your mobileNumber?
+          </p>
+          <p class="help-block" ng-show="form.mobileNumber.$error.mongoose">
+            {{ vm.errors.mobileNumber }}
+          </p>
+        </div>
 
         <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
                                             'has-error': form.password.$invalid && vm.submitted }">

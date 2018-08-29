@@ -53,10 +53,10 @@ exports = module.exports = {
 					},{
 						'url':'percent-TEL',
 						'displaytext':'శాతాలు'
-					}/*,{
-						'url':'profitloss-TEL',
-						'displaytext':'లాభనష్టాలు'
 					},{
+						'url':'5b7b058e07c0b10004f08722',
+						'displaytext':'లాభనష్టాలు'
+					}/*,{
 						'url':'proposinal-TEL',
 						'displaytext':'నిష్పత్తి-అనుపాతం'
 					},{

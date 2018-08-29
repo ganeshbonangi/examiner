@@ -37,6 +37,10 @@
 					{
 						"url": "percent-TEL",
 						"displaytext": "శాతాలు"
+					},
+					{
+						"url": "5b7b058e07c0b10004f08722",
+						"displaytext": "లాభనష్టాలు"
 					}
 				]
 			},

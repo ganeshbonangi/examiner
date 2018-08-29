@@ -84,7 +84,11 @@
         }
         deleteExam(index) {
             if(window.confirm('Are you sure you want to delete Exam, OK to delete')){
-                this.conductingExams.splice(index, 1);
+                let currentExam = this.conductingExams[index];
+                currentExam.disconnect = true;
+                this.$http.put('/api/exams/'+currentExam._id,currentExam).then(response=>{
+                    this.conductingExams.splice(index, 1);
+                });
             }
         }
         editClass() {

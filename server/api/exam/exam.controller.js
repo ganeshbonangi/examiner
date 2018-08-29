@@ -70,14 +70,14 @@ export function index(req, res) {
 
 
 export function getExamListForTeacher(req, res){
-   return Exam.find({'authorid':req.params.id}).select({}).exec()
+   return Exam.find({'authorid':req.params.id,'disconnect':false}).select({}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 export function getExamListForStudent(req, res){
-   return Classroom.find({students:{ $elemMatch: { id: req.params.id } }}).exec()
+   return Classroom.find({students:{ $elemMatch: { id: req.params.id } },'disconnect':false}).exec()
     .then((res)=>{
       let classRoomList = [];
       for(let i=0;i<res.length;i++){

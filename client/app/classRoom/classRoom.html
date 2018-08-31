@@ -20,7 +20,12 @@
             <i class="glyphicon glyphicon-search"></i>
             <input type="search" class="form-control" ng-change="classRoomCtrl.getStudents()" aria-label="Amount (to the nearest dollar)" placeholder="Add Sutudents" ng-model="classRoomCtrl.student">
             <div class="list-group col-lg-12 suggestion-list" ng-show="classRoomCtrl.showList">
-                <a ng-click="classRoomCtrl.addStudentToClassRoom(stdObj)" class="list-group-item" ng-repeat="stdObj in classRoomCtrl.suggestedStudents">{{stdObj.name}}</a>
+                <div ng-click="classRoomCtrl.addStudentToClassRoom(stdObj)" class="list-group-item list-hover-effect" ng-repeat="stdObj in classRoomCtrl.suggestedStudents">
+                    <p>
+                    <span class="pull-left">{{stdObj.name}}</span>
+                    <span class="pull-right"><small>{{stdObj.email}}</small></span>
+                    </p>
+                </div>
             </div>        
         </div>
     </div>

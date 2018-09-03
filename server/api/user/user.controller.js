@@ -149,12 +149,14 @@ export function resetEmail(req, res, next){
             //done(err, user, token);
             User.findByIdAndUpdate({ _id: user._id }, { resetPasswordToken: token, resetPasswordExpires: Date.now() + 86400000 }, { upsert: true, new: true }).exec(function(err, new_user) {
               //done(err, token, new_user);
+              let host = req.get('host');
+              let protocal = req.protocol + '://'
               var data = {
                 to: user.email,
                 from: '"ExamBuds Admin"<exambuds@gmail.com>',
                 template: 'forgot-password-email',
                 subject: 'ExamBuds password help has arrived!',
-                html:'Dear '+user.name+',<br/><br/>Your requested for password reset, kindly use this <a href="http://localhost:9000/resetpwd?token='+token+'">link</a> to reset your password.<br/><br/>Cheers!',
+                html:'Dear '+user.name+',<br/><br/>Your requested for password reset, kindly use this <a href="'+protocal+host+'/resetpwd?token='+token+'">link</a> to reset your password.<br/><br/>Cheers!',
                 text:''
               };
               var transporter = nodemailer.createTransport({

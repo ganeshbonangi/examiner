@@ -92,6 +92,19 @@
           })
           .$promise;
       },
+      resetPassword(oldPassword, newPassword, token, callback){
+        return User.changePassword({
+            resetPasswordToken: token
+          }, {
+            oldPassword: oldPassword,
+            newPassword: newPassword
+          }, function() {
+            return safeCb(callback)(null);
+          }, function(err) {
+            return safeCb(callback)(err);
+          })
+          .$promise;
+      },
       refreshPageWithSelectedLang(){
         this.switchLang();
       },

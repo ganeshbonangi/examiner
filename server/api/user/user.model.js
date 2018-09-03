@@ -9,7 +9,7 @@ const authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
   id: Number,
-  cell: Number,
+  cell: String,
   questionpool:[Number],
   name: String,
   email: {

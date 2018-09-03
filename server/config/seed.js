@@ -172,50 +172,50 @@ import Counter from '../api/counter/counter.model';
 //             authorname: 'String'
 //         });
 //     });
-Option.find({}).remove()
-    .then(()=>{
-        Option.create({
-            id:1,
-            optiontext: 'option1',
-            isanswer: true
-        },{
-            id:2,
-            optiontext: 'option 2',
-            isanswer: true
-        },{
-            id:3,
-            optiontext: 'option 3',
-            isanswer: true
-        },{
-            id:4,
-            optiontext: 'option 4',
-            isanswer: true
-        },{
-            id:5,
-            optiontext: 'option 5',
-            isanswer: true
-        },{
-            id:6,
-            optiontext: 'option 6',
-            isanswer: true
-        },{
-            id:7,
-            optiontext: 'option 7',
-            isanswer: true
-        },{
-            id:8,
-            optiontext: 'option 8',
-            isanswer: true
-        },{
-            id:9,
-            optiontext: 'option 9',
-            isanswer: true
-        },{
-            id:10,
-            optiontext: 'option 6',
-            isanswer: true
-        })
-    });
+// Option.find({}).remove()
+//     .then(()=>{
+//         Option.create({
+//             id:1,
+//             optiontext: 'option1',
+//             isanswer: true
+//         },{
+//             id:2,
+//             optiontext: 'option 2',
+//             isanswer: true
+//         },{
+//             id:3,
+//             optiontext: 'option 3',
+//             isanswer: true
+//         },{
+//             id:4,
+//             optiontext: 'option 4',
+//             isanswer: true
+//         },{
+//             id:5,
+//             optiontext: 'option 5',
+//             isanswer: true
+//         },{
+//             id:6,
+//             optiontext: 'option 6',
+//             isanswer: true
+//         },{
+//             id:7,
+//             optiontext: 'option 7',
+//             isanswer: true
+//         },{
+//             id:8,
+//             optiontext: 'option 8',
+//             isanswer: true
+//         },{
+//             id:9,
+//             optiontext: 'option 9',
+//             isanswer: true
+//         },{
+//             id:10,
+//             optiontext: 'option 6',
+//             isanswer: true
+//         })
+//     });
 // Thing.find({}).remove()
 //     .then(() => {
 //         Thing.create({

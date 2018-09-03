@@ -4,6 +4,8 @@ import User from './user.model';
 import passport from 'passport';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';
+import nodemailer from 'nodemailer';
+import crypto from 'crypto';
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -111,7 +113,6 @@ export function changePassword(req, res, next) {
       }
     });
 }
-
 /**
  * Get my info
  */
@@ -133,4 +134,70 @@ export function me(req, res, next) {
  */
 export function authCallback(req, res, next) {
   res.redirect('/');
+}
+/**
+*sending reset email for the user
+*/
+export function resetEmail(req, res, next){
+    User.findOne({
+        email: req.body.email
+      }).exec(function(err, user) {
+        if (user) {
+          //done(err, user);
+            crypto.randomBytes(20, function(err, buffer) {
+            var token = buffer.toString('hex');
+            //done(err, user, token);
+            User.findByIdAndUpdate({ _id: user._id }, { resetPasswordToken: token, resetPasswordExpires: Date.now() + 86400000 }, { upsert: true, new: true }).exec(function(err, new_user) {
+              //done(err, token, new_user);
+              var data = {
+                to: user.email,
+                from: '"ExamBuds Admin"<exambuds@gmail.com>',
+                template: 'forgot-password-email',
+                subject: 'ExamBuds password help has arrived!',
+                html:'Dear '+user.name+',<br/><br/>Your requested for password reset, kindly use this <a href="http://localhost:9000/resetpwd?token='+token+'">link</a> to reset your password.<br/><br/>Cheers!',
+                text:''
+              };
+              var transporter = nodemailer.createTransport({
+                  service: 'Gmail',
+                  auth: {
+                      user: 'exambuds@gmail.com',
+                      pass: 'Exambuds@1'
+                  }
+              });
+              transporter.sendMail(data, function(err) {
+                if (!err) {
+                  return res.json({ message: 'Kindly check your email for further instructions' });
+                } else {
+                  return res.status(401).end();//failed send mail
+                }
+              });
+            });
+          }); 
+        } else {
+          return res.status(401).end();
+        }
+      })
+}
+/**
+* forget password
+*/
+export function forgotPassword(req, res, next) {
+  var userId = req.body;
+  return User.findOne({ resetPasswordToken: req.body.resetPasswordToken }).exec()
+    .then(user => { // don't ever give out the password or salt
+      if (!user) {
+        return res.status(401).end();
+      }else{
+        user.password = req.body.newPassword;
+        user.resetPasswordToken = '';
+        user.resetPasswordExpires = 0;
+        return user.save()
+          .then(() => {
+            return res.status(204).end();
+          })
+          .catch(validationError(res));
+      }
+      return res.json(user);
+    })
+    .catch(err => next(err));
 }

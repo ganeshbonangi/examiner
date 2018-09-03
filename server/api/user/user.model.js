@@ -12,6 +12,8 @@ var UserSchema = new Schema({
   cell: String,
   questionpool:[Number],
   name: String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Number,
   email: {
     type: String,
     lowercase: true,

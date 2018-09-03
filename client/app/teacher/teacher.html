@@ -1,7 +1,7 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">Exams</div>
-        <table class="table">
+        <table class="table table-hover">
             <tr>
                 <th>Name</th>
                 <th>Activation</th>
@@ -32,7 +32,7 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">Class Rooms</div>
-        <table class="table">
+        <table class="table table-hover">
             <tr>
                 <th>Name</th>
                 <th>#Students</th>
@@ -53,20 +53,18 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">Results</div>
-        <table class="table" ng-repeat="report in teacherCtrl.reports">
-            <thead ng-if="report.length">
+    <div class="panel panel-default" ng-if="report.length" ng-repeat="report in teacherCtrl.reports">
+        <div class="panel-heading">Results of {{report[0].exam}}</div>
+        <table class="table table-hover" >
+            <thead >
                 <th>Rank</th>
                 <th>Name</th>
                 <th>Marks</th>
-                <th>Exam</th>
             </thead>
             <tr ng-repeat="result in report | orderBy:'-corrects'">
                 <td>{{$index+1}}</td>
                 <td>{{result.username}}</td>
                 <td>{{result.corrects}}</td>
-                <td>{{result.exam}}</td>
             </tr>
         </table>
     </div>

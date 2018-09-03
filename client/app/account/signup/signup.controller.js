@@ -18,7 +18,8 @@ class SignupController {
           name: this.user.name,
           email: this.user.email,
           password: this.user.password,
-          cell:this.user.mobileNumber
+          cell:this.user.mobileNumber,
+          role:this.user.role
 
         })
         .then(() => {

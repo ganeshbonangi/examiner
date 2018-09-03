@@ -15,7 +15,7 @@ export function register(socket) {
     var event = events[i];
     var listener = createListener('classroom:' + event, socket);
 
-    ClassroomEvents.on(event, listener);
+    ReportEvents.on(event, listener);
     socket.on('disconnect', removeListener(event, listener));
   }
 }
@@ -29,6 +29,6 @@ function createListener(event, socket) {
 
 function removeListener(event, listener) {
   return function() {
-    ClassroomEvents.removeListener(event, listener);
+    ReportEvents.removeListener(event, listener);
   };
 }

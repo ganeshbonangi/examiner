@@ -5,7 +5,8 @@
 	"userRoles": [
 		"guest",
 		"user",
-		"admin"
+		"admin",
+		"org"
 	],
 	"subjects": {
 		"telugu": [

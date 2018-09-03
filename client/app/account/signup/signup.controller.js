@@ -18,7 +18,7 @@ class SignupController {
           name: this.user.name,
           email: this.user.email,
           password: this.user.password,
-          mobileNumber:this.user.mobileNumber
+          cell:this.user.mobileNumber
 
         })
         .then(() => {

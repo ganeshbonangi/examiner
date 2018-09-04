@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" ng-hide="vm.isSuccessfullyResetPwd">
     <div class="col-sm-12">
       <h3>Reset Password</h3>
     </div>
@@ -27,9 +27,14 @@
             Passwords must match.
           </p>
         </div>
-        <p class="help-block"> {{ vm.message }} </p>
-        <button class="btn btn-lg btn-primary" type="submit">Reset Password</button>
+        <p class="help-block" ng-show="vm.message">
+          <uib-alert type="danger" >{{vm.message}}</uib-alert>
+        </p>
+        <button class="btn btn-primary" type="submit">Reset Password</button>
       </form>
     </div>
+  </div>
+  <div class="row" ng-show="vm.isSuccessfullyResetPwd">
+    <uib-alert type="success" >{{vm.message}}</uib-alert>
   </div>
 </div>

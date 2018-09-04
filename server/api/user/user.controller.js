@@ -169,13 +169,13 @@ export function resetEmail(req, res, next){
                 if (!err) {
                   return res.json({ message: 'Kindly check your email for further instructions' });
                 } else {
-                  return res.status(401).end();//failed send mail
+                  return res.status(501).end();//failed send mail
                 }
               });
             });
           }); 
         } else {
-          return res.status(401).end();
+          return res.status(404).end();
         }
       })
 }
@@ -187,7 +187,7 @@ export function forgotPassword(req, res, next) {
   return User.findOne({ resetPasswordToken: req.body.resetPasswordToken }).exec()
     .then(user => { // don't ever give out the password or salt
       if (!user) {
-        return res.status(401).end();
+        return res.status(404).end();
       }else{
         user.password = req.body.newPassword;
         user.resetPasswordToken = '';

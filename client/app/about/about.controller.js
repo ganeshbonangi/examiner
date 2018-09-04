@@ -3,9 +3,8 @@
 (function() {
 
     class AboutComponent {
-        constructor($uibModal, $http, Auth) {
+        constructor() {
             
-
         }
     }
 

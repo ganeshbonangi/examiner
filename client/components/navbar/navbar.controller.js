@@ -7,7 +7,10 @@ class NavbarController {
   constructor(Auth) {
     angular.extend(this,{Auth});
     this.isLoggedIn = Auth.isLoggedIn;
-    this.isAdmin = Auth.isAdmin;
+    this.isAdminCheck = Auth.isAdminCheck;
+    this.isOrg = Auth.isOrg;
+    this.isStudent = Auth.isStudent;
+    this.isGuest = Auth.isGuest;
     this.getCurrentUser = Auth.getCurrentUser;
     this.isCollapsed = true;
     this.languages = [

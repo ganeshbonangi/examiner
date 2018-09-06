@@ -6,7 +6,6 @@ angular.module('authCellApp')
         url: '/authoringTool',
         templateUrl: 'app/authoringTool/authoringTool.html',
         controller:'authoringToolCtrl',
-        controllerAs: 'at',
-        authenticate: 'admin'
+        controllerAs: 'at'
       });
   });

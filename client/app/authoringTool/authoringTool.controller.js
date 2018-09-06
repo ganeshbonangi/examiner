@@ -93,7 +93,7 @@ class authoringToolCtrl {
           _this.showLoader = false;
           _this.editModeOn = [];
           _this.showCatErrMessage = false;
-        }).error((err)=>{
+        }).error(()=>{
           _this.showLoader = false;
           _this.showCatErrMessage = true;
         });
@@ -126,13 +126,13 @@ class authoringToolCtrl {
         }
       }
       if(question._id){
-        this.$http.put('/api/questions/'+question._id,question).success(function(data){
+        this.$http.put('/api/questions/'+question._id,question).success(()=>{
           _this.loader[$index] = false;
           _this.editModeOn[$index] = false;
-        }).error((err)=>{
+        }).error(()=>{
           _this.loader[$index] = false;
           _this.isInValid[$index] = true;
-          _this.errMsg = 'Not saved your question, Please try again.'
+          _this.errMsg = 'Not saved your question, Please try again.';
         });
       }else{
         question.category = this.cat;
@@ -142,10 +142,10 @@ class authoringToolCtrl {
           _this.questions[$index].category = data.category;
           _this.loader[$index] = false;
           _this.editModeOn[$index] = false;
-        }).error((err)=>{
+        }).error(()=>{
           _this.loader[$index] = false;
           _this.isInValid[$index] = true;
-          _this.errMsg = 'Not saved your question, Please try again.'
+          _this.errMsg = 'Not saved your question, Please try again.';
         }); 
       }
 
@@ -197,7 +197,7 @@ class authoringToolCtrl {
       // todo make service call to delte
       this.loader[$index] = true;
       let _this = this;
-      this.$http.delete('/api/questions/'+this.questions[$index]._id).success(function(data){
+      this.$http.delete('/api/questions/'+this.questions[$index]._id).success(()=>{
         _this.loader[$index] = false;
         _this.questions.splice($index, 1);
         _this.editModeOn.splice($index, 1);

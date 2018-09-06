@@ -16,7 +16,7 @@ class modalInstanceCtrl{
         this.$uibModalInstance.close();
     }
     feedToDb(){
-        let user = this.Auth.getCurrentUser()
+        let user = this.Auth.getCurrentUser();
         let obj = {
           examid: this.mocktest.examid,
           userid: user._id,

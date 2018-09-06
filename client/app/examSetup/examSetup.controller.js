@@ -61,7 +61,7 @@ class examSetupCtrl {
         for(let i=0;i<reqObj.classRooms.length;i++){
             reqObj.classRooms[i] = reqObj.classRooms[i].id;
         }
-        this.$http.post('/api/exams',reqObj).then(response=>{
+        this.$http.post('/api/exams',reqObj).then(()=>{
             self.exam.type = 'newClass';
             this.$uibModalInstance.close(self.exam);
         });
@@ -86,7 +86,7 @@ class examSetupCtrl {
         for(let i=0;i<reqObj.classRooms.length;i++){
             reqObj.classRooms[i] = reqObj.classRooms[i].id;
         }
-        this.$http.put('/api/exams/'+this.exam._id,reqObj).then(response=>{
+        this.$http.put('/api/exams/'+this.exam._id,reqObj).then(()=>{
             self.exam.examType = 'updating';
             this.$uibModalInstance.close(self.exam);            
         });

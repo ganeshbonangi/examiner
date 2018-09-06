@@ -86,7 +86,7 @@
             if(window.confirm('Are you sure you want to delete Exam, OK to delete')){
                 let currentExam = this.conductingExams[index];
                 currentExam.disconnect = true;
-                this.$http.put('/api/exams/'+currentExam._id,currentExam).then(response=>{
+                this.$http.put('/api/exams/'+currentExam._id,currentExam).then(()=>{
                     this.conductingExams.splice(index, 1);
                 });
             }
@@ -99,7 +99,7 @@
             if(window.confirm('Are you sure you want to delete Class Room, OK to delete')){
                 var cr = this.createdClasses[index];
                 cr.disconnect = true;
-                this.$http.put('/api/classrooms/'+cr._id,cr).then(response=>{
+                this.$http.put('/api/classrooms/'+cr._id,cr).then(()=>{
                     this.createdClasses.splice(index, 1);
                 });
             }

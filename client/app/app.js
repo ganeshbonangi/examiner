@@ -12,7 +12,7 @@ angular.module('authCellApp', ['authCellApp.auth', 'authCellApp.admin', 'authCel
         // $delegate is the taOptions we are decorating
         // register the tool with textAngular
         taRegisterTool('speach', {
-            display: "<buttion ng-init='registerEvent()' ng-class='{recording-btn:recordingStart}'><i class='fa fa-microphone' ng-class='{recording:recordingStart}' aria-hidden='true'></i></button>",
+            display: '<buttion ng-init="registerEvent()" ng-class="{recording-btn:recordingStart}"><i class="fa fa-microphone" ng-class="{recording:recordingStart}" aria-hidden="true"></i></button>',
             action: function (event) {
 	        	 //Ask if event is really an event.
 	            if (!!event.stopPropagation) {
@@ -67,7 +67,7 @@ angular.module('authCellApp', ['authCellApp.auth', 'authCellApp.admin', 'authCel
 			        // Add the current transcript to the contents of our Note.
 			        // There is a weird bug on mobile, where everything is repeated twice.
 			        // There is no official solution so far so we have to handle an edge case.
-			        var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
+			        var mobileRepeatBug = (current === 1 && transcript === event.results[0][0].transcript);
 
 			        if(!mobileRepeatBug) {
 			            let sel, range;
@@ -86,23 +86,22 @@ angular.module('authCellApp', ['authCellApp.auth', 'authCellApp.admin', 'authCel
 
 			      this.recognition.onstart = function() { 
 			        //instructions.text('Voice this.recognition activated. Try speaking into the microphone.');
-			      }
+			      };
 
 			      this.recognition.onspeechend = function() {
 			      	me.recordingStart = false;
 			      	me.$apply();
 			        //instructions.text('You were quiet for a while so voice this.recognition turned itself off.');
-			      }
+			      };
 
 			      this.recognition.onerror = function(event) {
-			        if(event.error == 'no-speech') {
+			        if(event.error === 'no-speech') {
 			          //instructions.text('No speech was detected. Try again.');  
-			        };
-			      }
+			        }
+			      };
 			    }
 			    catch(e) {
 			      console.error(e);
-			      alert('it doent support speach to text');
 			    }
             }
         });
@@ -111,5 +110,5 @@ angular.module('authCellApp', ['authCellApp.auth', 'authCellApp.admin', 'authCel
         return taOptions;
     }]);
   }).controller('appCtrl', function($scope){
-  	$scope.isAndroidBrowser = (navigator.userAgent.toLowerCase().indexOf("android") > -1 && window.document.URL.indexOf('isCordova') === -1);
+  	$scope.isAndroidBrowser = (navigator.userAgent.toLowerCase().indexOf('android') > -1 && window.document.URL.indexOf('isCordova') === -1);
   });

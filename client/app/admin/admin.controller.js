@@ -8,7 +8,7 @@
       this.users = User.query();
     }
 
-    delete(user) {
+    delete(/*user*/) {
       //user.$remove();
       //this.users.splice(this.users.indexOf(user), 1);
     }

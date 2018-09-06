@@ -28,7 +28,7 @@ function handleError(res, statusCode) {
 export function index(req, res) {
   return User.find({}, '-salt -password').exec()
     .then(users => {
-      res.status(200).json(users);
+      return res.status(200).json(users);
     })
     .catch(handleError(res));
 }
@@ -121,7 +121,7 @@ export function me(req, res, next) {
   return User.findOne({ _id: userId }, '-salt -password').exec()
     .then(user => { // don't ever give out the password or salt
       if (!user) {
-        return res.status(401).end();
+        return res.status(404).end();
       }
       return res.json(user);
     })

@@ -13,11 +13,11 @@ class ResetpwdController {
       this.$http.post('api/users/forgotPassword',{'confirmPassword':this.user.confirmPassword, 'newPassword':this.user.newPassword, 'resetPasswordToken':this.$stateParams.token})
       .then((response)=>{
         this.isSuccessfullyResetPwd = true;
-        this.message = 'Successfully password reset.'
+        this.message = 'Successfully password reset.';
         console.log(response);
       }).catch(()=>{
         this.isSuccessfullyResetPwd = false;
-        this.message = 'Failed to reset password.'
+        this.message = 'Failed to reset password.';
       });
     }
   }

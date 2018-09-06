@@ -200,6 +200,15 @@
       isGuest() {
         return Auth.getCurrentUser().role === 'guest';
       },
+      isAdminCheck() {
+        return Auth.getCurrentUser().role === 'admin';
+      },
+      isOrg() {
+        return Auth.getCurrentUser().role === 'org';
+      },
+      isStudent() {
+        return Auth.getCurrentUser().role === 'user';
+      },
 
       /**
        * Get auth token

@@ -300,7 +300,7 @@
 			{
 				"topicname": "Indian Polytics",
 				"displaytext": "ఇండియన్ పాలిటిక్స్",
-				"isInProd": false,
+				"isInProd": true,
 				"chapters": [
 					{
 						"url": "indianconsthist-TEL",

@@ -32,8 +32,6 @@
         <!--<li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="examcenter">Exam Center</a></li> 
          <li ui-sref-active="active"><a ui-sref="mocktest">Mock Test</a></li> -->
         <li ui-sref-active="active"><a ui-sref="main">Home</a></li>
-        <li ui-sref-active="active"><a ui-sref="about">About Us</a></li>
-        <li ui-sref-active="active"><a ui-sref="contact">Contact Us</a></li> 
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
         <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>

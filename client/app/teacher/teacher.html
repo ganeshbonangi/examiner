@@ -1,6 +1,8 @@
 <div class="container">
-    <div class="panel panel-default">
-        <div class="panel-heading">Exams</div>
+    <div class="panel panel-default" ng-if="teacherCtrl.role!=='user'">
+        <div class="panel-heading">Exams Created
+        <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="teacherCtrl.addEditExam('lg')">Create New Exam</button>
+        </div>
         <table class="table table-hover">
             <tr>
                 <th>Name</th>
@@ -16,22 +18,41 @@
                 <td>{{exam.expiredate | date:'dd-MM-yyyy'}}</td>
                 <!-- <td>{{exam.duration | date:'HH:mm'}}</td> -->
                 <td>
-                  <a class="button" ui-sref="authoringTool">Author</a>
-                  <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditExam('lg',exam)"></a>
+                  <a class="button" ui-sref="authoringTool" ng-if="teacherCtrl.role!=='user'">Author</a>
+                  <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditExam('lg',exam)" ng-if="teacherCtrl.role!=='user'"></a>
                   <!-- <a class="button fa fa-trash" ng-click="teacherCtrl.deleteExam($index)"></a>  -->
                 </td>
+            </tr>
+        </table>
+    </div>    
+    <div class="panel panel-default">
+        <div class="panel-heading">Exams to Attempt
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Activation</th>
+                <th>Expiration</th>
+                <!-- <th>Duratoin</th> -->
+                <th>Action</th>
+            </tr>
 
+            <tr ng-repeat="exam in teacherCtrl.exams">
+                <td>{{exam.name}}</td>
+                <td>{{exam.activationdate | date:'dd-MM-yyyy'}}</td>
+                <td>{{exam.expiredate | date:'dd-MM-yyyy'}}</td>
+                <!-- <td>{{exam.duration | date:'HH:mm'}}</td> -->
+                <td>
+                  <a class="button" ui-sref="mocktest({ mocktestId: exam._id })">Attempt</a>
+                </td>
             </tr>
 
         </table>
-        <div class="panel-footer">
-            <div class='row'>
-                <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="teacherCtrl.addEditExam('lg')">Add</button>
-            </div>
-        </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">Class Rooms</div>
+    <div class="panel panel-default" ng-if="teacherCtrl.role!=='user'">
+        <div class="panel-heading">Class Rooms
+        <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="teacherCtrl.addEditClass('lg')">Create Class Room</button>
+        </div>
         <table class="table table-hover">
             <tr>
                 <th>Name</th>
@@ -47,14 +68,24 @@
                 </td>
             </tr>
         </table>
-        <div class="panel-footer">
-            <div class='row'>
-                <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="teacherCtrl.addEditClass('lg')">Add</button>
-            </div>
-        </div>
     </div>
-    <div class="panel panel-default" ng-if="report.length" ng-repeat="report in teacherCtrl.reports">
-        <div class="panel-heading">Results of {{report[0].exam}}</div>
+    <div class="panel panel-default" ng-repeat="report in teacherCtrl.studentReports">
+        <div class="panel-heading">Results of conducted exam {{report[0].exam}}</div>
+        <table class="table table-hover" >
+            <thead >
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Marks</th>
+            </thead>
+            <tr ng-repeat="result in report | orderBy:'-corrects'">
+                <td>{{$index+1}}</td>
+                <td>{{result.username}}</td>
+                <td>{{result.corrects}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel panel-default" ng-repeat="report in teacherCtrl.teacherReports">
+        <div class="panel-heading">Results of attended exam {{report[0].exam}}</div>
         <table class="table table-hover" >
             <thead >
                 <th>Rank</th>

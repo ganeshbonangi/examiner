@@ -154,8 +154,8 @@ Timer style
   border-radius: 3px;
   max-width: 100%;
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 450px){
   body{
-    padding-bottom: 10rem;
+    padding-bottom: 12rem;
   }
 }

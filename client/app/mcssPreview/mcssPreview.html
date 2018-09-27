@@ -21,10 +21,10 @@
                     </span>                    
                 </label>
             </div>
-            <div ng-show="isSubmited&&question.explainaiton.length" >
-                <h5>Explaination:</h5>
+            <div ng-show="isSubmited&&question.explanation.length" >
+                <h5>Explanation:</h5>
                 <uib-tabset class="row">
-                    <uib-tab ng-repeat="exp in question.explainaiton" heading="Method {{$index+1}}">
+                    <uib-tab ng-repeat="exp in question.explanation" heading="Method {{$index+1}}">
                         <div  ta-bind ng-model="exp.text" class="col-lg-12"> </div>
                     </uib-tab>
                 </uib-tabset>

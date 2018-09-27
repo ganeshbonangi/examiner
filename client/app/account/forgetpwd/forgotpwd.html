@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row" ng-hide="vm.mailSent">
+    <div class="col-sm-12">
+      <h3>User Details</h3>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="vm.sendPwdResetLink(form)" novalidate>
+        <div class="form-group">
+          <label class="">Email</label>
+          <input class="form-control" type="email" name="email" ng-model="vm.email" required />
+        </div>
+        <p class="help-block" ng-show="vm.message">
+          <uib-alert type="danger" >{{vm.message}}</uib-alert>
+        </p>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="row" ng-show="vm.mailSent">
+      <uib-alert type="success" >{{vm.message}}</uib-alert>
+  </div>
+</div>

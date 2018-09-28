@@ -17,11 +17,11 @@
 				<span class="table-input" ng-show="$index >= 3"><i class="fa fa-plus table-input" aria-hidden="true" ng-click="mcmqAuthCtrl.addOption()"></i></span>
 		      	<span class="table-input" ng-show="$index >= 4"><i class="fa fa-times table-input" aria-hidden="true" ng-click="mcmqAuthCtrl.removeOption($index)"></i></span>
 	      </div>
-		<p>Explaination Methods</p>
+		<p>Explanation Methods</p>
 	    <uib-tabset>
-	      <uib-tab ng-repeat="exp in mcmqAuthCtrl.question.explainaiton" heading="Method {{$index+1}}">
-	      	<p>Explaination text:</p>
-			<div text-angular ng-model="mcmqAuthCtrl.question.explainaiton[$index].text" ta-default-wrap="p" ta-target-toolbars='statictoolbar' ta-disabled="!mcmqAuthCtrl.editModeOn"  stop-event="focusout"> </div>
+	      <uib-tab ng-repeat="exp in mcmqAuthCtrl.question.explanation" heading="Method {{$index+1}}">
+	      	<p>Explanation text:</p>
+			<div text-angular ng-model="mcmqAuthCtrl.question.explanation[$index].text" ta-default-wrap="p" ta-target-toolbars='statictoolbar' ta-disabled="!mcmqAuthCtrl.editModeOn"  stop-event="focusout"> </div>
 	      </uib-tab>
 	      <span class="table-input" ><i class="fa fa-plus table-input" aria-hidden="true" ng-click="mcmqAuthCtrl.addExp()"></i></span>
 	    </uib-tabset>

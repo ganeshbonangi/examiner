@@ -16,7 +16,7 @@ class SettingsController {
         })
         .catch(() => {
           form.password.$setValidity('mongoose', false);
-          this.errors.other = 'Incorrect password';
+          this.errors.other = 'Incorrect password!';
           this.message = '';
         });
     }

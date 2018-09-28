@@ -12,4 +12,4 @@ var BlanksSchema = new mongoose.Schema({
   explainaiton: [{text:String}],
   category: String
   });
-export default mongoose.model('Blank', BlankSchema);
+export default mongoose.model('Blank', BlanksSchema);

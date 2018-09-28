@@ -2,7 +2,7 @@
   <div class="container">
   <uib-accordion close-others="false">
   <!--mc.isFirstOpen[$index]-->
-      <uib-accordion-group is-open="true" ng-show="subject.isInProd" ng-repeat="subject in mc.subjects">
+      <uib-accordion-group is-open="mc.isFirstOpen[$index]" ng-show="subject.isInProd" ng-repeat="subject in mc.subjects">
         <uib-accordion-heading>
           {{subject.displaytext}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': mc.isFirstOpen[$index], 'glyphicon-chevron-right': !mc.isFirstOpen[$index]}"></i>
         </uib-accordion-heading>

@@ -9,7 +9,7 @@ var BlanksSchema = new mongoose.Schema({
   answer:String,
   uploadedby: String,
   uploadeddate:{ type: Date, default: Date.now },
-  explanation: [{text:String}],
+  explainaiton: [{text:String}],
   category: String
   });
 export default mongoose.model('Blank', BlankSchema);

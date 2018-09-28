@@ -7,7 +7,7 @@ var DropdownSchema = new mongoose.Schema({
   questiontext: String,
   uploadedby: String,
   uploadeddate:{ type: Date, default: Date.now },
-  explanation: [{text:String}],
+  explainaiton: [{text:String}],
   category: String,
   options: [{
   	content:String,

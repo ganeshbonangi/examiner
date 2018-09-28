@@ -10,7 +10,7 @@ var QuestionSchema = new mongoose.Schema({
   type: String,
   uploadedby: String,
   uploadeddate:{ type: Date, default: Date.now },
-  explanation: [{text:String}],
+  explainaiton: [{text:String}],
   category: String,
   options: [{
   	content:String,
@@ -18,4 +18,4 @@ var QuestionSchema = new mongoose.Schema({
   }]
 });
 
-export default mongoose.model('Question', QuestionSchema)
+export default mongoose.model('Question', QuestionSchema);

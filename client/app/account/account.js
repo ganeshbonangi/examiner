@@ -24,10 +24,10 @@ angular.module('authCellApp')
         controller: 'SignupController',
         controllerAs: 'vm'
       })
-      .state('forgetpwd', {
-        url: '/forgetpwd',
-        templateUrl: 'app/account/forgetpwd/forgetpwd.html',
-        controller: 'ForgetpwdController',
+      .state('forgotpwd', {
+        url: '/forgotpwd',
+        templateUrl: 'app/account/forgetpwd/forgotpwd.html',
+        controller: 'ForgotpwdController',
         controllerAs: 'vm'
       })
       .state('resetpwd', {

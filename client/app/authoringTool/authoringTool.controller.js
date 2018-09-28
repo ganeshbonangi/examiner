@@ -10,7 +10,7 @@ class authoringToolCtrl {
         ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
         ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
         ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
-        ['html', 'insertImage', 'insertLink', 'insertVideo','speach']
+        ['html', 'insertImage', 'insertLink', 'insertVideo','speech']
     ];
     //console.log(window.localStorage.getItem('subject'));
     this.subjects = appConfig.subjects.telugu;
@@ -22,7 +22,7 @@ class authoringToolCtrl {
         instruction:'',
         information:'',
         questiontext: '', 
-        explainaiton:[{text:''}],
+        explanation:[{text:''}],
         options:[{
           content:''
         },{
@@ -119,9 +119,9 @@ class authoringToolCtrl {
       this.isInValid[$index] = false;
       let _this = this, question;
       question = JSON.parse(JSON.stringify(this.questions[$index]));
-      for(let i=0;i<question.explainaiton.length;i++){
-        if(!question.explainaiton[i].text.trim()){
-          question.explainaiton.splice(i,1);
+      for(let i=0;i<question.explanation.length;i++){
+        if(!question.explanation[i].text.trim()){
+          question.explanation.splice(i,1);
           i--;
         }
       }
@@ -192,7 +192,7 @@ class authoringToolCtrl {
   deleteQuestion($event, $index){
     $event.stopPropagation();
     $event.preventDefault();
-    let result = window.confirm('Are you sure you want to delete question? Press ok to delete, press cancel to cancel delete');
+    let result = window.confirm('Are you sure you want to delete question? Press ok to delete, otherwise press cancel.');
     if(result&&this.questions.length){
       // todo make service call to delte
       this.loader[$index] = true;

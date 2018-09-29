@@ -31,7 +31,7 @@
                  required
                  mongoose-error/>
           <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
-            Doesn't look like a valid email.
+            It doesn't look like a valid email.
           </p>
           <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
             What's your email address?
@@ -67,7 +67,7 @@
                  mongoose-error/>
           <p class="help-block"
              ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
-            Password must be at least 3 characters.
+            Password must contain at least 3 characters.
           </p>
           <p class="help-block" ng-show="form.password.$error.mongoose">
             {{ vm.errors.password }}

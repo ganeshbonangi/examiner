@@ -5,7 +5,7 @@
             <div class="panel-body">
                 <div class="row">
                     <label class="col-xs-5 col-md-3">
-                        <input type="radio" name="abc" ng-model="at.searchBy" value="instute" ng-change="at.filterChange()"/> Instute Content
+                        <input type="radio" name="abc" ng-model="at.searchBy" value="instute" ng-change="at.filterChange()"/> Institute Content
                     </label>
                     <div class="col-xs-7 col-md-6" ng-show="at.searchBy==='instute'">
                         Exams
@@ -47,7 +47,7 @@
                     <a class="btn btn-default btn-xs" target="_blank" ng-disabled="at.isAddQuestionDisable()" href="/mocktest?mocktestId={{at.cat}}"><i class="fa fa-eye" aria-hidden="true"></i> Preview </a>
                 </div>
                 <uib-alert type="danger" ng-show="at.showCatErrMessage">
-                    <strong>Warning!</strong> Some thing went wrong.
+                    <strong>Warning!</strong> Something went wrong!
                 </uib-alert>
             </div>
         </div>

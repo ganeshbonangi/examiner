@@ -12,7 +12,7 @@ class SettingsController {
     if (form.$valid) {
       this.Auth.changePassword(this.user.oldPassword, this.user.newPassword)
         .then(() => {
-          this.message = 'Password successfully changed.';
+          this.message = 'Your Password has been changed successfully.';
         })
         .catch(() => {
           form.password.$setValidity('mongoose', false);

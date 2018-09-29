@@ -12,13 +12,13 @@ class ForgetpwdController {
     if (form.$valid) {
         this.$http.post('/api/users/resetEmail',{email:this.email})
         .then(()=>{
-          this.message = 'Reset link sent to your mail.';
+          this.message = 'Password reset link has been sent to your mail.';
           this.mailSent = true;
         })
         .catch(() => {
           form.email.$setValidity('mongoose', false);
           //this.errors.other = 'Incorrect mail id';
-          this.message = 'Incorrect mail id or mail not register';
+          this.message = 'Incorrect mail id or mail not registered';
         });
     }
   }

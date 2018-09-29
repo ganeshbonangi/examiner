@@ -61,11 +61,11 @@ class examSetupCtrl {
         for(let i=0;i<reqObj.classRooms.length;i++){
             reqObj.classRooms[i] = reqObj.classRooms[i].id;
         }
-        this.$http.post('/api/exams',reqObj).then(()=>{
+        this.$http.post('/api/exams',reqObj).then((response)=>{
             self.exam.type = 'newClass';
+            self.exam._id = response.data._id;
             this.$uibModalInstance.close(self.exam);
         });
-        this.$uibModalInstance.close(this.exam);
     }
     getClassRooms(){
         this.$http.post('/api/classrooms/filterData',{name:this.className}).then(response=>{

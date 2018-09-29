@@ -3,7 +3,7 @@ angular.module('authCellApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('authoringTool', {
-        url: '/authoringTool',
+        url: '/authoringTool?examId',
         templateUrl: 'app/authoringTool/authoringTool.html',
         controller:'authoringToolCtrl',
         controllerAs: 'at',

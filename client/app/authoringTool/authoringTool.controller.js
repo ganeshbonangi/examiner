@@ -1,23 +1,63 @@
 'use strict';
 
 class authoringToolCtrl {
-  constructor($http, $window, $scope, appConfig, Auth) {
-    this.message = 'Hello';
-    this.Auth = Auth;
-    this.cat = '';
+  constructor($http, $window, $scope, appConfig, Auth, $stateParams) {
+    angular.extend(this,{$http, $window, $scope, appConfig, Auth, $stateParams});
     this.type = 'MCSS';
-    this.toolBarFeatures = [
-        ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
-        ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
-        ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
-        ['html', 'insertImage', 'insertLink', 'insertVideo','speach']
-    ];
+    this.examId = this.$stateParams.examId
+    if($window.innerWidth<479){
+      this.toolBarFeatures = [
+        ['bold', 'italics', 'underline', 'ul', 'ol'],
+        ['html', 'insertImage', 'insertLink', 'insertVideo']
+      ];
+    }else if($window.innerWidth<638){
+      this.toolBarFeatures = [
+          ['h1', 'h2', 'p'],
+          ['bold', 'italics', 'underline', 'ul', 'ol'],
+          ['insertImage', 'insertLink', 'insertVideo']
+      ];
+    }else if($window.innerWidth<769){
+      this.toolBarFeatures = [
+          ['h1', 'h2', 'h3', 'p'],
+          ['bold', 'italics', 'underline', 'ul', 'ol'],
+          ['justifyLeft','justifyCenter','justifyRight'],
+          ['insertImage', 'insertLink', 'insertVideo']
+      ];
+    }else if($window.innerWidth<960){
+      this.toolBarFeatures = [
+          ['h1', 'h2', 'h3', 'p'],
+          ['bold', 'italics', 'underline', 'ul', 'ol'],
+          ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
+          ['insertImage', 'insertLink', 'insertVideo']
+      ];
+    }else if($window.innerWidth<1025){
+      this.toolBarFeatures = [
+          ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
+          ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol'],
+          ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
+          ['html', 'insertImage', 'insertLink', 'insertVideo']
+      ];
+    }else{
+      this.toolBarFeatures = [
+          ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
+          ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
+          ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
+          ['html', 'insertImage', 'insertLink', 'insertVideo','speach']
+      ];
+    }
     //console.log(window.localStorage.getItem('subject'));
     this.subjects = appConfig.subjects.telugu;
     this.loader = [];
     this.editModeOn = [];
     this.isInValid = [];
-    this.searchBy = 'subject';
+    if(this.examId){
+      this.searchBy = 'instute';
+      this.cat = this.examId;
+      this.getQuestion();
+    }else{
+      this.searchBy = 'subject';
+      this.cat = '';
+    }
     this.emptyQuestion =   {
         instruction:'',
         information:'',
@@ -34,7 +74,6 @@ class authoringToolCtrl {
         }]
       };
     this.questions = [];
-    angular.extend(this,{$window, $http, $scope});
     var _this = this;
     let header = document.getElementById('statictoolbar');
     let sticky = header.offsetTop;

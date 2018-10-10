@@ -7,7 +7,7 @@
     constructor($http, appConfig, Auth) {
       this.$http = $http;
      // this.awesomeThings = [];
-      this.isFirstOpen = [true];
+      this.isFirstOpen = [true,true,true,true,true,true];
       this.subjects = appConfig.subjects[Auth.currentLang];
       Auth.setCallBackForLangSwith(()=>{
           this.subjects = appConfig.subjects[Auth.currentLang];

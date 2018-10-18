@@ -83,7 +83,7 @@ export function getExamListForStudent(req, res){
       for(let i=0;i<res.length;i++){
         classRoomList.push(res[i]._id);
       }
-      return Exam.find({'classRooms':{$in:classRoomList}}).select({}).exec().then(function(res){
+      return Exam.find({'classRooms':{$in:classRoomList},'expiredate':{$gte:new Date()},'activationdate':{$lte:new Date()}}).select({}).exec().then(function(res){
         return res;
       }); 
     })

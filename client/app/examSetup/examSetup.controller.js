@@ -23,6 +23,7 @@ class examSetupCtrl {
         if (exam) {
             exam.activationdate = utilService.getDateObject(exam.activationdate);
             exam.expiredate = utilService.getDateObject(exam.expiredate);
+            this.cloneObj = angular.copy(exam);
             this.exam = exam;
             this.upDateTheExamVar = true;
             if(!this.exam.classRooms){
@@ -93,6 +94,17 @@ class examSetupCtrl {
     }
   revertingBack() {
   //has to reset to it's original state.
+    if(this.cloneObj){
+        this.exam = angular.copy(this.cloneObj);
+    }else{
+        this.exam = {
+                hstep: 1,
+                mstep: 5,
+                classRooms:[],
+                expiredate:null,
+                activationdate:null
+            };
+    }
   }
 }
 angular.module('authCellApp')

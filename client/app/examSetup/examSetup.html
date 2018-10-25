@@ -31,21 +31,21 @@
             <div class="form-group">
                 <div class="col-xs-7">
                 <p class="input-group">
-                    <input type="text" class="form-control" uib-datepicker-popup="{{examSetupCtrl.format}}" ng-model="examSetupCtrl.exam.activationdate" is-open="examSetupCtrl.popup1.opened" datepicker-options="examSetupCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" placeholder="Activation Date" />
+                    <input type="text" class="form-control" uib-datepicker-popup="{{examSetupCtrl.format}}" ng-model="examSetupCtrl.exam.activationdate" is-open="examSetupCtrl.popup1.opened" datepicker-options="examSetupCtrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" placeholder="Activation Date" min-date="examSetupCtrl.today" ng-change="examSetupCtrl.startDateChanged()"/>
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="examSetupCtrl.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </p>
                 </div>
                 <div class="col-xs-5">
-                    <div uib-timepicker ng-model="examSetupCtrl.exam.activationdate" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="true" min-date="examSetupCtrl.today"></div>
+                    <div uib-timepicker ng-model="examSetupCtrl.exam.activationdate" ng-change="changed()" hour-step="1" minute-step="5" show-meridian="true" ></div>
                 </div>
             </div>
             <label>Exam End Date</label>
             <div class="form-group">
                 <div class="col-xs-7">
                     <p class="input-group">
-                        <input type="text" class="form-control" name="examEndDate" uib-datepicker-popup="{{examSetupCtrl.format}}" ng-model="examSetupCtrl.exam.expiredate" is-open="examSetupCtrl.popup2.opened" datepicker-options="examSetupCtrl.endDateOptions" placeholder="Expiration Date" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <input type="text" class="form-control" name="examEndDate" uib-datepicker-popup="{{examSetupCtrl.format}}" ng-model="examSetupCtrl.exam.expiredate" is-open="examSetupCtrl.popup2.opened" datepicker-options="examSetupCtrl.endDateOptions" placeholder="Expiration Date" ng-required="true" close-text="Close" min-date="examSetupCtrl.exam.activationdate" alt-input-formats="altInputFormats" />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="examSetupCtrl.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>

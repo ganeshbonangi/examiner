@@ -57,6 +57,9 @@ class examSetupCtrl {
     cancel() {
         this.$uibModalInstance.dismiss('dismiss reason');
     }
+    startDateChanged(){
+        this.exam.expiredate = undefined;
+    }
     saveTheExam() {
         this.exam.authorid = this.user._id;
         let reqObj = angular.copy(this.exam), self = this;

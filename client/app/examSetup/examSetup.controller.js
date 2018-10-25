@@ -13,6 +13,7 @@ class examSetupCtrl {
             opened: false
         };
         this.format = 'dd-MMMM-yyyy';
+        this.today = new Date();
         this.open1 = function() {
             this.popup1.opened = true;
         };

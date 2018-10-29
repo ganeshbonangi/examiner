@@ -95,6 +95,9 @@ class authoringToolCtrl {
   chapterChange(){
     this.questions = [];
   }
+  questionTypeChange(){
+    
+  }
   getEmptyQuestion(){
     return angular.copy(this.emptyQuestion);
   }
@@ -141,14 +144,16 @@ class authoringToolCtrl {
       }
     }
   }
-  editQuestion($event, $index){
+  stopDefaultBehavior($event){
     $event.stopPropagation();
     $event.preventDefault();
+  }
+  editQuestion($event, $index){
+    this.stopDefaultBehavior($event);
     this.editModeOn[$index] = true;
   }
   saveQuestion($event, $index){
-    $event.stopPropagation();
-    $event.preventDefault();
+    this.stopDefaultBehavior($event);
     if(this.loader[$index]){
       return false;
     }
@@ -229,8 +234,7 @@ class authoringToolCtrl {
   	this.questions.push(this.getEmptyQuestion());
   }
   deleteQuestion($event, $index){
-    $event.stopPropagation();
-    $event.preventDefault();
+    this.stopDefaultBehavior($event);
     let result = window.confirm('Are you sure you want to delete question? Press ok to delete, press cancel to cancel delete');
     if(result&&this.questions.length){
       // todo make service call to delte

@@ -1,0 +1,13 @@
+<div >
+    <div class="instructiontext">
+        Enter passage:
+        <div text-angular ng-model="comprehensionAuthCtrl.question.passage" ta-default-wrap="p" ta-target-toolbars='statictoolbar' ta-disabled="!comprehensionAuthCtrl.editModeOn"> </div>
+        <br />
+        <div>
+        </div>
+    </div>
+    <div ng-repeat="comprehensionAuthCtrl.question.questionsList">
+    	
+    </div>
+    <mcmq-auth question="question" is-ans="isAns" edit-mode-on="at.editModeOn[$index]"> </mcmq-auth>
+</div>

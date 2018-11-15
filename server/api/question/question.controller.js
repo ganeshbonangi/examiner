@@ -82,7 +82,7 @@ export function show(req, res) {
 
 // Gets a single Question from the DB
 export function getCategory(req, res) {
-  return Question.find({'category':req.params.category}).exec()
+  return Question.find({'category':req.params.category}).sort({'id':1}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

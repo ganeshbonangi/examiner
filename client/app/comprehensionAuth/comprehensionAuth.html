@@ -6,8 +6,7 @@
         <div>
         </div>
     </div>
-    <div ng-repeat="comprehensionAuthCtrl.question.questionsList">
-    	
+    <div ng-repeat="question in comprehensionAuthCtrl.question.questionsList">
+    	<mcmq-auth question="question" is-ans="isAns" edit-mode-on="at.editModeOn[$index]"> </mcmq-auth>
     </div>
-    <mcmq-auth question="question" is-ans="isAns" edit-mode-on="at.editModeOn[$index]"> </mcmq-auth>
 </div>

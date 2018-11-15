@@ -2,9 +2,14 @@
 (function() {
 	class comprehensionAuthComponent {
         constructor() {
-            this.question.instruction = 'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.';
+            //this.question.instruction = 'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.';
+            this.question = {
+                questionsList: [{},{},{}],
+                passage : ''
+            };
+            
             if(!Array.isArray(this.question.explainaiton)){
-                this.question.explainaiton = [{text:''}];
+               // this.question.explainaiton = [{text:''}];
             }
         }
         answerChanged(index){
@@ -26,11 +31,11 @@
             this.question.explainaiton.push({text:''});
         }
         $onInit(){
-        	for(let i=0;i<this.question.options.length;i++){
-        		if(this.question.options[i].isAns){
-        			this.isAns = i+'';
-        		}
-        	}
+        	// for(let i=0;i<this.question.options.length;i++){
+        	// 	if(this.question.options[i].isAns){
+        	// 		this.isAns = i+'';
+        	// 	}
+        	// }
         }
     }
     angular.module('authCellApp')

@@ -4,7 +4,37 @@
         constructor() {
             //this.question.instruction = 'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.';
             this.question = {
-                questionsList: [{},{},{}],
+                questionsList: [{
+                    instruction:'',
+                    information:'',
+                    questiontext: '', 
+                    type:'MCSS',
+                    explainaiton:[{text:''}],
+                    options:[{
+                      content:''
+                    },{
+                      content:''
+                    },{
+                      content:''
+                    },{
+                      content:''
+                    }]
+                },{
+                    instruction:'',
+                    information:'',
+                    questiontext: '', 
+                    type:'MCSS',
+                    explainaiton:[{text:''}],
+                    options:[{
+                      content:''
+                    },{
+                      content:''
+                    },{
+                      content:''
+                    },{
+                      content:''
+                    }]
+                }],
                 passage : ''
             };
             
@@ -20,6 +50,29 @@
         			this.question.options[i].isAns = false;
         		}
         	}
+        }
+        addQuestion(){
+            this.question.questionsList.push({
+                    instruction:'',
+                    information:'',
+                    questiontext: '', 
+                    type:'MCSS',
+                    explainaiton:[{text:''}],
+                    options:[{
+                      content:''
+                    },{
+                      content:''
+                    },{
+                      content:''
+                    },{
+                      content:''
+                    }]
+                });
+        }
+        deleteQuestion(index, $event){
+            $event.stopPropagation();
+            $event.preventDefault();
+            this.question.questionsList.splice(index,1);
         }
         addOption(){
             this.question.options.push({isAns:false,content:''});

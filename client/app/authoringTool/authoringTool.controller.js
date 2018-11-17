@@ -62,6 +62,7 @@ class authoringToolCtrl {
         instruction:'',
         information:'',
         questiontext: '', 
+        type:'MCSS',
         explainaiton:[{text:''}],
         options:[{
           content:''
@@ -96,7 +97,7 @@ class authoringToolCtrl {
     this.questions = [];
   }
   questionTypeChange(){
-    
+
   }
   getEmptyQuestion(){
     return angular.copy(this.emptyQuestion);

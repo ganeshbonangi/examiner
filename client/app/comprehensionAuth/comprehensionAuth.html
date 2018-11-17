@@ -6,7 +6,16 @@
         <div>
         </div>
     </div>
-    <div ng-repeat="question in comprehensionAuthCtrl.question.questionsList">
-    	<mcmq-auth question="question" is-ans="isAns" edit-mode-on="at.editModeOn[$index]"> </mcmq-auth>
-    </div>
+	<uib-tabset>
+      <uib-tab ng-repeat="question in comprehensionAuthCtrl.question.questionsList">
+      <uib-tab-heading>
+      	<div>
+      		<span>Question {{$index+1}}</span>
+			<i class="fa fa-times" aria-hidden="true" ng-click="comprehensionAuthCtrl.deleteQuestion($index, $event)"></i>
+      	</div>
+      </uib-tab-heading>
+		<mcmq-auth question="question" is-ans="isAns" edit-mode-on="comprehensionAuthCtrl.editModeOn"> </mcmq-auth>
+      </uib-tab>
+      <span class="table-input" ><i class="fa fa-plus table-input" aria-hidden="true" ng-click="comprehensionAuthCtrl.addQuestion()"></i></span>
+    </uib-tabset>
 </div>

@@ -158,45 +158,49 @@ class authoringToolCtrl {
     if(this.loader[$index]){
       return false;
     }
-    this.questions[$index].type = this.type;
-    if(this.isValidQuestion($index)){
-      this.loader[$index] = true;
-      this.isInValid[$index] = false;
-      let _this = this, question;
-      question = JSON.parse(JSON.stringify(this.questions[$index]));
-      for(let i=0;i<question.explainaiton.length;i++){
-        if(!question.explainaiton[i].text.trim()){
-          question.explainaiton.splice(i,1);
-          i--;
+    if(this.questions[$index].type==='MCSS'){
+      this.questions[$index].type = this.type;
+      if(this.isValidQuestion($index)){
+        this.loader[$index] = true;
+        this.isInValid[$index] = false;
+        let _this = this, question;
+        question = JSON.parse(JSON.stringify(this.questions[$index]));
+        for(let i=0;i<question.explainaiton.length;i++){
+          if(!question.explainaiton[i].text.trim()){
+            question.explainaiton.splice(i,1);
+            i--;
+          }
         }
-      }
-      if(question._id){
-        this.$http.put('/api/questions/'+question._id,question).success(()=>{
-          _this.loader[$index] = false;
-          _this.editModeOn[$index] = false;
-        }).error(()=>{
-          _this.loader[$index] = false;
-          _this.isInValid[$index] = true;
-          _this.errMsg = 'Not saved your question, Please try again.';
-        });
-      }else{
-        question.category = this.cat;
-        question.uploadedby = this.Auth.getCurrentUser()._id;
-        this.$http.post('/api/questions',question).success(function(data){
-          _this.questions[$index]._id = data._id;
-          _this.questions[$index].category = data.category;
-          _this.loader[$index] = false;
-          _this.editModeOn[$index] = false;
-        }).error(()=>{
-          _this.loader[$index] = false;
-          _this.isInValid[$index] = true;
-          _this.errMsg = 'Not saved your question, Please try again.';
-        }); 
-      }
+        if(question._id){
+          this.$http.put('/api/questions/'+question._id,question).success(()=>{
+            _this.loader[$index] = false;
+            _this.editModeOn[$index] = false;
+          }).error(()=>{
+            _this.loader[$index] = false;
+            _this.isInValid[$index] = true;
+            _this.errMsg = 'Not saved your question, Please try again.';
+          });
+        }else{
+          question.category = this.cat;
+          question.uploadedby = this.Auth.getCurrentUser()._id;
+          this.$http.post('/api/questions',question).success(function(data){
+            _this.questions[$index]._id = data._id;
+            _this.questions[$index].category = data.category;
+            _this.loader[$index] = false;
+            _this.editModeOn[$index] = false;
+          }).error(()=>{
+            _this.loader[$index] = false;
+            _this.isInValid[$index] = true;
+            _this.errMsg = 'Not saved your question, Please try again.';
+          }); 
+        }
 
-    }else{
-      this.isInValid[$index] = true;
-      this.errMsg = 'You missed some thing in the question.';
+      }else{
+        this.isInValid[$index] = true;
+        this.errMsg = 'You missed some thing in the question.';
+      }
+    }else if(this.questions[$index].type==='COMPREHENSION'){
+
     }
   }
   isValidQuestion($index){

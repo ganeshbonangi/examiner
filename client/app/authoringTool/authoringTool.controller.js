@@ -200,7 +200,7 @@ class authoringToolCtrl {
         this.errMsg = 'You missed some thing in the question.';
       }
     }else if(this.questions[$index].type==='COMPREHENSION'){
-
+      console.log(this.questions[$index]);
     }
   }
   isValidQuestion($index){

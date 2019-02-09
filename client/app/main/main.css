@@ -19,7 +19,20 @@
 	animation: blink-animation 1s steps(5, start) infinite;
     -webkit-animation: blink-animation 1s steps(5, start) infinite;
 }
-
+.slide{
+  height: 305px;
+  background-color: #003366;
+  color: white;
+  font-weight: bold;
+  line-height: 305px;
+}
+.text-container{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  font-size: 200%;
+  margin: 0% 15%;
+}
 @keyframes blink-animation {
   to {
     opacity: .3;

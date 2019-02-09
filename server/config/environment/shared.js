@@ -43,19 +43,28 @@ exports = module.exports = {
 						'displaytext':'మిశ్రమాలు ప్రాక్టీస్ టెస్ట్'
 					},*/{
 						'url':'numseries-TEL',
-						'displaytext':'నంబర్ సిరీస్ ప్రాక్టీస్ టెస్ట్'
+						'displaytext':'నంబర్ సిరీస్ ప్రాక్టీస్ టెస్ట్ with video explanation'
 					},{
 						'url':'numsys-TEL',
-						'displaytext':'నంబర్ సిస్టం ప్రాక్టీస్ టెస్ట్'
+						'displaytext':'నంబర్ సిస్టం ప్రాక్టీస్ టెస్ట్ with explanation'
 					},{
 						'url':'patnership-TEL',
-						'displaytext':'భాగస్వామ్యం ప్రాక్టీస్ టెస్ట్'
+						'displaytext':'భాగస్వామ్యం ప్రాక్టీస్ టెస్ట్ with explanation'
 					},{
 						'url':'percent-TEL',
-						'displaytext':'శాతాలు ప్రాక్టీస్ టెస్ట్'
+						'displaytext':'శాతాలు ప్రాక్టీస్ టెస్ట్ with explanation'
 					},{
 						'url':'5b7b058e07c0b10004f08722',
 						'displaytext':'లాభనష్టాలు ప్రాక్టీస్ టెస్ట్'
+					}/*,{
+						'url':'5b860e17a4a3fd00045d8a85',
+						'displaytext':'లాభనష్టాలు ప్రాక్టీస్ టెస్ట్ volume-1'
+					}*/,{
+						'url':'5b7b064b07c0b10004f08724',
+						'displaytext':'కాలం-దూరం ప్రాక్టీస్ టెస్ట్'
+					},{
+						'url':'5b7b066907c0b10004f08725',
+						'displaytext':'కాలం-పని ప్రాక్టీస్ టెస్ట్'
 					}/*,{
 						'url':'proposinal-TEL',
 						'displaytext':'నిష్పత్తి-అనుపాతం ప్రాక్టీస్ టెస్ట్'
@@ -65,12 +74,6 @@ exports = module.exports = {
 					},{
 						'url':'power-TEL',
 						'displaytext':'ఘాతంకాలు-కరణలు ప్రాక్టీస్ టెస్ట్'
-					},{
-						'url':'timedist-TEL',
-						'displaytext':'కాలం-దూరం ప్రాక్టీస్ టెస్ట్'
-					},{
-						'url':'timework-TEL',
-						'displaytext':'కాలం-పని ప్రాక్టీస్ టెస్ట్'
 					},{
 						'url':'pobability-TEL',
 						'displaytext':'సంభావ్యత ప్రాక్టీస్ టెస్ట్'

@@ -14,7 +14,7 @@
 			<i class="fa fa-times" aria-hidden="true" ng-click="comprehensionAuthCtrl.deleteQuestion($index, $event)"></i>
       	</div>
       </uib-tab-heading>
-		<mcmq-auth question="question" is-ans="isAns" edit-mode-on="comprehensionAuthCtrl.editModeOn"> </mcmq-auth>
+		<mcmq-auth question="comprehensionAuthCtrl.question.questionsList[$index]" is-ans="isAns" edit-mode-on="comprehensionAuthCtrl.editModeOn"> </mcmq-auth>
       </uib-tab>
       <span class="table-input" ><i class="fa fa-plus table-input" aria-hidden="true" ng-click="comprehensionAuthCtrl.addQuestion()"></i></span>
     </uib-tabset>

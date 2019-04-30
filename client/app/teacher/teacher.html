@@ -18,7 +18,7 @@
                 <td>{{exam.expiredate | date:'dd-MM-yyyy'}}</td>
                 <!-- <td>{{exam.duration | date:'HH:mm'}}</td> -->
                 <td>
-                  <a class="button" ui-sref="authoringTool({ examId: exam._id })" ng-if="teacherCtrl.role!=='user'">Author</a>
+                  <a class="button" ui-sref="authoringTool({ examId: exam._id })" ng-if="teacherCtrl.role!=='user'">Add Questions</a>
                   <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditExam('lg',exam)" ng-if="teacherCtrl.role!=='user'"></a>
                   <!-- <a class="button fa fa-trash" ng-click="teacherCtrl.deleteExam($index)"></a>  -->
                 </td>

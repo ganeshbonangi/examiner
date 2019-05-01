@@ -13,6 +13,7 @@ class examSetupCtrl {
             opened: false
         };
         this.format = 'dd-MMMM-yyyy';
+        this.today = new Date();
         this.open1 = function() {
             this.popup1.opened = true;
         };
@@ -23,6 +24,7 @@ class examSetupCtrl {
         if (exam) {
             exam.activationdate = utilService.getDateObject(exam.activationdate);
             exam.expiredate = utilService.getDateObject(exam.expiredate);
+            this.cloneObj = angular.copy(exam);
             this.exam = exam;
             this.upDateTheExamVar = true;
             if(!this.exam.classRooms){
@@ -55,17 +57,20 @@ class examSetupCtrl {
     cancel() {
         this.$uibModalInstance.dismiss('dismiss reason');
     }
+    startDateChanged(){
+        this.exam.expiredate = undefined;
+    }
     saveTheExam() {
         this.exam.authorid = this.user._id;
         let reqObj = angular.copy(this.exam), self = this;
         for(let i=0;i<reqObj.classRooms.length;i++){
             reqObj.classRooms[i] = reqObj.classRooms[i].id;
         }
-        this.$http.post('/api/exams',reqObj).then(()=>{
+        this.$http.post('/api/exams',reqObj).then((response)=>{
             self.exam.type = 'newClass';
+            self.exam._id = response.data._id;
             this.$uibModalInstance.close(self.exam);
         });
-        this.$uibModalInstance.close(this.exam);
     }
     getClassRooms(){
         this.$http.post('/api/classrooms/filterData',{name:this.className}).then(response=>{
@@ -93,6 +98,17 @@ class examSetupCtrl {
     }
   revertingBack() {
   //has to reset to it's original state.
+    if(this.cloneObj){
+        this.exam = angular.copy(this.cloneObj);
+    }else{
+        this.exam = {
+                hstep: 1,
+                mstep: 5,
+                classRooms:[],
+                expiredate:null,
+                activationdate:null
+            };
+    }
   }
 }
 angular.module('authCellApp')

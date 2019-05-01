@@ -9,8 +9,8 @@
                 </p>
                 <p ta-bind ng-model="question.questiontext"></p>
             </div>
-            <div ng-repeat="option in question.options">
-                <label class="table-row">
+            <label ng-repeat="option in question.options" style="display:block;">
+                <div class="table-row">
                     <span class="table-cell">
                         <input class="radio-margin-right" type="radio" name="{{$parent.$index}}" ng-model="question.userAns" value="{{$index+1}}" /> 
                     </span>
@@ -19,9 +19,9 @@
                         <i class="fa fa-check-circle" aria-hidden="true" ng-show="$parent.isSubmited&&option.isAns"></i>
                         <i class="fa fa-times-circle" aria-hidden="true" ng-show="$parent.isSubmited&&(question.userAns==$index+1)&&!option.isAns"></i>
                     </span>                    
-                </label>
-            </div>
-            <div ng-show="isSubmited&&question.explainaiton.length" >
+                </div>
+            </label>
+            <div ng-if="isSubmited&&question.explainaiton.length" >
                 <h5>Explaination:</h5>
                 <uib-tabset class="row">
                     <uib-tab ng-repeat="exp in question.explainaiton" heading="Method {{$index+1}}">

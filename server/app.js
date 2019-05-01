@@ -10,8 +10,6 @@ mongoose.Promise = require('bluebird');
 import config from './config/environment';
 import http from 'http';
 import compression from 'compression';
-
-
 // Connect to MongoDB
 mongoose.connect(config.mongo.uri, config.mongo.options);
 mongoose.connection.on('error', function(err) {
@@ -26,7 +24,7 @@ if (config.seedDB) {
 
 // Setup server
 var app = express();
-app.use(compression()); 
+app.use(compression());
 var server = http.createServer(app);
 var socketio = require('socket.io')(server, {
   serveClient: config.env !== 'production',

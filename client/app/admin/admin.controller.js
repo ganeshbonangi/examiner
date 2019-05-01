@@ -3,9 +3,12 @@
 (function() {
 
   class AdminController {
-    constructor(User) {
+    constructor(User, $http) {
       // Use the User $resource to fetch all users
       this.users = User.query();
+      $http.get('/api/exams/').then(response=>{
+        this.exams = response.data;
+      });
     }
 
     delete(/*user*/) {

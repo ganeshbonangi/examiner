@@ -9,8 +9,10 @@
             this.currentExam = {};
             this.getCurrentUser = Auth.getCurrentUser;
             this.userId = this.getCurrentUser()._id;
+            this.role = this.getCurrentUser().role;
             this.conductingExams = [];
-            this.reports = [];
+            this.studentReports = [];
+            this.teacherReports = [];
 
             let self = this;
             this.$http.get('/api/classrooms/teacher/' + this.userId).then(response => {
@@ -33,10 +35,22 @@
                             for(let j=0;j<response.data.length;j++){
                                 response.data[j].exam = self.conductingExams[i].name;
                             }
-                            self.reports[i] = response.data;
+                            self.teacherReports[i] = response.data;
                         });
                     }
                 });
+            });
+
+            $http.get('/api/exams/student/'+this.userId).then(response => {
+                this.exams = response.data;
+                for(let i=0;i<this.exams.length;i++){
+                    $http.get('/api/reports/'+this.exams[i]._id).then(response=>{
+                        for(let j=0;j<response.data.length;j++){
+                            response.data[j].exam = this.exams[i].name;
+                        }
+                        this.studentReports[i] = response.data;
+                    });
+                }
             });
 
         }

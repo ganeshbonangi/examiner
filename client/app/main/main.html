@@ -9,7 +9,9 @@
     </uib-carousel>
   </div>
   <h3>Some exams created by our team both english and telugu medium</h3>
-  <uib-accordion close-others="false">
+     <uib-tabset active="active">
+    <uib-tab index="0" heading="English Medium">
+       <uib-accordion close-others="false">
       <uib-accordion-group is-open="true">
         <uib-accordion-heading>
           Arithmetic <i class="pull-right glyphicon" ></i>
@@ -18,6 +20,10 @@
           <a ui-sref="mocktest({ mocktestId: '5c1280f08c328e447984deee' })" class="list-group-item practice-test" >Problem on Ages <i class="fa fa-hand-o-left pull-right" aria-hidden="true"></i></a>
         </div>
       </uib-accordion-group>
+         </uib-accordion>
+      </uib-tab>
+        <uib-tab index="1" heading="Telugu Medium">
+  <uib-accordion close-others="false">
       <uib-accordion-group is-open="mc.isFirstOpen[$index]" ng-show="subject.isInProd" ng-repeat="subject in mc.subjects">
         <uib-accordion-heading>
           {{subject.displaytext}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': mc.isFirstOpen[$index], 'glyphicon-chevron-right': !mc.isFirstOpen[$index]}"></i>
@@ -41,6 +47,8 @@
         </div>
       </uib-accordion-group>
   </uib-accordion>
+                  </uib-tab>
+  </uib-tabset>
   </div>
 </header>
 <!--div class="container">

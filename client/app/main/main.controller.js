@@ -28,8 +28,7 @@
       Auth.setCallBackForLangSwith(()=>{
           this.subjects = appConfig.subjects[Auth.currentLang];
       });
-      this.engMedium = 
-[{
+      this.engMedium =  [{
     '_id' : '5bf100df6fa5cc44a3d1aded',
     'expiredate' : null,
     'activationdate' : null,
@@ -251,8 +250,8 @@
 
 {
     '_id' : '5c7fc8e3b681d0336b289869',
-    'expiredate' : ISODate('1970-01-01T00:00:00.000Z'),
-    'activationdate' : ISODate('1970-01-01T00:00:00.000Z'),
+    'expiredate' : null,
+    'activationdate' : null,
     'name' : 'Boats and Streams',
     'authorid' : '5b21c16c69aaaa0004e55c6a',
     'disconnect' : false,
@@ -339,8 +338,8 @@
 
 {
     '_id' : '5c965893b681d0336b28a113',
-    'expiredate' : ISODate('1970-01-01T00:00:00.000Z'),
-    'activationdate' : ISODate('1970-01-01T00:00:00.000Z'),
+    'expiredate' : null,
+    'activationdate' : null,
     'name' : 'Calenders',
     'authorid' : '5b21c16c69aaaa0004e55c6a',
     'disconnect' : false,
@@ -407,7 +406,7 @@
     '_id' : '5c98c9aab681d0336b28a326',
     'expiredate' : null,
     'activationdate' : null,
-    'name' : 'Banker's Discount',
+    'name' : 'Banker\'s Discount',
     'authorid' : '5b21c16c69aaaa0004e55c6a',
     'disconnect' : false,
     'classRooms' : [],

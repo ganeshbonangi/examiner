@@ -16,8 +16,8 @@
         <uib-accordion-heading>
           Arithmetic <i class="pull-right glyphicon" ></i>
         </uib-accordion-heading>
-        <div class="list-group">
-          <a ui-sref="mocktest({ mocktestId: '5c1280f08c328e447984deee' })" class="list-group-item practice-test" >Problem on Ages <i class="fa fa-hand-o-left pull-right" aria-hidden="true"></i></a>
+        <div class="list-group" ng-repeat="topic in mc.engMedium">
+          <a ui-sref="mocktest({ mocktestId: topic._id })" class="list-group-item practice-test" >{{topic.name}} <i class="fa fa-hand-o-left pull-right" aria-hidden="true"></i></a>
         </div>
       </uib-accordion-group>
          </uib-accordion>

@@ -66,7 +66,7 @@
                     <span class="badge badge-auth">{{$index+1}}</span>
                     <p class="inline-block" ng-bind-html="at.stripText(question.questiontext)"></p>
                     <span class="pull-right action-panel">
-                        <select ng-model="question.type" ng-click="at.stopDefaultBehavior($event)" ng-change="at.questionTypeChange()">
+                        <select ng-model="question.type" ng-click="at.changeQuestionObject($index);at.stopDefaultBehavior($event);" ng-change="at.questionTypeChange()">
                           <option value="MCSS">Multiple Choice Single Select</option>
                           <!-- <option value="saab">Multiple Choice Multi Select</option> -->
                           <option value="COMPREHENSION">Comprehension</option>
@@ -88,7 +88,7 @@
                       <mcmq-auth question="question" is-ans="isAns" edit-mode-on="at.editModeOn[$index]"> </mcmq-auth> 
                   </div>
                   <div ng-if="question.type==='COMPREHENSION'&&isOpned">
-                      <comprehension-auth question="question" is-ans="isAns" edit-mode-on="at.editModeOn[$index]"> </comprehension-auth>
+                      <comprehension-auth question="question" edit-mode-on="at.editModeOn[$index]"> </comprehension-auth>
                   </div>
                   <div>
                       

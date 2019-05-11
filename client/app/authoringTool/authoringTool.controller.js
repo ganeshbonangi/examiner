@@ -58,6 +58,40 @@ class authoringToolCtrl {
       this.searchBy = 'subject';
       this.cat = '';
     }
+    this.emptyComQuestion = {
+                    questionsList: [{
+                        instruction:'',
+                        information:'',
+                        questiontext: '',
+                        type:'MCSS',
+                        explainaiton:[{text:''}],
+                        options:[{
+                          content:''
+                        },{
+                          content:''
+                        },{
+                          content:''
+                        },{
+                          content:''
+                        }]
+                    },{
+                        instruction:'',
+                        information:'',
+                        questiontext: '',
+                        type:'MCSS',
+                        explainaiton:[{text:''}],
+                        options:[{
+                          content:''
+                        },{
+                          content:''
+                        },{
+                          content:''
+                        },{
+                          content:''
+                        }]
+                    }],
+                    passage : ''
+                };
     this.emptyQuestion =   {
         instruction:'',
         information:'',
@@ -99,7 +133,10 @@ class authoringToolCtrl {
   questionTypeChange(){
 
   }
-  getEmptyQuestion(){
+  getEmptyQuestion($index){
+  if(this.questions[$index]&&this.questions[$index].type==='COMPREHENSION'){
+    return angular.copy(this.emptyComQuestion);
+  }else if(!this.questions[$index]||!this.questions[$index].type||this.questions[$index].type==='MCSS'){}
     return angular.copy(this.emptyQuestion);
   }
   subjectChange(){
@@ -149,6 +186,15 @@ class authoringToolCtrl {
     $event.stopPropagation();
     $event.preventDefault();
   }
+  changeQuestionObject(index){
+   let copyQuestion  = this.getEmptyQuestion(index);
+   delete this.questions[index].explainaiton;
+   delete this.questions[index].options;
+   this.questions[index].questionsList = copyQuestion.questionsList;
+   this.questions[index].passage = this.questions[index].questiontext;
+   delete this.questions[index].questiontext;
+  }
+
   editQuestion($event, $index){
     this.stopDefaultBehavior($event);
     this.editModeOn[$index] = true;
@@ -236,7 +282,7 @@ class authoringToolCtrl {
   }
   addQuestion(){
     this.editModeOn[this.questions.length] = true;
-  	this.questions.push(this.getEmptyQuestion());
+  	this.questions.push(this.getEmptyQuestion(this.questions.length));
   }
   deleteQuestion($event, $index){
     this.stopDefaultBehavior($event);

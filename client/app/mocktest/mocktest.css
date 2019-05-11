@@ -16,3 +16,25 @@
 	position: absolute;
 	right: 95px;
 }
+
+@media print{
+.panel{
+  margin-bottom: 0px !important;
+  border:none !important;
+}
+.panel-body{
+  padding:0px !important;
+}
+.panel-body label{
+  margin-bottom:0px !important;
+}
+.footer, .button-container{
+  display:none!important;
+}
+p{
+  margin:0px !important;
+}
+.container{
+  padding:0px !important;
+}
+}

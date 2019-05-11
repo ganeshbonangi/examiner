@@ -7,7 +7,7 @@
         </mcms-preview>
         <guidlines-preview ng-if="question.type=='guid'"></guidlines-preview>
     </div>
-    <div class="text-center" ng-hide="mocktestCtrl.showSpinner||!mocktestCtrl.mocktest.questions.length">
+    <div class="text-center button-container" ng-hide="mocktestCtrl.showSpinner||!mocktestCtrl.mocktest.questions.length">
         <button class="btn btn-primary" ng-click="mocktestCtrl.showResult()">Submit</button>
         <button class="btn btn-default" ng-click="mocktestCtrl.resetAllSelection()">Reset</button>
     </div>

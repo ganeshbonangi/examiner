@@ -3,7 +3,7 @@
 	class comprehensionAuthComponent {
         constructor() {
             //this.question.instruction = 'క్రింది వాటిలో సరైన జవాబును ఎంచుకోండి.';
-            this.question = {
+            /*this.question = {
                 questionsList: [{
                     instruction:'',
                     information:'',
@@ -36,7 +36,7 @@
                     }]
                 }],
                 passage : ''
-            };
+            };*/
             
             if(!Array.isArray(this.question.explainaiton)){
                // this.question.explainaiton = [{text:''}];
@@ -96,6 +96,6 @@
             templateUrl: 'app/comprehensionAuth/comprehensionAuth.html',
             controller: comprehensionAuthComponent,
             controllerAs: 'comprehensionAuthCtrl',
-            bindings: {question: '=',isAns: '<', editModeOn:'='}
+            bindings: {question: '=', editModeOn:'='}
         });
 })();

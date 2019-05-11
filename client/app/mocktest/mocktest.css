@@ -28,7 +28,7 @@
 .panel-body label{
   margin-bottom:0px !important;
 }
-.footer, .button-container{
+.footer, .button-container, .ad_container{
   display:none!important;
 }
 p{

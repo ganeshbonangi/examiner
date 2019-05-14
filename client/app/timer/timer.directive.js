@@ -26,6 +26,7 @@ angular.module('authCellApp')
           let hrs = tm.getHours();
           if(!sec && !min && !hrs){
             $interval.cancel(stop);
+            $scope.duration = 0;
             return false;
           }
         	tm.setSeconds(sec-1); 

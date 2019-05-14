@@ -1,4 +1,10 @@
 <div class="container" style="position:relative;">
+  <div class="time-container" ng-show="mocktestCtrl.mocktest.questions.length" >
+        <timer id="timer" duration="mocktestCtrl.duration" class=" pull-right cout-down"></timer>
+        <div ng-if="mocktestCtrl.duration===0&&mocktestCtrl.mocktest.questions.length">
+            <span ng-init="mocktestCtrl.showResult()"></span>jjj
+        </div>
+  </div>
     <div ng-repeat="question in mocktestCtrl.mocktest.questions">
         <fib-dropdown-preview ng-if="question.type=='fibd'"></fib-dropdown-preview>
         <fib-text-preview ng-if="question.type=='fibt'"></fib-text-preview>

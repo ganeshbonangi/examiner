@@ -3,7 +3,7 @@
         constructor($http, $stateParams, $uibModal, $scope, $window) {
             angular.extend(this,{$http, $stateParams, $uibModal, $scope, $window});
             this.isSubmited = false;
-            this.duration = 25;
+            this.duration = 35;
             this.mocktest = {
                 examid:this.$stateParams.mocktestId
             };

@@ -21,37 +21,37 @@ exports = module.exports = {
 				'isInProd':true,
 				'chapters':[
 					{
-						'url':'averages-TEL',
+						'url':'5ce02aec4a7853347da3bc24',
 						'displaytext':'సరాసరి ప్రాక్టీస్ టెస్ట్'
 					},/*{
-						'url':'calender-TEL',
+						'url':'5ce02b114a7853347da3bc25',
 						'displaytext':'క్యాలెండర్ ప్రాక్టీస్ టెస్ట్'
 					},{
-						'url':'clocks-TEL',
+						'url':'5ce02b234a7853347da3bc26',
 						'displaytext':'గడియారాలు ప్రాక్టీస్ టెస్ట్'
 					},{
-						'url':'interests-TEL',
+						'url':'5ce02b334a7853347da3bc27',
 						'displaytext':'బారువడ్డీ-చక్రవడ్డీ ప్రాక్టీస్ టెస్ట్'
 					},*/{
-						'url':'lcmgcd-TEL',
+						'url':'5ce02b454a7853347da3bc28',
 						'displaytext':'క.సా.గు-గ.సా.భా ప్రాక్టీస్ టెస్ట్'
 					},/*{
-						'url':'karunalu-TEL',
+						'url':'5ce02b554a7853347da3bc29',
 						'displaytext':'క్షేత్రమితి ప్రాక్టీస్ టెస్ట్'
 					},{
-						'url':'mixers-TEL',
+						'url':'5ce02b624a7853347da3bc2a',
 						'displaytext':'మిశ్రమాలు ప్రాక్టీస్ టెస్ట్'
 					},*/{
-						'url':'numseries-TEL',
+						'url':'5ce02b754a7853347da3bc2b',
 						'displaytext':'నంబర్ సిరీస్ ప్రాక్టీస్ టెస్ట్ with video explanation'
 					},{
-						'url':'numsys-TEL',
+						'url':'5ce02b854a7853347da3bc2c',
 						'displaytext':'నంబర్ సిస్టం ప్రాక్టీస్ టెస్ట్ with explanation'
 					},{
-						'url':'patnership-TEL',
+						'url':'5ce02b954a7853347da3bc2d',
 						'displaytext':'భాగస్వామ్యం ప్రాక్టీస్ టెస్ట్ with explanation'
 					},{
-						'url':'percent-TEL',
+						'url':'5ce02ba84a7853347da3bc2e',
 						'displaytext':'శాతాలు ప్రాక్టీస్ టెస్ట్ with explanation'
 					},{
 						'url':'5b7b058e07c0b10004f08722',
@@ -66,7 +66,7 @@ exports = module.exports = {
 						'url':'5b7b066907c0b10004f08725',
 						'displaytext':'కాలం-పని ప్రాక్టీస్ టెస్ట్'
 					}/*,{
-						'url':'proposinal-TEL',
+						'url':'5ce02bc24a7853347da3bc2f',
 						'displaytext':'నిష్పత్తి-అనుపాతం ప్రాక్టీస్ టెస్ట్'
 					},{
 						'url':'simplification-TEL',

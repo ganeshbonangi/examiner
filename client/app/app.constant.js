@@ -16,27 +16,27 @@
 				"isInProd": true,
 				"chapters": [
 					{
-						"url": "averages-TEL",
+						"url": "5ce02aec4a7853347da3bc24",
 						"displaytext": "సరాసరి ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "lcmgcd-TEL",
+						"url": "5ce02b454a7853347da3bc28",
 						"displaytext": "క.సా.గు-గ.సా.భా ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "numseries-TEL",
+						"url": "5ce02b754a7853347da3bc2b",
 						"displaytext": "నంబర్ సిరీస్ ప్రాక్టీస్ టెస్ట్ with video explanation"
 					},
 					{
-						"url": "numsys-TEL",
+						"url": "5ce02b854a7853347da3bc2c",
 						"displaytext": "నంబర్ సిస్టం ప్రాక్టీస్ టెస్ట్ with explanation"
 					},
 					{
-						"url": "patnership-TEL",
+						"url": "5ce02b954a7853347da3bc2d",
 						"displaytext": "భాగస్వామ్యం ప్రాక్టీస్ టెస్ట్ with explanation"
 					},
 					{
-						"url": "percent-TEL",
+						"url": "5ce02ba84a7853347da3bc2e",
 						"displaytext": "శాతాలు ప్రాక్టీస్ టెస్ట్ with explanation"
 					},
 					{

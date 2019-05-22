@@ -187,12 +187,21 @@ class authoringToolCtrl {
     $event.preventDefault();
   }
   changeQuestionObject(index){
-   let copyQuestion  = this.getEmptyQuestion(index);
-   delete this.questions[index].explainaiton;
-   delete this.questions[index].options;
-   this.questions[index].questionsList = copyQuestion.questionsList;
-   this.questions[index].passage = this.questions[index].questiontext;
-   delete this.questions[index].questiontext;
+    if(this.questions[index].type==='COMPREHENSION'){
+       let copyQuestion  = this.getEmptyQuestion(index);
+       delete this.questions[index].explainaiton;
+       delete this.questions[index].options;
+       this.questions[index].questionsList = copyQuestion.questionsList;
+       this.questions[index].passage = this.questions[index].questiontext;
+       delete this.questions[index].questiontext;
+    }else if(this.questions[index].type==='MCSS'){
+       let copyQuestion  = this.getEmptyQuestion(index);
+       this.questions[index].explainaiton = copyQuestion.explainaiton;
+       this.questions[index].options = copyQuestion.options;
+       delete this.questions[index].questionsList;
+       delete this.questions[index].passage;
+       this.questions[index].questiontext = '';
+    }
   }
 
   editQuestion($event, $index){
@@ -247,6 +256,20 @@ class authoringToolCtrl {
       }
     }else if(this.questions[$index].type==='COMPREHENSION'){
       console.log(this.questions[$index]);
+      let question = {};
+      question.instruction = this.questions[$index].instruction;
+      question.passage = this.questions[$index].passage;
+      question.questions = this.questions[$index].questionsList;
+      /*this.$http.post('/api/comprehensions',question).success(function(data){
+        _this.questions[$index]._id = data._id;
+        _this.questions[$index].category = data.category;
+        _this.loader[$index] = false;
+        _this.editModeOn[$index] = false;
+      }).error(()=>{
+        _this.loader[$index] = false;
+        _this.isInValid[$index] = true;
+        _this.errMsg = 'Not saved your question, Please try again.';
+      });*/
     }
   }
   isValidQuestion($index){

@@ -6,6 +6,16 @@
     position: relative;
     text-align: center;
 }
+#grad1 h2{
+  padding-top: 30px;
+}
+#grad1 {
+  height:100px;
+  color: white;
+  text-align:center;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(red, yellow); /* Standard syntax (must be last) */
+}
 #timer{
 	background-color: #F4F3F3;
 	border-radius: 5px;

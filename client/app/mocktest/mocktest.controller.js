@@ -1,7 +1,7 @@
 'use strict';
     class mocktestComponent {
-        constructor($http, $stateParams, $uibModal, $scope, $window) {
-            angular.extend(this,{$http, $stateParams, $uibModal, $scope, $window});
+        constructor($http, $stateParams, $uibModal, $scope, $window, Auth) {
+            angular.extend(this,{$http, $stateParams, $uibModal, $scope, $window, Auth});
             this.isSubmited = false;
             this.duration = 35;
             this.mocktest = {
@@ -24,6 +24,18 @@
             });
         }
         showResult() {
+          let user = this.Auth.getCurrentUser();
+          if(!user.name){
+              let name = this.$window.prompt("Please enter your name", "");
+              if (name) {
+                this.mocktest.user = {name:name};
+              }else{
+                return false;
+              }
+          }else{
+            this.mocktest.user = user;
+          }
+
             let _this = this;
             this.isSubmited = true;
             this.$uibModal.open({

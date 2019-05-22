@@ -12,6 +12,7 @@ export default function(app) {
   app.use('/api/counters', require('./api/counter'));
   app.use('/api/options', require('./api/option'));
   app.use('/api/questions', require('./api/question'));
+  app.use('/api/comprehensions', require('./api/comprehension'));
   app.use('/api/classrooms', require('./api/classroom'));
   app.use('/api/exams', require('./api/exam'));
   app.use('/api/things', require('./api/thing'));

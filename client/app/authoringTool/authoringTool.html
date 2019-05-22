@@ -64,9 +64,10 @@
                 <div class="question-block" >
                   <uib-accordion-heading ng-class="at.isInValid[$index]?'bg-danger':'bg-success'">
                     <span class="badge badge-auth">{{$index+1}}</span>
-                    <p class="inline-block" ng-bind-html="at.stripText(question.questiontext)"></p>
+                    <p class="inline-block" ng-if="question.type==='MCSS'" ng-bind-html="at.stripText(question.questiontext)"></p>
+                    <p class="inline-block" ng-if="question.type==='COMPREHENSION'" >Comprahansiv Question</p>
                     <span class="pull-right action-panel">
-                        <select ng-model="question.type" ng-click="at.changeQuestionObject($index);at.stopDefaultBehavior($event);" ng-change="at.questionTypeChange()">
+                        <select ng-model="question.type" ng-change="at.changeQuestionObject($index)" ng-click="at.stopDefaultBehavior($event);" ng-change="at.questionTypeChange()">
                           <option value="MCSS">Multiple Choice Single Select</option>
                           <!-- <option value="saab">Multiple Choice Multi Select</option> -->
                           <option value="COMPREHENSION">Comprehension</option>

@@ -1,7 +1,7 @@
 'use strict';
 class modalInstanceCtrl{
-    constructor($uibModalInstance, mocktest, $http, Auth){
-        angular.extend(this,{$uibModalInstance, mocktest, $http, Auth});
+    constructor($uibModalInstance, mocktest, $http){
+        angular.extend(this,{$uibModalInstance, mocktest, $http});
         this.correctQuesCount = 0;
         for(let i=0;i<this.mocktest.questions.length;i++){
             let userAns = this.mocktest.questions[i].userAns;
@@ -16,12 +16,11 @@ class modalInstanceCtrl{
         this.$uibModalInstance.close();
     }
     feedToDb(){
-        let user = this.Auth.getCurrentUser();
         let obj = {
           examid: this.mocktest.examid,
-          userid: user._id,
+          userid: this.mocktest.user._id,
           duration: this.mocktest.duration,
-          username: user.name,
+          username: this.mocktest.user.name,
           total:this.mocktest.questions.length,
           corrects:this.correctQuesCount,
           wrongs: (this.mocktest.questions.length-this.correctQuesCount)

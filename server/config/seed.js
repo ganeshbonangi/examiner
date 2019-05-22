@@ -11,6 +11,7 @@ import Exam from '../api/exam/exam.model';
 import Questions from '../api/question/question.model';
 import Option from '../api/option/option.model';
 import Counter from '../api/counter/counter.model';
+import Comprhension from '../api/comprehension/comprehension.model';
 
 // Counter.find({}).remove()
 //     .then(() => {

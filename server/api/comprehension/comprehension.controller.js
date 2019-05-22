@@ -10,7 +10,9 @@
 'use strict';
 
 import _ from 'lodash';
-import Question from './question.model';
+import async from 'async';
+import Comprehension from './comprehension.model';
+import Question from './../question/question.model';
 import Counters from './../counter/counter.model';
 
 function respondWithResult(res, statusCode) {
@@ -87,15 +89,37 @@ export function getCategory(req, res) {
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
-// Creates a new Question in the DB
+// Creates a new Comprehension in the DB
 export function create(req, res) {
-  getValueForNextSequence().then((response)=>{
-    req.body.id = response._doc.sequence_value;
-    return Question.create(req.body)
+  let comprehensionQuestion = {};
+  comprehensionQuestion.instruction = req.body.instruction;
+  comprehensionQuestion.passage = req.body.passage;
+  comprehensionQuestion.questions = createQuestions(req, 0, []);
+  getValueForNextSequence().then((res)=>{
+    req.body.id = res._doc.sequence_value;
+    return Comprehension.create(comprehensionQuestion)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
   });
 }
+// Creates a new Question in the DB
+ function createQuestions(req, index, questionsList) {
+    if(req.body.questions.length<index){
+      return questionsList;
+    }else{
+      getValueForNextSequence().then((res)=>{
+        let question = req.body.questions[index];
+        question.id = res._doc.sequence_value;
+        Question.create(question)
+        .then((res)=>{
+          questionsList[index] = {type: res._doc.type,id:res._doc.id};
+          createQuestions(req, ++index, questionsList);
+        })
+        .catch(handleError(res));
+      });
+    }
+  return questionsList;
+};
 
 // Updates an existing Question in the DB
 export function update(req, res) {

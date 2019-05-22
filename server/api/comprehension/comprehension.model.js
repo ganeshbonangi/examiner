@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 var ComprehensionSchema = new mongoose.Schema({
     instruction:String,
     passage:String,
-    questions:{type:String,id:String}
+    questions:{type:String,id:Number}
     });
 
 export default mongoose.model('Comprehension', ComprehensionSchema);

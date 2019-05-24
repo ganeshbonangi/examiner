@@ -10,6 +10,7 @@ var ExamSchema = new mongoose.Schema({
   duration: {type:Date},/*Total Minutes for the exams*/
   classRooms: [String],/*class rooms who will see the exams*/
   authorid: String,
+  passcode: String,
   disconnect: {type: Boolean,
       default: false}
 });

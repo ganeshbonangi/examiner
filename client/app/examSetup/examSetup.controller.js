@@ -36,7 +36,8 @@ class examSetupCtrl {
                 mstep: 5,
                 classRooms:[],
                 expiredate:null,
-                activationdate:null
+                activationdate:null,
+                passcode:''
             };
         }
         this.dateOptions = {
@@ -106,7 +107,8 @@ class examSetupCtrl {
                 mstep: 5,
                 classRooms:[],
                 expiredate:null,
-                activationdate:null
+                activationdate:null,
+                passcode:''
             };
     }
   }

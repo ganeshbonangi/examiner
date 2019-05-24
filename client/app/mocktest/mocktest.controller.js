@@ -10,11 +10,32 @@
             this.currentQuestion = 0;
             let _this = this;
             this.showSpinner = true;
-            $http.get('/api/questions/getCategory/'+this.$stateParams.mocktestId).success(function(data){
-              _this.mocktest.questions = data;
-              //_this.duration = 25; //(_this.mocktest.questions.length);//converting 1 question to 1 min//_this.mocktest.questions.length*60*1000
-              _this.showSpinner = false;
-            });
+            $http.get('/api/exams/'+this.$stateParams.mocktestId).success(function(data){
+                let flag = false;
+                if(data.passcode){
+                  let userInput = _this.$window.prompt("Please enter passcode for exam", "");
+                  if (userInput === data.passcode) {
+                    flag = true;
+                  }else{
+                    _this.$window.alert("Wrong Passcode, please refresh.");
+                  }
+                }else{
+                    flag = true;
+                }
+                if(flag){
+                    $http.get('/api/questions/getCategory/'+_this.$stateParams.mocktestId).success(function(data){
+                      _this.mocktest.questions = data;
+                      //_this.duration = 25; //(_this.mocktest.questions.length);//converting 1 question to 1 min//_this.mocktest.questions.length*60*1000
+                      _this.showSpinner = false;
+                    });
+                }
+             }).error(function(){
+              $http.get('/api/questions/getCategory/'+_this.$stateParams.mocktestId).success(function(data){
+                                   _this.mocktest.questions = data;
+                                   //_this.duration = 25; //(_this.mocktest.questions.length);//converting 1 question to 1 min//_this.mocktest.questions.length*60*1000
+                                   _this.showSpinner = false;
+                                 });
+             });
         }
         getQuestoin(index, questionId) {
             this.currentQuestion = index;

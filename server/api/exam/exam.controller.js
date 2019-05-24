@@ -93,7 +93,7 @@ export function getExamListForStudent(req, res){
 
 // Gets a single Exam from the DB
 export function show(req, res) {
-  return Exam.findOne({id:req.params.id}).exec()
+  return Exam.findOne({_id:req.params.id}).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

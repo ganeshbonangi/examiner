@@ -67,6 +67,7 @@
             if(!this.examSetup.hideans){
               this.isSubmited = true;
             }
+            this.duration = -1;
             this.$uibModal.open({
                 animation: true,
                 ariaLabelledBy: 'modal-title',

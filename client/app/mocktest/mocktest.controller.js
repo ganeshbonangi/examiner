@@ -3,18 +3,24 @@
         constructor($http, $stateParams, $uibModal, $scope, $window, Auth) {
             angular.extend(this,{$http, $stateParams, $uibModal, $scope, $window, Auth});
             this.isSubmited = false;
-            this.duration = 35;
+            this.duration = -1;
             this.mocktest = {
                 examid:this.$stateParams.mocktestId
             };
             this.currentQuestion = 0;
+            this.examSetup = {};
             let _this = this;
             this.showSpinner = true;
             $http.get('/api/exams/'+this.$stateParams.mocktestId).success(function(data){
                 let flag = false;
-                if(data.passcode){
+                _this.examSetup = data;
+                if(_this.examSetup.duration){
+                  let dt = new Date(_this.examSetup.duration);
+                  _this.duration = (dt.getHours()*60)+dt.getMinutes();
+                }
+                if(_this.examSetup.passcode){
                   let userInput = _this.$window.prompt("Please enter passcode for exam", "");
-                  if (userInput === data.passcode) {
+                  if (userInput === _this.examSetup.passcode) {
                     flag = true;
                   }else{
                     _this.$window.alert("Wrong Passcode, please refresh.");
@@ -58,7 +64,9 @@
           }
 
             let _this = this;
-            this.isSubmited = true;
+            if(!this.examSetup.hideans){
+              this.isSubmited = true;
+            }
             this.$uibModal.open({
                 animation: true,
                 ariaLabelledBy: 'modal-title',

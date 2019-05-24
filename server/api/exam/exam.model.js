@@ -11,6 +11,9 @@ var ExamSchema = new mongoose.Schema({
   classRooms: [String],/*class rooms who will see the exams*/
   authorid: String,
   passcode: String,
+  hideans:{type: Boolean,
+                 default: false
+  },
   disconnect: {type: Boolean,
       default: false}
 });

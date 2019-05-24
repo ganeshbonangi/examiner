@@ -37,7 +37,8 @@ class examSetupCtrl {
                 classRooms:[],
                 expiredate:null,
                 activationdate:null,
-                passcode:''
+                passcode:'',
+                hideans:false
             };
         }
         this.dateOptions = {
@@ -108,7 +109,8 @@ class examSetupCtrl {
                 classRooms:[],
                 expiredate:null,
                 activationdate:null,
-                passcode:''
+                passcode:'',
+                hideans:false
             };
     }
   }

@@ -25,14 +25,15 @@ if (config.seedDB) {
 
 // Setup server
 var app = express();
+  app.all(/.*/, function(req, res, next) {
+    var host = req.header("host");
+    if (host.match(/^www\..*/i)) {
+      next();
+    } else {
+      res.redirect(301, "http://www." + host);
+    }
+  });
 app.use(compression());
-app.use((req, res, next) => {
-  let host = req.get('Host');
-  if (host === 'exambuds.com') {
-    return res.redirect(301, 'www.exambuds.com/' + req.originalUrl);
-  }
-  return next();
-});
 //app.use(cors());
 var server = http.createServer(app);
 var socketio = require('socket.io')(server, {

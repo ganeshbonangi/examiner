@@ -158,7 +158,7 @@ exports = module.exports = {
 						'url':'importcontryinfo-TEL',
 						'displaytext':'ముఖ్య దేశాల సమాచారం ప్రాక్టీస్ టెస్ట్'
 					},{
-						'url':'countrycap-TEL',
+						'url':'5cf08b3cbaca985f05a96b24',
 						'displaytext':'దేశాలు-రాజధానులు, కరెన్సీ, పాత పేర్లు-కొత్త పేర్లు ప్రాక్టీస్ టెస్ట్'
 					},{
 						'url':'nationalsym-TEL',

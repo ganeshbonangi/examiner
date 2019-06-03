@@ -129,43 +129,43 @@
 				"displaytext": "జనరల్ నాలెడ్జ్ ప్రాక్టీస్ టెస్ట్",
 				"chapters": [
 					{
-						"url": "indiaarea-TEL",
+						"url": "5cf192ddbaca985f05a96bac",
 						"displaytext": "భారతదేశం ఉనికి విస్తరణ ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "indianpopulation-TEL",
+						"url": "5cf192e6baca985f05a96bad",
 						"displaytext": "భారతదేశ జనాభా లెక్కలు ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "indianstateinfo-TEL",
+						"url": "5cf192f0baca985f05a96bae",
 						"displaytext": "రాష్ట్రాలు, కేంద్రపాలిత ప్రాంతాలు, ఆంధ్రప్రదేశ్ జిల్లా సమాచారం ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "importcontryinfo-TEL",
+						"url": "5cf192f9baca985f05a96baf",
 						"displaytext": "ముఖ్య దేశాల సమాచారం ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "countrycap-TEL",
+						"url": "5cf08b3cbaca985f05a96b24",
 						"displaytext": "దేశాలు-రాజధానులు, కరెన్సీ, పాత పేర్లు-కొత్త పేర్లు ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "nationalsym-TEL",
+						"url": "5cf1930abaca985f05a96bb0",
 						"displaytext": "జాతీయ చిహ్నాలు ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "indianlongest-TEL",
+						"url": "5cf19315baca985f05a96bb1",
 						"displaytext": "భారతదేశంలో ఎత్తైనవి పొడవైనవి ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "firstinindia-TEL",
+						"url": "5cf1931dbaca985f05a96bb2",
 						"displaytext": "భారతదేశంలో ప్రప్రధములు ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "firstinworld-TEL",
+						"url": "5cf19326baca985f05a96bb3",
 						"displaytext": "ప్రపంచంలో ప్రప్రథమలు ప్రాక్టీస్ టెస్ట్"
 					},
 					{
-						"url": "awards-TEL",
+						"url": "5cf1932ebaca985f05a96bb4",
 						"displaytext": "అవార్డులు ప్రాక్టీస్ టెస్ట్"
 					},
 					{

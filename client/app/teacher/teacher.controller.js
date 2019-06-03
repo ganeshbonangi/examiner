@@ -30,14 +30,14 @@
                         }
                     }
                     self.conductingExams = response.data;
-                    for(let i=0;i<self.conductingExams.length;i++){
+/*                    for(let i=0;i<self.conductingExams.length;i++){
                         $http.get('/api/reports/'+self.conductingExams[i]._id).then(response=>{
                             for(let j=0;j<response.data.length;j++){
                                 response.data[j].exam = self.conductingExams[i].name;
                             }
                             self.teacherReports[i] = response.data;
                         });
-                    }
+                    }*/
                 });
             });
 

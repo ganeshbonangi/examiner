@@ -34,6 +34,7 @@
 }
 .action-panel i{
   padding: 0px 5px;
+  z-index: 99999;
 }
 .question-block{
   position: relative;

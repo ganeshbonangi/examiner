@@ -1,35 +1,57 @@
 <div class="container">
-    <div class="panel panel-default stick-header-table" ng-if="teacherCtrl.role!=='user'">
-        <div class="panel-heading">Exams Created
-        <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="teacherCtrl.addEditExam('lg')">Create New Exam</button>
-        </div>
-        <table class="table table-hover ">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <!--<th>Activation</th>
-            <th>Expiration</th>-->
-            <th>Duratoin</th>
-            <th>Action</th>
-          </tr>
-          </thead>
-          <tbody>
-
-            <tr ng-repeat="exam in teacherCtrl.conductingExams">
-              <td><a ui-sref="mocktest({ mocktestId: exam._id })"> {{exam.name}}</td>
-              <!-- <td>{{exam.activationdate | date:'dd-MM-yyyy'}}</td>
-               <td>{{exam.expiredate | date:'dd-MM-yyyy'}}</td>-->
-              <td>{{exam.duration | date:'HH:mm'}}</td>
-              <td>
-                <a class="button" ui-sref="authoringTool({ examId: exam._id })" ng-if="teacherCtrl.role!=='user'">+ Questions</a>
-                / <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditExam('lg',exam)" ng-if="teacherCtrl.role!=='user'">Edit Exam</a>
-                <!-- <a class="button fa fa-trash" ng-click="teacherCtrl.deleteExam($index)"></a>  -->
-              </td>
-            </tr>
-          </tbody>
-
-        </table>
+  <div class="panel panel-default stick-header-table" ng-if="teacherCtrl.role!=='user'">
+    <div class="panel-heading">Exams Created
+      <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="teacherCtrl.addEditExam('lg')">Create New Exam</button>
     </div>
+    <table class="table table-hover ">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <!--<th>Activation</th>
+        <th>Expiration</th>-->
+        <th>Duratoin</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr ng-repeat="exam in teacherCtrl.conductingExams">
+        <td><a ui-sref="mocktest({ mocktestId: exam._id })"> {{exam.name}}</td>
+        <!-- <td>{{exam.activationdate | date:'dd-MM-yyyy'}}</td>
+         <td>{{exam.expiredate | date:'dd-MM-yyyy'}}</td>-->
+        <td>{{exam.duration | date:'HH:mm'}}</td>
+        <td>
+          <a class="button" ui-sref="authoringTool({ examId: exam._id })" ng-if="teacherCtrl.role!=='user'">+ Questions</a>
+          / <a class="button fa fa-pencil-square-o" ng-click="teacherCtrl.addEditExam('lg',exam)" ng-if="teacherCtrl.role!=='user'">Edit Exam</a>
+          <!-- <a class="button fa fa-trash" ng-click="teacherCtrl.deleteExam($index)"></a>  -->
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+  <div class="panel panel-default stick-header-table" ng-if="teacherCtrl.role!=='user'">
+    <div class="panel-heading">Exams Results
+    </div>
+    <table class="table table-hover ">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Results</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr ng-repeat="exam in teacherCtrl.conductingExams">
+        <td><a ui-sref="mocktest({ mocktestId: exam._id })"> {{exam.name}}</a></td>
+        <td>
+          <a ui-sref="results({ resultsId: exam._id })" target="_blank"> {{exam.name}}</a>
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
     <div class="panel panel-default stick-header-table" ng-show="report.length" ng-repeat="report in teacherCtrl.teacherReports">
       <div class="panel-heading">Results of attended exam {{report[0].exam}}</div>
       <table class="table table-hover user-list"  >

@@ -1,0 +1,50 @@
+.modal-footer{
+	border-top: none !important;
+}
+.coming-soon{
+	top: 50%;
+    position: relative;
+    text-align: center;
+}
+#grad1 h2{
+  padding-top: 30px;
+}
+#grad1 {
+  height:100px;
+  color: white;
+  text-align:center;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(red, yellow); /* Standard syntax (must be last) */
+}
+#timer{
+	background-color: #F4F3F3;
+	border-radius: 5px;
+	padding:0 5px;
+	position: fixed;
+}
+.time-container{
+	position: absolute;
+	right: 95px;
+}
+
+@media print{
+.panel{
+  margin-bottom: 0px !important;
+  border:none !important;
+}
+.panel-body{
+  padding:0px !important;
+}
+.panel-body label{
+  margin-bottom:0px !important;
+}
+.footer, .button-container, .ad_container{
+  display:none!important;
+}
+p{
+  margin:0px !important;
+}
+.container{
+  padding:0px !important;
+}
+}

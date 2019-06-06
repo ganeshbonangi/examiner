@@ -98,6 +98,11 @@ class examSetupCtrl {
             this.$uibModalInstance.close(self.exam);            
         });
     }
+  delteReport(){
+          this.$http.delete('/api/reports/'+this.exam._id).then(()=>{
+              this.$uibModalInstance.close();
+          });
+  }
   revertingBack() {
   //has to reset to it's original state.
     if(this.cloneObj){

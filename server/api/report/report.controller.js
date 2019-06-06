@@ -114,8 +114,7 @@ export function update(req, res) {
 
 // Deletes a Report from the DB
 export function destroy(req, res) {
-  return Report.findById(req.params.id).exec()
-    .then(handleEntityNotFound(res))
-    .then(removeEntity(res))
+  return Report.remove({examid:req.params.id}).exec()
+    .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }

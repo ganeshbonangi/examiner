@@ -109,6 +109,8 @@ angular.module('authCellApp', ['authCellApp.auth', 'authCellApp.admin', 'authCel
         taOptions.toolbar[3].push('speach');
         return taOptions;
     }]);
-  }).controller('appCtrl', function($scope){
+  }).controller('appCtrl', function($scope, Auth){
+    Auth.setTitle('online authoring platform for examination, training, survey & certification with extensive reporting module');
+    $scope.Auth= Auth;
   	$scope.isAndroidBrowser = (navigator.userAgent.toLowerCase().indexOf('android') > -1 && window.document.URL.indexOf('isCordova') === -1);
   });

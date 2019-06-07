@@ -11,6 +11,11 @@
             this.examSetup = {};
             let _this = this;
             this.showSpinner = true;
+            $http.get('/api/exams/'+this.$stateParams.resultsId).success(function(data){
+                            _this.examSetup = data;
+                            _this.Auth.setTitle(_this.examSetup.name+' Mock Test Results');
+            });
+
             $http.get('/api/reports/'+this.$stateParams.resultsId).then(response=>{
                 _this.report = response.data;
             });

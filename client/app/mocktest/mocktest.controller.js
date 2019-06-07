@@ -14,6 +14,7 @@
             $http.get('/api/exams/'+this.$stateParams.mocktestId).success(function(data){
                 let flag = false;
                 _this.examSetup = data;
+                _this.Auth.setTitle(_this.examSetup.name+' Online Mock Test Free');
                 if(_this.examSetup.duration){
                   let dt = new Date(_this.examSetup.duration);
                   _this.duration = (dt.getHours()*60)+dt.getMinutes();

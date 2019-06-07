@@ -92,6 +92,7 @@
           })
           .$promise;
       },
+
       resetPassword(oldPassword, newPassword, token, callback){
         return User.changePassword({
             resetPasswordToken: token
@@ -208,6 +209,12 @@
       },
       isStudent() {
         return Auth.getCurrentUser().role === 'user';
+      },
+      setTitle(title){
+        Auth.title = title;
+      },
+      getTitle(){
+        return Auth.title;
       },
 
       /**

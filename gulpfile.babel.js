@@ -539,6 +539,7 @@ gulp.task('copy:extras', () => {
         `${clientPath}/robots.txt`,
         `${clientPath}/.htaccess`,
         `${clientPath}/ads.txt`,
+        `${clientPath}/home.html`,
         `${clientPath}/ads.txt.txt`
     ], { dot: true })
         .pipe(gulp.dest(`${paths.dist}/${clientPath}`));

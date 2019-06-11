@@ -25,9 +25,22 @@ if (config.seedDB) {
 
 // Setup server
 var app = express();
-app.get("*", function(request, response){
-  var host = request.header("host");
-  response.redirect(301, "https://www." + host );
+
+app.use(function(request, response, next){
+  var host = request.headers.host;
+  if(!request.secure){
+    if (host.match(/^www\..*/i)) {
+      response.redirect(301, ("https://" + request.headers.host + request.url) );
+    }else {
+      response.redirect(301, ("https://www." + request.headers.host + request.url) );
+    }
+  }else{
+    if (host.match(/^www\..*/i)){
+      next();
+    }else{
+      response.redirect(301, ("https://www." + request.headers.host + request.url) );
+    }
+  }
 });
 app.use(compression());
 //app.use(cors());

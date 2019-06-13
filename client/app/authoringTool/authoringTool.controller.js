@@ -7,35 +7,35 @@ class authoringToolCtrl {
     this.examId = this.$stateParams.examId
     if($window.innerWidth<479){
       this.toolBarFeatures = [
-        ['bold', 'italics', 'underline', 'ul', 'ol'],
-        ['html', 'insertImage', 'insertLink', 'insertVideo']
+        ['bold', 'underline'],
+        ['html', 'insertImage', 'insertLink', 'insertVideo','speach']
       ];
     }else if($window.innerWidth<638){
       this.toolBarFeatures = [
           ['h1', 'h2', 'p'],
           ['bold', 'italics', 'underline', 'ul', 'ol'],
-          ['insertImage', 'insertLink', 'insertVideo']
+          ['insertImage', 'insertLink', 'insertVideo','speach']
       ];
     }else if($window.innerWidth<769){
       this.toolBarFeatures = [
           ['h1', 'h2', 'h3', 'p'],
           ['bold', 'italics', 'underline', 'ul', 'ol'],
           ['justifyLeft','justifyCenter','justifyRight'],
-          ['insertImage', 'insertLink', 'insertVideo']
+          ['insertImage', 'insertLink', 'insertVideo', 'speach']
       ];
     }else if($window.innerWidth<960){
       this.toolBarFeatures = [
           ['h1', 'h2', 'h3', 'p'],
           ['bold', 'italics', 'underline', 'ul', 'ol'],
           ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
-          ['insertImage', 'insertLink', 'insertVideo']
+          ['insertImage', 'insertLink', 'insertVideo', 'speach']
       ];
     }else if($window.innerWidth<1025){
       this.toolBarFeatures = [
           ['h1', 'h2', 'h3', 'p', 'pre', 'quote'],
           ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol'],
           ['justifyLeft','justifyCenter','justifyRight', 'justifyFull', 'indent', 'outdent'],
-          ['html', 'insertImage', 'insertLink', 'insertVideo']
+          ['html', 'insertImage', 'insertLink', 'insertVideo', ,'speach']
       ];
     }else{
       this.toolBarFeatures = [

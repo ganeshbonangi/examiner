@@ -68,7 +68,7 @@
                     <p class="inline-block" ng-if="question.type==='COMPREHENSION'" >Comprahansiv Question</p>
                     <span class="pull-right action-panel">
                         <select ng-model="question.type" ng-change="at.changeQuestionObject($index)" ng-click="at.stopDefaultBehavior($event);" ng-change="at.questionTypeChange()">
-                          <option value="MCSS">Multiple Choice Single Select</option>
+                          <option value="MCSS">Multiple Choice</option>
                           <!-- <option value="saab">Multiple Choice Multi Select</option> -->
                           <option value="COMPREHENSION">Comprehension</option>
                         </select>

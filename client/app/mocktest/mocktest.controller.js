@@ -13,6 +13,7 @@
             this.showSpinner = true;
             $http.get('/api/exams/'+this.$stateParams.mocktestId).success(function(data){
                 let flag = false;
+                _this.showInst = true;
                 _this.examSetup = data;
                 _this.Auth.setTitle(_this.examSetup.name+' Online Mock Test Free');
                 if(_this.examSetup.duration){

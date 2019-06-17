@@ -18,8 +18,9 @@
             <span ng-init="mocktestCtrl.showResult()"></span>jjj
         </div>
   </div>
-  <div id="grad1">
-    <h2>Krushi Study Circle By Naidu sir</h2>
+  <div id="grad1" ng-show="mocktestCtrl.showInst">
+    <h2 ng-show="mocktestCtrl.examSetup.authorid==='5bb0f2c60108e500049ef1a3'">Krushi Study Circle By Naidu sir</h2>
+    <h2 ng-hide="mocktestCtrl.examSetup.authorid==='5bb0f2c60108e500049ef1a3'">RAISE INSTITUE, Bhimavaram</h2>
   </div>
     <div ng-repeat="question in mocktestCtrl.mocktest.questions">
         <fib-dropdown-preview ng-if="question.type=='fibd'"></fib-dropdown-preview>

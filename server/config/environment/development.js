@@ -6,7 +6,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://ganesh007:ganesh007@ds061208.mlab.com:61208/examcolors',//'mongodb://localhost/examcolors',
+    uri: 'mongodb://localhost/examcolors',//'mongodb://ganesh007:ganesh007@ds061208.mlab.com:61208/examcolors',
     options:{
       useMongoClient: true
     },

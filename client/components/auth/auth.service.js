@@ -52,7 +52,19 @@
         currentUser = {};
       },
 
-      /**
+      changeName(name){
+        return User.changeName({
+            id: currentUser._id
+          }, {
+            name: name
+          }, function(succ) {
+            return succ;
+          }, function(err) {
+            return (err);
+          })
+          .$promise;
+      },
+          /**
        * Create a new user
        *
        * @param  {Object}   user     - user info

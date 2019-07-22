@@ -51,7 +51,7 @@ git push heroku master
  heroku logs // to see log file
 
  DB back up cmd
- mongodump -h ds061208.mlab.com:61208 -d examcolors -u ganesh007 -p ganesh007 -o /Users/ganeshbonangi/Desktop/workspace/examiner/dbbackup/
+ mongodump -h ds061208.mlab.com:61208 -d examcolors -u ganesh007 -p ganesh007 -o "D:\EB Angular 1\examiner\dbbackup"
 
 
  db sequance
@@ -93,6 +93,13 @@ var coll = db.questions.find({});
  db.questions.update({_id:coll[i]._id},{$set:{id:getValueForNextSequence()}});
  }
 
+
+
+//updating author id
+var coll = db.exams.find({});
+ for(var i=0;i<coll.length();i++){
+ db.exams.update({_id:coll[i]._id},{$set:{authorid:[coll[i].authorid]}});
+ }
 
 
 

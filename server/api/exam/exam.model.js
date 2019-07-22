@@ -9,7 +9,7 @@ var ExamSchema = new mongoose.Schema({
   expiredate: {type:Date},
   duration: {type:Date},/*Total Minutes for the exams*/
   classRooms: [String],/*class rooms who will see the exams*/
-  authorid: String,
+  authorid: [String],
   passcode: String,
   hideans:{type: Boolean,
                  default: false

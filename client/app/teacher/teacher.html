@@ -16,7 +16,7 @@
       <tbody>
 
       <tr ng-repeat="exam in teacherCtrl.conductingExams">
-        <td><a ui-sref="mocktest({ mocktestId: exam._id })"> {{exam.name}}</td>
+        <td><a ui-sref="mocktest({ mocktestId: exam._id , id: teacherCtrl.userId})"> {{exam.name}}</td>
         <!-- <td>{{exam.activationdate | date:'dd-MM-yyyy'}}</td>
          <td>{{exam.expiredate | date:'dd-MM-yyyy'}}</td>-->
         <td>{{exam.duration | date:'HH:mm'}}</td>
@@ -85,7 +85,7 @@
                 <td>{{exam.expiredate | date:'dd-MM-yyyy'}}</td>
                 <!-- <td>{{exam.duration | date:'HH:mm'}}</td> -->
                 <td>
-                  <a class="button" ui-sref="mocktest({ mocktestId: exam._id })">Attempt</a>
+                  <a class="button" ui-sref="mocktest({ mocktestId: exam._id, id: teacherCtrl.userId })">Attempt</a>
                 </td>
             </tr>
 

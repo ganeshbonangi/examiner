@@ -36,6 +36,11 @@
                       //_this.duration = 25; //(_this.mocktest.questions.length);//converting 1 question to 1 min//_this.mocktest.questions.length*60*1000
                       _this.showSpinner = false;
                     });
+                    if(_this.$stateParams.id){
+                      $http.get('/api/users/'+_this.$stateParams.id+'/getName').success(function(data){
+                        _this.mocktest.instName = data;
+                      });
+                    }
                 }
              }).error(function(){
               $http.get('/api/questions/getCategory/'+_this.$stateParams.mocktestId).success(function(data){

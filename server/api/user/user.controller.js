@@ -112,6 +112,33 @@ export function changePassword(req, res, next) {
       }
     });
 }
+
+export function getName(req, res, next) {
+  var userId = req.params.id;
+  return User.findOne({ _id: userId }, '-salt -password').exec()
+    .then(user => { // don't ever give out the password or salt
+      if (!user) {
+        return res.status(404).end();
+      }
+      return res.json(user.name);
+    })
+    .catch(err => next(err));
+}
+
+
+export function changeName(req, res, next) {
+  var userId = req.user._id;
+  var name = String(req.body.name);
+  return User.findById(userId).exec()
+    .then(user => {
+        user.name = name;
+        return user.save()
+          .then(() => {
+            res.status(204).end();
+          })
+          .catch(validationError(res));
+    });
+}
 /**
  * Get my info
  */

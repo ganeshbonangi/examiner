@@ -4,7 +4,7 @@ angular.module('authCellApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('results', {
-        url: '/results?resultsId',
+        url: '/results?resultsId&id',
         template: '<results></results>'
       });
   });

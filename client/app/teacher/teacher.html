@@ -45,7 +45,7 @@
       <tr ng-repeat="exam in teacherCtrl.conductingExams">
         <td><a> {{exam.name}}</a></td>
         <td>
-          <a ui-sref="results({ resultsId: exam._id })" target="_blank">View Result</a>
+          <a ui-sref="results({ resultsId: exam._id, id: teacherCtrl.userId }) " target="_blank">View Result</a>
         </td>
       </tr>
       </tbody>

@@ -19,6 +19,11 @@
             $http.get('/api/reports/'+this.$stateParams.resultsId).then(response=>{
                 _this.report = response.data;
             });
+              if(this.$stateParams.id){
+                $http.get('/api/users/'+this.$stateParams.id+'/getName').success(function(data){
+                  _this.report.instName = data;
+                });
+              }
         }
     }
 

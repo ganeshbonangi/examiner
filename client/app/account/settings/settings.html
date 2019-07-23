@@ -2,18 +2,18 @@
   <div class="row">
 
     <div class="col-sm-12">
-      <form class="form" name="form1" ng-submit="vm.changeName(form1)" novalidate>
+      <form class="form1" name="form1" novalidate>
 
         <div class="form-group">
           <label>Name</label>
 
           <input type="text" name="name" class="form-control" ng-model="vm.user.name"
                  mongoose-error/>
-          <p class="help-block" ng-show="form.name.$error.mongoose">
+          <p class="help-block" ng-show="form1.name.$error.mongoose">
             {{ vm.errors.other }}
           </p>
         </div>
-        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+        <button class="btn btn-lg btn-primary" ng-click="vm.changeName(form1)" type="button">Save changes</button>
       </form>
     </div>
 
@@ -22,7 +22,7 @@
       <h1>Change Password</h1>
     </div>
     <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="vm.changePassword(form)" novalidate>
+      <form class="form" name="form" novalidate>
 
         <div class="form-group">
           <label>Current Password</label>
@@ -62,7 +62,7 @@
 
         <p class="help-block"> {{ vm.message }} </p>
 
-        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+        <button class="btn btn-lg btn-primary" ng-click="vm.changePassword(form)" type="button">Save changes</button>
                 <div>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- small bar -->

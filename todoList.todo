@@ -98,7 +98,7 @@ var coll = db.questions.find({});
 //updating author id
 var coll = db.exams.find({});
  for(var i=0;i<coll.length();i++){
- db.exams.update({_id:coll[i]._id},{$set:{authorid:['5b21c16c69aaaa0004e55c6a', '5d368e5bfe5e7d05f3848202', '5d0a2721cbf2334af571db4c','5bb0f2c60108e500049ef1a3']}});
+ db.exams.update({_id:coll[i]._id},{$set:{authorid:['5b21c16c69aaaa0004e55c6a', '5d368e5bfe5e7d05f3848202', '5d0a2721cbf2334af571db4c','5bb0f2c60108e500049ef1a3','5d4fd4b401afa130865d7ab2']}});
  }
 
 

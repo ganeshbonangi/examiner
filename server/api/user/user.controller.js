@@ -188,7 +188,7 @@ export function resetEmail(req, res, next){
                   service: 'Gmail',
                   auth: {
                       user: 'exambuds@gmail.com',
-                      pass: 'Exambuds@1'
+                      pass: 'Ganesh@007'
                   }
               });
               transporter.sendMail(data, function(err) {

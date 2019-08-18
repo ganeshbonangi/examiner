@@ -21,7 +21,7 @@
             });
               if(this.$stateParams.id){
                 $http.get('/api/users/'+this.$stateParams.id+'/getName').success(function(data){
-                  _this.report.instName = data;
+                  _this.instName = data;
                 });
               }
         }

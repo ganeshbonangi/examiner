@@ -19,7 +19,7 @@
         </div>
   </div>
   <div id="grad1" ng-show="mocktestCtrl.showInst">
-    <h2 >{{mocktestCtrl.mocktest.instName?mocktestCtrl.mocktest.instName:'ExamBuds Free Exam'}}</h2>
+    <h2 >{{mocktestCtrl.mocktest.instName||'ExamBuds Free Exam'}}</h2>
   </div>
     <div ng-repeat="question in mocktestCtrl.mocktest.questions">
         <fib-dropdown-preview ng-if="question.type=='fibd'"></fib-dropdown-preview>
